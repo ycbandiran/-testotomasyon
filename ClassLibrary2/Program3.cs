@@ -12,18 +12,19 @@ using System.Data.SqlClient;
 using Helpers;
 using System.Threading;
 
-namespace Inventory
+namespace Payment
 {
-    class Program
+    class Program3
     {
         static void Main(string[] args)
         {
-            InventoryTests inventoryTests = new InventoryTests();
-            //inventoryTests.CategoryManagement();
-            //inventoryTests.ChannelManagement();
-            //inventoryTests.ChannelGroupManagement();
-            //inventoryTests.VariantManagement();
-            //inventoryTests.PriorityManagement();
-        }        
+            PaymentTests paymentTest = new PaymentTests();
+
+            paymentTest.PaymentGateway();
+            paymentTest.BinNumberGroup();
+            paymentTest.BinNumber();
+            paymentTest.PaymentPlan();
+
+        }
     }
 }

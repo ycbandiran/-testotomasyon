@@ -3,8 +3,10 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using OpenQA.Selenium.Support;
 using System.Data.SqlClient;
 using System.IO;
+using Selenium.Helper;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -70,12 +72,13 @@ namespace Helpers
         }
         public void WaitUntilPageLoad2()
         {
-            _task.Until((_driver) => {
+            _task.Until((_driver) =>
+            {
                 return (bool)((RemoteWebDriver)_driver).ExecuteScript("return document.readyState").Equals("complete");
-        });
+            });
         }
 
-       
+
 
         // path adresine git
         public void GoToUrl(string path)
@@ -89,13 +92,19 @@ namespace Helpers
                 GiveError(exception.Message);
             }
         }
-                
+
+        //Date i string döndürür
+        public string DateTimeToString(DateTime date)
+        {
+            return date.ToString(@"MM\/dd\/yyyy HH:mm");
+        }
+
         // Rastgele metin döndürür
         public string GetRandomString()
         {
             return Guid.NewGuid().ToString().Replace("-", string.Empty).TrimEnd().Substring(0, 8);
         }
- 
+
         // Rastgele renk değeri döndürür
         public string GetRandomColor()
         {
@@ -116,30 +125,58 @@ namespace Helpers
             return random.Next(min, max + 1).ToString();
         }
 
-
-        public void SetRandomIntegerByXpath(string xpath,int min,int max)
+        //Xpath üzerinden rastgele bir int değer girer
+        public void SetRandomIntegerByXpath(string xpath, int min, int max)
         {
 
-            _driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomInteger(min,max));
+            _driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomInteger(min, max));
+
+        }
+
+        //Name üzerinden rastgele bir int değer girer
+        public void SetRandomIntegerByName(string name, int min, int max)
+        {
+
+            _driver.FindElement(By.Name(name)).SendKeys(GetRandomInteger(min, max));
 
         }
 
         // Rastgele bir dosya dönderir
         public string GetRandomFile(string path)
         {
-            //string path = Path.GetDirectoryName(@"D:/Users/ocirakli/source/repos/TestOtomasyon/Images/");            
+            path = Path.GetDirectoryName(@"D:\Users\yigitb\Desktop\Images\");
             string[] files = Directory.GetFiles(path);
             int index = random.Next(files.Length);
             string file = files[index];
             return file;
         }
 
+        //Xpath üzerinden rastgele bir file yükler
         public void SetRandomFileByXpath(string xpath, string folderPath)
         {
             IsVisibleByXPath(xpath);
             _driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomFile(folderPath));
         }
 
+        //1-9 arasında rastgele int çağırır
+        public static int GetRandomInteger1()
+        {
+            return new Random().Next(1, 9);
+        }
+
+        //Rastgele bir e-mail adresi yazılır
+        public static string SetRandomEmail()
+        {
+            return "yigit.bandiran" + GetRandomInteger1() + "@gmail.com";
+        }
+
+        //Name üzerinden rastgele bir email yazar
+        public void SetRandomEmailByName(string name)
+        {
+            _driver.FindElement(By.Name(name)).SendKeys(SetRandomEmail());
+        }
+
+        //Name üzerinden rastgele dosya yükler
         public void SetRandomFileByName(string name, string folderPath)
         {
             IsVisibleByName(name);
@@ -147,7 +184,7 @@ namespace Helpers
         }
 
         //bir değerin tutulması için kullanılması gereken fonksiyon
-        public string GetTextByPath(string xpath)
+        public string GetTextByXPath(string xpath)
         {
             IsVisibleByXPath(xpath);
             string text = _driver.FindElement(By.XPath(xpath)).Text;
@@ -210,6 +247,14 @@ namespace Helpers
 
         }
 
+        public void SetLimitedRandomStringByXPath(string xpath, int limit)
+        {
+            string rondomString = GetRandomString().Substring(0, limit);
+            IsVisibleByXPath(xpath);
+            _driver.FindElement(By.XPath(xpath)).SendKeys(rondomString);
+
+        }
+
         // XPath değeri verilen HTML elementine value parametresine verilmiş değeri girer
         public void SetTextByXPath(string xpath, string value)
         {
@@ -240,16 +285,53 @@ namespace Helpers
             _driver.FindElement(By.Name(name)).SendKeys(GetRandomColor());
         }
 
+        //Xpath e göre rastgele bir tarih girer
+        public DateTime SetRandomDateTimeByXPath(string xpath)
+        {
+            DateTime randomDate = GetRandomDateTime();
+            _driver.FindElement(By.XPath(xpath)).SendKeys(DateTimeToString(randomDate));
+            return randomDate;
+        }
+
+        // Belirli bir tarihten sonra rastgele DateTime dönderir
+        public DateTime SetRandomDateTimeAfterThisDateTime(DateTime date, int days = 30)
+        {
+            return date.AddDays(random.Next(1, days));
+        }
+
+        // xpath değerine sahip elemente date ile belirtilen tarihi girer
+        public void SetDateTimeByXPath(string xpath, DateTime date)
+        {
+            string dateTimeString = DateTimeToString(date);
+            _driver.FindElement(By.XPath(xpath)).SendKeys(dateTimeString);
+        }
+
         // input tipi file olan alana rastgele bir dosya yerleştir
         // bu metodu çağırırken, dosyaların bulunduğu klasör yolu şu formatta olmalı: @"D:/Users/ocirakli/source/repos/TestOtomasyon/Images/"
         //public void SetRandomFileByXPhat(string xpath, string folderPath)
         //{
-          //  IsVisibleByXPath(xpath);
-            //_driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomFile(folderPath));
+        //  IsVisibleByXPath(xpath);
+        //_driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomFile(folderPath));
         //}
 
         // XPath değeri verilen HTML elementine tıklar
 
+        // Henüz kullanılmıyor
+
+        // Rastgele bir tarih dönderir
+        public DateTime GetRandomDateTime(int days = 30)
+        {
+            return DateTime.Now.AddDays(days);
+        }
+
+        /*public void RandomDatePicker()
+        {
+            int range1;
+            DateTime start = new DateTime(1995, 1, 1);
+            range1 = (DateTime.Today - start).Days;
+            start.AddDays(random.Next(range1));
+        }
+        */
         public ICollection<IWebElement> GetElementsByXpathAndTag(string xpath, string tag)
         {
             IWebElement element = _driver.FindElement(By.XPath(xpath));
@@ -267,10 +349,10 @@ namespace Helpers
             IsVisibleByXPath(xpath);
             elements.ElementAt(randomIndex).Click();
         }
-
+       
         //Listeden ilk elemanın seçilmesini sağlayan fonksiyon.
-      
-        public int ClickRandomRadioButton(string xpath1,string xpath2 )
+
+        public int ClickRandomRadioButton(string xpath1, string xpath2)
         {
             int randomIndex = random.Next(2);
             if (randomIndex == 1)
@@ -283,7 +365,7 @@ namespace Helpers
                 ClickByXPath(xpath2);
                 return 2;
             }
-                
+
 
         }
 
@@ -307,6 +389,13 @@ namespace Helpers
             _driver.FindElement(By.XPath(xpath)).Click();
         }
 
+        // id değeri verilen HTML elementine tıklar
+        public void ClickById(string id)
+        {
+            IsClickableById(id);
+            _driver.FindElement(By.Id(id)).Click();
+        }
+
         // name değeri verilen HTML elementine tıklar
         public void ClickByName(string name)
         {
@@ -325,6 +414,12 @@ namespace Helpers
             IsVisibleByClassName(cssSelector);
             _driver.FindElement(By.CssSelector(cssSelector)).Click();
             Console.WriteLine(_driver.FindElement(By.CssSelector(cssSelector)).GetAttribute("value"));
+        }
+
+        // Id değeri verilen HTML elementinin tıklanabilir olacağı zamana kadar bekler
+        public void IsClickableById(string id)
+        {
+            _task.Until(ExpectedConditions.ElementToBeClickable(By.Id(id)));
         }
 
         // XPath değeri verilen HTML elementinin tıklanabilir olacağı zamana kadar bekler
@@ -369,7 +464,7 @@ namespace Helpers
             _task.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(xpath)));
         }
 
-        public string SelectDropdownElementByName(string name)
+        public string SelectRandomDropdownElementByName(string name)
         {
             IsVisibleByName(name);
             SelectElement element = new SelectElement(_driver.FindElement(By.Name(name)));
@@ -381,6 +476,23 @@ namespace Helpers
             return value;
         }
 
+        public string SelectRandomDropdownElementByXPath(string xpath)
+        {
+            IsVisibleByXPath(xpath);
+            SelectElement element = new SelectElement(_driver.FindElement(By.XPath(xpath)));
+            int max = element.Options.Count;
+            int index = random.Next(max);
+            element.SelectByIndex(index);
+            string value = element.SelectedOption.Text;
+            //return element.Options[index].GetAttribute("value");
+            return value;
+        }
+
+        public void SelectRandomDropdownLabelByXPath(string xpath)
+        {           
+            SelectElement s = new SelectElement(_driver.FindElement(By.XPath(xpath)));
+            s.SelectByIndex(random.Next());
+        }
         public void SelectRandomCheckboxesByName(string name)
         {
             ICollection<IWebElement> elements = GetElementsByName(name);
@@ -392,9 +504,24 @@ namespace Helpers
                 elements.ElementAt(index).Click();
             }
         }
-        
+        public int ClickRandomCheckbox(string xpath1)
+        {
+            int randomIndex = random.Next(1);
+            if (randomIndex == 1)
+            {
+                ClickByXPath(xpath1);
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+
+        }
+
         // Tek bir checkbox'ı rastgele olarak seçip seçmemeye yarar
-        public bool SelectRandomCheckboxByName(string name)
+        /*public bool SelectRandomCheckboxByName(string name)
         {
             IWebElement checkbox = GetSelectedElementByName("name");
             int check = random.Next(2);
@@ -407,6 +534,8 @@ namespace Helpers
 
             return false;
         }
+        */
+
 
         public void GiveInfo(params string[] info)
         {
@@ -414,7 +543,7 @@ namespace Helpers
             foreach (var item in info)
             {
                 Console.WriteLine(item);
-            }            
+            }
             Console.ResetColor();
         }
 
@@ -434,3 +563,4 @@ namespace Helpers
         }
     }
 }
+

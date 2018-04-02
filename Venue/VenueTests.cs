@@ -27,14 +27,14 @@ namespace Venue
         //oluşturulan yeni venue id si tutulmalıdır.
         //  string venue_id;
 
-
-
         public VenueTests()
         {
-            _driver = new ChromeDriver();
-            _task = new WebDriverWait(_driver,TimeSpan.FromSeconds(130));
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("--start-maximized");
+            _driver = new ChromeDriver(options);
+            _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
-            _helper = new Helper(_driver,_task,"YigitCan","1");
+            _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
             _helper.GiveInfo("Venue modül testi başladı.");
 
         }
@@ -45,7 +45,7 @@ namespace Venue
             {
                 //Venue Management butonuna tıklanır 
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/venue/list");
-                
+
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='venue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
                 //Name alanına rastgele bir değer girilir
@@ -57,65 +57,43 @@ namespace Venue
                 //Country seçimi için select butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[2]/div/div/div[1]/lookup-button/div/div/div/button");
 
+                //Şimdilik listenin en üstündeki Country'i seçer
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+
+                /*
                 // Rastgele bir country seçeneğine tıklanır
                 _helper.ClickRandomTagByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody", "tr");
-
+                */
 
                 //seç butonuna tıklanır
-                // Find an element
-
-                IWebElement elementToClick = _driver.FindElement(By.XPath("Your xpath"));
-
-
-
-                // Scroll the browser to the element's X position
-
-                ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollTo(0," + elementToClick.getLocation().x + ")");
-
-
-
-                // Click the element
-
-                elementToClick.click();
-
-                /*IWebDriver driver = new ChromeDriver();
-                IJavaScriptExecutor jse = (IJavaScriptExecutor)driver;
-                jse.ExecuteScript("window.scrollBy(737,604)", "");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
-                WaitUntilPageLoad();*/
-
-
-                /*IWebElement button = _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]")); // locate the button, can be done with any other selector
-                Actions action = new Actions(_driver);
-                action.MoveToElement(button).Perform(); // move to the button
-                button.Click();*/
-
-
 
                 //City seçimi için seç butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[2]/div/div/div[2]/lookup-button/div/div/div");
-               
+                _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[2]/div/div/div[2]/lookup-button/div/div/div/button");
+
                 //Rastgele uygun olan City listesinden biri tıklanır
                 _helper.ClickRandomTagByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody", "tr");
-                
+
                 //Seç butonuna tıklanır
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
-                
-                //County seçimi için seç butonu tıklanır.
+
+                /*
+                 County seçimi için seç butonu tıklanır.
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[2]/div/div/div[3]/lookup-button/div/div/div/button");
-               
-                //Rastgele uygun olan County listesinden biri tıklanır
+                
+                 Rastgele uygun olan County listesinden biri tıklanır
                 _helper.ClickRandomTagByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody", "tr");
-
+                
+                
                 //Seç butonuna tıklanır
-                //   _driver.FindElement(By.XPath("//div[contains(@class ,'form-group pull-right')]//button[contains(tag(),'Select')]")).Click();
+                   _driver.FindElement(By.XPath("//div[contains(@class ,'form-group pull-right')]//button[contains(tag(),'Select')]")).Click();
+                */
 
-               
-                //Adres alanına  tex girişi yapılır
+                //Adres alanına text girişi yapılır
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[3]/div/div/div[1]/textarea[2]");
                 _helper.SetRandomTextByName("address");
                 //_helper.GetRandomString();
-                
+
                 //Description alanına text girişi yapılır.
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[3]/div/div/div[2]/textarea[2]");
                 //_helper.GetRandomString();
@@ -127,39 +105,47 @@ namespace Venue
                 _helper.SetRandomTextByName("publicTransportationDescription");
 
                 //Has parkin area alanında random seçim yapılır
-                int result = _helper.ClickRandomRadioButton("//*[@id='venue-crud--form']/div/div/form/fieldset[4]/div/div/div[1]/div/label[1]/input","//*[@id='venue-crud--form']/div/div/form/fieldset[4]/div/div/div[1]/div/label[2]/input");
-                if (result==1)
+                int result = _helper.ClickRandomRadioButton("//*[@id='venue-crud--form']/div/div/form/fieldset[4]/div/div/div[1]/div/label[1]/input", "//*[@id='venue-crud--form']/div/div/form/fieldset[4]/div/div/div[1]/div/label[2]/input");
+                if (result == 1)
                 {
                     //Parking Area Capacity alanına random bir değer girilmesi 
-                    _helper.SetRandomIntegerByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[5]/div/div/div/input",30,100);
+                    _helper.SetRandomIntegerByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[5]/div/div/div/input", 30, 100);
                 }
 
                 //Latitude alanının random olarak girilmesi
                 _helper.SetTextByName("latitude", _helper.GetRandomLatitude());
-
                 //*[@id="venue-crud-166--form"]/div/div/form/fieldset[4]/div/div/div[2]/input
 
                 //Longitude alanının random olarak girilmesi
                 _helper.SetTextByName("longitude", _helper.GetRandomLatitude());
 
-                //Logo için bir resim seçilmesi
-                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\BjkLogo\");
-                
-                //*[@id="venue-crud-166--form"]/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input
-                //*[@id="venue-crud--form"]/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input
+                //Logo için bir resim seçilmesi                
+                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                /*IWebElement element1 = _driver.FindElement(By.XPath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/input"));
+                element1.SendKeys("D:\\Users\\yigitb\\Desktop\\BjkLogo.PNG");
+                */
+
                 //Venue Image eklenir
-                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\BjkLogo\");
+                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                /*IWebElement element2 = _driver.FindElement(By.XPath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/input"));
+                element2.SendKeys("D:\\Users\\yigitb\\Desktop\\BjkLogo.PNG");
+                */
 
                 //Panaromik Image eklenir
-                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\BjkLogo\");
-                 
+                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                /*IWebElement element3 = _driver.FindElement(By.XPath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/input"));
+                element3.SendKeys("D:\\Users\\yigitb\\Desktop\\BjkLogo.PNG");
+                */
                 //Save butonu tıklanır
-                _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a/span[2]");
-                //Gelen modal da OK tıklanır
-                _helper.ClickByXPath("/html/body/dialog-holder/dialog-wrapper/div/confirm-dialog/div/div/div[3]/button[1]");
+                _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
-                //Kaydedilen Venue id si tutulur
-                _helper.GetTextByPath("//*[@id='venue-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody");
+                //Gelen modal da OK tıklanır
+                _helper.ClickById("confirmok");
+
+                //Kaydedilen Venue name'i tutulur
+                //_helper.GetTextByPath("//*[@id='venue-crud-417;formtype=read--form']/div/div/form/fieldset[1]/div/div/div[1]/input");   
+
+                System.Threading.Thread.Sleep(5000);
 
             }
             catch (Exception exception)
@@ -174,10 +160,10 @@ namespace Venue
             try
             {
                 // Area Management butonuna tıkla
-                _helper.GoToUrl("http://backoffice.netasticketing.com/area/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/area/list");
 
                 //Area Management sayfasında add new butonu tıklanır
-                _helper.ClickByXPath("//*[@id='area-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
+                _helper.ClickByXPath("//*[@id='area-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -185,36 +171,41 @@ namespace Venue
                 //Code alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("code", 3);
 
-                //Venue seçimi için look up açılır.
+                //Venue seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
-
-                //Herhangi bir Venue seçimi yapılır
-
-                _helper.ClickRandomTagByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody", "tr");
-
-                //Select butonu tıklanır
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
+                /*
+                _driver.FindElement(By.ClassName("btn-default")).Click();
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
+                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input","");
+                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                */
+
                 //Save butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a/span[2]");
+                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
-                _helper.ClickByXPath("/html/body/dialog-holder/dialog-wrapper/div/confirm-dialog/div/div/div[3]/button[1]");
+                _helper.ClickById("confirmok");
 
+                System.Threading.Thread.Sleep(5000);
 
             }
             catch (Exception exception)
             {
-
                 _helper.GiveError("In : " + nameof(this.AreaManagement) + exception.Message);
             }
         }
-            public void BlockManagement()
+        public void BlockManagement()
         {
             try
             {
                 // Block Management butonuna tıkla
-                _helper.GoToUrl("http://backoffice.netasticketing.com/block/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/block/list");
 
                 //Block Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='block-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
@@ -223,16 +214,37 @@ namespace Venue
                 _helper.SetRandomTextByName("name");
 
                 //Code alanına random 3 haneli code girilir.
-                _helper.SetLimitedRandomStringByName("code",3);
+                _helper.SetLimitedRandomStringByName("code", 3);
 
-                //VENUE SEÇİMİ YAPILACAK
+                //Venue seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='main']/block-crud/div/div/div[2]/form/div/div[3]/div/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
+                /*
+                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
+                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input", _helper.GetTextByPath(""));
+                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                */
+
+                //NOT: Url de en sondaki rakam venue nün id si bu id get edilip set edilebilir.
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='main']/block-crud/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
+                System.Threading.Thread.Sleep(5000);
 
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-
-                throw;
+                _helper.GiveError("In : " + nameof(this.BlockManagement) + exception.Message);
             }
         }
 
@@ -241,10 +253,10 @@ namespace Venue
             try
             {
                 // Gate Management butonuna tıkla
-                _helper.GoToUrl("http://backoffice.netasticketing.com/gate/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/gate/list");
 
                 //Gate Management sayfasında add new butonu tıklanır
-                _helper.ClickByXPath("//*[@id='gate-list--default-widget]/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
+                _helper.ClickByXPath("//*[@id='gate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[1]");
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -252,12 +264,34 @@ namespace Venue
                 //Code alanına random 5 haneli code girilir.
                 _helper.SetLimitedRandomStringByName("code", 5);
 
-                //VENUE GİRİLECEKTİR
-            }
-            catch (Exception)
-            {
+                //Venue seçimi yapılı(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='gate-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
-                throw;
+                /*
+                //Venue seçimi yapılır
+                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
+                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input", _helper.GetTextByPath(""));
+                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                */
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='gate-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
+                System.Threading.Thread.Sleep(5000);
+
+            }
+            catch (Exception exception)
+            {
+                _helper.GiveError("In : " + nameof(this.GateManagement) + exception.Message);
             }
         }
 
@@ -266,7 +300,7 @@ namespace Venue
             try
             {
                 // Tribune Management butonuna tıkla
-                _helper.GoToUrl("http://backoffice.netasticketing.com/tribune/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tribune/list");
 
                 //Tribune Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='tribune-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
@@ -280,18 +314,40 @@ namespace Venue
                 //Sponsor alanı için random text girilir
                 _helper.SetRandomTextByName("sponsor");
 
-                //VENUE SEÇİLECEK
+                //Venue seçimi yapılı(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='tribune-crud--form']/div/div/form/fieldset[2]/div/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                /*
+                //Venue seçimi yapılır
+                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
+                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input", _helper.GetTextByPath(""));
+                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                */
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='tribune-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
 
                 //View from tribune alanı için herhangi bir görsel seçilir
-                _helper.SetRandomFileByXpath("//*[@id='tribune-crud--form']/div/div/form/fieldset[2]/div/div/div[2]/file-upload/div/input", @"D:\Users\kubra.ay\Desktop\Ekranlar\");
+                //_helper.SetRandomFileByXpath("//*[@id='tribune-crud--form']/div/div/form/fieldset[2]/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //View from field alanı için herhangi bir görsel seçilir
-                _helper.SetRandomFileByXpath("//*[@id='tribune-crud--form']/div/div/form/fieldset[2]/div/div/div[3]/file-upload/div/input", @"D:\Users\kubra.ay\Desktop\Ekranlar\");
-            }
-            catch (Exception)
-            {
+                //_helper.SetRandomFileByXpath("//*[@id='tribune-crud--form']/div/div/form/fieldset[2]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
-                throw;
+                System.Threading.Thread.Sleep(5000);
+
+            }
+            catch (Exception exception)
+            {
+                _helper.GiveError("In : " + nameof(this.TribuneManagement) + exception.Message);
             }
         }
 
@@ -300,7 +356,7 @@ namespace Venue
             try
             {
                 // Turnstile Management butonuna tıkla
-                _helper.GoToUrl("http://backoffice.netasticketing.com/turnstile/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/turnstile/list");
 
                 //Turnstile Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='turnstile-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -311,12 +367,34 @@ namespace Venue
                 //Code alanına random 3 haneli code girilir.
                 _helper.SetLimitedRandomStringByName("code", 3);
 
-                //VENUE SEÇİLECEKTİR
-            }
-            catch (Exception)
-            {
+                //Venue seçimi yapılı(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='turnstile-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
-                throw;
+                /*
+                //Venue seçimi yapılır
+                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
+                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input", _helper.GetTextByPath(""));
+                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                */
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='tribune-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
+                System.Threading.Thread.Sleep(5000);
+
+            }
+            catch (Exception exception)
+            {
+                _helper.GiveError("In : " + nameof(this.TurnstileManagement) + exception.Message);
             }
         }
 
@@ -325,7 +403,7 @@ namespace Venue
             try
             {
                 // VenueTemplate Management butonuna tıkla
-                _helper.GoToUrl("http://backoffice.netasticketing.com/venuetemplate/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/venuetemplate/list");
 
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='venuetemplate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
@@ -336,20 +414,41 @@ namespace Venue
                 //Code alanına random 3 haneli code girilir.
                 _helper.SetLimitedRandomStringByName("code", 3);
 
-                //VENUE SEÇİLECEKTİR
+                //Venue seçimi yapılı(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='venuetemplate-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                /*
+                //Venue seçimi yapılır
+                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
+                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input", _helper.GetTextByPath(""));
+                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                */
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='venuetemplate-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
+                System.Threading.Thread.Sleep(5000);
 
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-
-                throw;
+                _helper.GiveError("In : " + nameof(this.VenueTemplateManagement) + exception.Message);
             }
         }
 
         public void SeatClassManagement()
         {
             // SeatClass Management butonuna tıkla
-            _helper.GoToUrl("http://backoffice.netasticketing.com/seatclass/list");
+            _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
 
             //SeatClass Management sayfasında add new butonu tıklanır
             _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -362,7 +461,13 @@ namespace Venue
 
             //Color seçimi yapılır
             _helper.SetRandomColorByName("color");
-        }
+
+            //Rastgele bir SeatType seçilir
+            _helper.ClickRandomTagByXPath("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[1]/div/div[4]/select", "tr");
+
+            //Rastgele Visibility seçilir
+            _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
         }
     }
+}
 
