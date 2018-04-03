@@ -12,17 +12,15 @@ namespace Venue
         {
             VenueTests venueTests = new VenueTests();
 
-            //venueTests.VenueManagement();
-            
-            venueTests.AreaManagement();
-            /*
-            venueTests.BlockManagement();
+            venueTests.VenueManagement();           
+            venueTests.AreaManagement();                      
             venueTests.GateManagement();
             venueTests.TribuneManagement();
             venueTests.TurnstileManagement();
             venueTests.VenueTemplateManagement();
+            venueTests.BlockManagement();
             venueTests.SeatClassManagement();
-            */
+            
         }
     }
 }

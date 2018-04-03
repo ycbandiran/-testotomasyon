@@ -61,9 +61,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Event\Event.csproj">
+      <Project>{1d7c3267-ef7b-4e53-892f-615f1fbfa943}</Project>
+      <Name>Event</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{63bc6ab9-9baf-4978-a3db-fbd8d627629f}</Project>
       <Name>Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Printing\Printing.csproj">
+      <Project>{1d608080-ae9a-42e9-9a02-401288aba5bc}</Project>
+      <Name>Printing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Venue\Venue.csproj">
+      <Project>{273538bc-cca8-4839-9af8-16dd99a760e2}</Project>
+      <Name>Venue</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

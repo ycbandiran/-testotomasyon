@@ -10,22 +10,28 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-
+using Inventory;
+using Venue;
 
 
 namespace Printing
 {
-    class PrintingManagement
+    public class PrintingManagement
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;
         Random _random;
         Helper _helper;
-        //public IWebElement webElement;
-
+        InventoryTests _inventory;
+        VenueTests _venue;
         //oluşturulan yeni venue id si tutulmalıdır.
-        //  string venue_id;
+        public string TicketTemplateName;
+
+        //Oluşturulan yeni Seat Class Configuration name i tutulmalıdır.
+        public string SeatClassConfigurationName;
+
+        //Oluşturulan yeni Seat Class Configuration name i tutulmalıdır.
+        public string VariantConfigurationName;
 
         public PrintingManagement()
         {
@@ -51,18 +57,10 @@ namespace Printing
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
-                string venueName = _helper.GetTextByName("name");
+                TicketTemplateName = _helper.GetTextByName("name");
 
                 //Rastgele Backround Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='tickettemplate-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
-
-
-                
-
-                //TİCKET TEMPLATE DESIGN YAPILACAK!!!!!!!
-
-
-
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='tickettemplate-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -93,12 +91,17 @@ namespace Printing
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
 
+                //Kaydedilen Variant conf Group name'i tutulur
+                VariantConfigurationName = _helper.GetTextByName("name");
+
                 //Add New butonuna tıklar
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
 
                 //Variant seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -141,12 +144,17 @@ namespace Printing
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
 
+                //Kaydedilen Seat Class Conf name'i tutulur
+                SeatClassConfigurationName = _helper.GetTextByName("name");
+
                 //Add New butonuna tıklar
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
 
                 //Seat Class seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.SeatClassName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 

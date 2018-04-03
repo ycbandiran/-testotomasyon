@@ -10,8 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-
+using Printing;
+using Event;
 
 
 namespace Security
@@ -22,10 +22,8 @@ namespace Security
         IWait<IWebDriver> _task;
         Random _random;
         Helper _helper;
-        //public IWebElement webElement;
-
-        //oluşturulan yeni venue id si tutulmalıdır.
-        //  string venue_id;
+        PrintingManagement _printing;
+        EventManagement _event;
 
         public SecurityManagement()
         {
@@ -36,7 +34,7 @@ namespace Security
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
             _helper.GiveInfo("Venue modül testi başladı.");
-
+            
         }
 
 
@@ -125,7 +123,7 @@ namespace Security
 
                 System.Threading.Thread.Sleep(2000);
 
-                //Role seçimi yapılı(GEÇİCİ)
+                //Role seçimi yapılır
                 _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
@@ -233,7 +231,7 @@ namespace Security
                 //Terminal Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
-                //Ticket Printer seçimi yapılır(GEÇİCİ)
+                //Ticket Printer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
@@ -244,8 +242,10 @@ namespace Security
 
                 System.Threading.Thread.Sleep(2000);
 
-                //Organizer seçimi yapılır(GEÇİCİ)
+                //Organizer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıklanır
@@ -319,7 +319,7 @@ namespace Security
                 //Entry Point Description alanına rastgele bir text girilir
                 _helper.SetRandomTextByXPath("//*[@id='entrypoint-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
-                //Entity Point seçimi yapılır(GEÇİCİ)
+                //Entity Point seçimi yapılır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");

@@ -73,6 +73,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary2\Payment.csproj">
+      <Project>{9b79fa74-2013-41b1-a7dd-a7e4c9bd09d1}</Project>
+      <Name>Payment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary4\Booking.csproj">
+      <Project>{09cb1626-6930-49c4-bf40-de2e6a01b18a}</Project>
+      <Name>Booking</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{63bc6ab9-9baf-4978-a3db-fbd8d627629f}</Project>
       <Name>Helpers</Name>

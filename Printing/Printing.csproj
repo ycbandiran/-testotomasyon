@@ -77,6 +77,14 @@
       <Project>{63bc6ab9-9baf-4978-a3db-fbd8d627629f}</Project>
       <Name>Helpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Inventory\Inventory.csproj">
+      <Project>{c75a87a2-86e4-4a59-917c-a9a3f9e6fc62}</Project>
+      <Name>Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Venue\Venue.csproj">
+      <Project>{273538bc-cca8-4839-9af8-16dd99a760e2}</Project>
+      <Name>Venue</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.37\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.37\build\Selenium.Chrome.WebDriver.targets')" />

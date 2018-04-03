@@ -10,21 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-
+using Event;
+using Payment;
 
 namespace Booking
 {
-    class BookingManagement
+    public class BookingManagement
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;
         Random _random;
         Helper _helper;
-        //public IWebElement webElement;
+        EventManagement _event;
+        PaymentTests _payment;
 
-        //oluşturulan yeni venue id si tutulmalıdır.
-        //  string venue_id;
 
         public BookingManagement()
         {
@@ -50,20 +49,23 @@ namespace Booking
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
-                string SerieName = _helper.GetTextByName("name");
 
                 //Action Type için rastgele selection yapılır
                 _helper.SelectRandomDropdownElementByName("actionTypeCmb");
 
-                //Organizer seçimi yapılı(GEÇİCİ)
+                //Organizer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
-                //Payment Plan seçimi yapılı(GEÇİCİ)
+                //Payment Plan seçimi yapılır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 

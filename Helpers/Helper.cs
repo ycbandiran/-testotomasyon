@@ -21,7 +21,7 @@ namespace Helpers
         public IWait<IWebDriver> _task;
         public Random random;
         //public SqlConnection connection;
-
+       
 
         public Helper(IWebDriver driver, IWait<IWebDriver> task, string username, string password)
         {

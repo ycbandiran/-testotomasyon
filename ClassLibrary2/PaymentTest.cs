@@ -16,16 +16,25 @@ using System.Threading.Tasks;
 
 namespace Payment
 {
-    class PaymentTests
+    public class PaymentTests
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;
         Random _random;
         Helper _helper;
-        //public IWebElement webElement;
 
-        //oluşturulan yeni venue id si tutulmalıdır.
-        //  string venue_id;
+        //oluşturulan yeni Payment Gateway name i tutulmalıdır.
+        public string PaymentGatewayName;
+
+        //oluşturulan yeni Bin Number Group name i tutulmalıdır.
+        public string BinNumberGroupName;
+
+        //oluşturulan yeni Bin Number name i tutulmalıdır.
+        public string BinNumberName;
+
+        //Oluşturulan yeni Payment Plan name i tutulmalıdır.
+        public string PaymentPlanName;
+
 
         public PaymentTests()
         {
@@ -51,7 +60,9 @@ namespace Payment
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
-                //string venueName = _helper.GetTextByName("name");
+                
+                //Kaydedilen Payment Gateway name'i tutulur
+                PaymentGatewayName = _helper.GetTextByName("name");
 
                 //TerminalId alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("terminalId", 3);
@@ -117,12 +128,15 @@ namespace Payment
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
-
-                //Payment Gateway alanına İd si tutulan değer girilir(OLMASI GEREKEN)
+               
+                //Kaydedilen Bin Number Group name'i tutulur
+                BinNumberGroupName = _helper.GetTextByName("name");
 
                 //Payment Gateway seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='binnumbergroup-crud--form']/div/div/form/fieldset/div/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + PaymentGatewayName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -153,14 +167,17 @@ namespace Payment
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
 
+                //Kaydedilen Bin Number name'i tutulur
+                BinNumberName = _helper.GetTextByName("name");
+
                 //Bin number alanına random int girilir.
                 _helper.SetRandomIntegerByXpath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[2]/input", 1, 5);
-
-                //Bin Number Goup alanına İd si tutulan değer girilir(OLMASI GEREKEN)
 
                 //Bin Number Goup seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys("" + BinNumberGroupName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -191,6 +208,9 @@ namespace Payment
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
+
+                //Girilen Payment Plan Name değeri tutulur
+                PaymentPlanName = _helper.GetTextByName("name");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

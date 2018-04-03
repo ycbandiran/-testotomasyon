@@ -73,6 +73,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary2\Payment.csproj">
+      <Project>{9b79fa74-2013-41b1-a7dd-a7e4c9bd09d1}</Project>
+      <Name>Payment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Event\Event.csproj">
+      <Project>{1d7c3267-ef7b-4e53-892f-615f1fbfa943}</Project>
+      <Name>Event</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{63bc6ab9-9baf-4978-a3db-fbd8d627629f}</Project>
       <Name>Helpers</Name>
