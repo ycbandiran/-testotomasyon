@@ -39,7 +39,7 @@ namespace BlackList
 
         }
 
-        public void NationalID()
+        public void NationalIDManagement()
         {
             try
             {
@@ -57,19 +57,19 @@ namespace BlackList
                 string SerieName = _helper.GetTextByName("name");
 
                 //DATETİME FONKSİYONU ÇALIŞMIYOR!!!!
-                /*
-                // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
+                
+                //Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
                 DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");              
-                */
+                
                 //Random Letter No girilir
                 _helper.SetRandomIntegerByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[1]/input", 1, 10);
 
                 //Last Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("lastName");
-                /*
+                
                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                */
+                
                 _helper.SetDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[3]/p-calendar/span/input", finishDate);
 
                 //Country Code alanına rastgele 3 karakter girilir
@@ -92,7 +92,7 @@ namespace BlackList
             }
             catch (Exception exception)
             {
-                _helper.GiveError("In : " + nameof(this.NationalID) + exception.Message);
+                _helper.GiveError("In : " + nameof(this.NationalIDManagement) + exception.Message);
             }
         }
     }

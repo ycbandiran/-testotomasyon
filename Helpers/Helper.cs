@@ -21,7 +21,7 @@ namespace Helpers
         public IWait<IWebDriver> _task;
         public Random random;
         //public SqlConnection connection;
-       
+
 
         public Helper(IWebDriver driver, IWait<IWebDriver> task, string username, string password)
         {
@@ -289,6 +289,7 @@ namespace Helpers
         public DateTime SetRandomDateTimeByXPath(string xpath)
         {
             DateTime randomDate = GetRandomDateTime();
+            _driver.FindElement(By.XPath(xpath)).Clear();         
             _driver.FindElement(By.XPath(xpath)).SendKeys(DateTimeToString(randomDate));
             return randomDate;
         }
@@ -303,6 +304,7 @@ namespace Helpers
         public void SetDateTimeByXPath(string xpath, DateTime date)
         {
             string dateTimeString = DateTimeToString(date);
+            _driver.FindElement(By.XPath(xpath)).Clear();
             _driver.FindElement(By.XPath(xpath)).SendKeys(dateTimeString);
         }
 
@@ -349,7 +351,7 @@ namespace Helpers
             IsVisibleByXPath(xpath);
             elements.ElementAt(randomIndex).Click();
         }
-       
+
         //Listeden ilk elemanın seçilmesini sağlayan fonksiyon.
 
         public int ClickRandomRadioButton(string xpath1, string xpath2)
@@ -489,7 +491,7 @@ namespace Helpers
         }
 
         public void SelectRandomDropdownLabelByXPath(string xpath)
-        {           
+        {
             SelectElement s = new SelectElement(_driver.FindElement(By.XPath(xpath)));
             s.SelectByIndex(random.Next());
         }
