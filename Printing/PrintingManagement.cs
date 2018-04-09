@@ -41,12 +41,14 @@ namespace Printing
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
+            _helper.GiveInfo("Printing modül testi başladı.");
 
         }
 
         public void TicketTemplateManagement()
         {
+            _helper.GivePassInfo("Ticket Template modül testi başladı.");
+
             try
             {
                 //Ticket Template Management butonuna tıklanır 
@@ -80,6 +82,8 @@ namespace Printing
 
         public void VariantConfigurationManagement()
         {
+            _helper.GivePassInfo("Variant Configuration modül testi başladı.");
+
             try
             {
                 // Variant Configuration Management Url git
@@ -100,8 +104,9 @@ namespace Printing
                 //Variant seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
+               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -133,6 +138,8 @@ namespace Printing
         }
         public void SeatClassConfigurationManagement()
         {
+            _helper.GivePassInfo("Seat Class Configuration modül testi başladı.");
+
             try
             {
                 // Seat Class Conf. Management Url git
@@ -153,8 +160,9 @@ namespace Printing
                 //Seat Class seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.SeatClassName);
+               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.SeatClassName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -178,6 +186,8 @@ namespace Printing
 
         public void PrinterManagement()
         {
+            _helper.GivePassInfo("Printer modül testi başladı.");
+
             try
             {
                 // Printer Management butonuna tıkla

@@ -58,6 +58,8 @@ namespace Venue
 
         public void VenueManagement()
         {
+            _helper.GivePassInfo("Venue modül testi başladı.");
+
             try
             {
                 //Venue Management butonuna tıklanır 
@@ -77,6 +79,7 @@ namespace Venue
 
                 //Rastgele Country seçimi yapılır
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[2]/div/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -159,6 +162,8 @@ namespace Venue
 
         public void AreaManagement()
         {
+            _helper.GivePassInfo("Area modül testi başladı.");
+
             try
             {
                 // Area Management butonuna tıkla
@@ -181,6 +186,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");                             
 
@@ -201,6 +207,8 @@ namespace Venue
         
         public void GateManagement()
         {
+            _helper.GivePassInfo("Gate modül testi başladı.");
+
             try
             {
                 // Gate Management butonuna tıkla
@@ -223,6 +231,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");              
 
@@ -243,6 +252,8 @@ namespace Venue
 
         public void TribuneManagement()
         {
+            _helper.GivePassInfo("Tribune modül testi başladı.");
+
             try
             {
                 // Tribune Management butonuna tıkla
@@ -268,6 +279,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -294,6 +306,8 @@ namespace Venue
 
         public void TurnstileManagement()
         {
+            _helper.GivePassInfo("Turnstile modül testi başladı.");
+
             try
             {
                 // Turnstile Management butonuna tıkla
@@ -316,6 +330,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -336,6 +351,8 @@ namespace Venue
 
         public void VenueTemplateManagement()
         {
+            _helper.GivePassInfo("Venue TEmplate modül testi başladı.");
+
             try
             {
                 // VenueTemplate Management butonuna tıkla
@@ -356,6 +373,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -376,6 +394,8 @@ namespace Venue
 
         public void BlockManagement()
         {
+            _helper.GivePassInfo("Block modül testi başladı.");
+
             try
             {
                 // Block Management butonuna tıkla
@@ -395,6 +415,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -430,6 +451,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + VenueTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -438,6 +460,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + AreaName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -446,6 +469,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + TribuneName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -487,6 +511,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + GateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -495,6 +520,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + TurnstileName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -522,29 +548,38 @@ namespace Venue
 
         public void SeatClassManagement()
         {
-            // SeatClass Management butonuna tıkla
-            _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
+            _helper.GivePassInfo("Seat Class modül testi başladı.");
 
-            //SeatClass Management sayfasında add new butonu tıklanır
-            _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+            try
+            {
+                // SeatClass Management butonuna tıkla
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
 
-            //Name alanına random değer girilir
-            _helper.SetRandomTextByName("name");
+                //SeatClass Management sayfasında add new butonu tıklanır
+                _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
-            //Kaydedilen Seat Class name'i tutulur
-            SeatClassName = _helper.GetTextByName("name");
+                //Name alanına random değer girilir
+                _helper.SetRandomTextByName("name");
 
-            //Code alanına random 3 haneli code girilir.
-            _helper.SetLimitedRandomStringByName("code", 3);
+                //Kaydedilen Seat Class name'i tutulur
+                SeatClassName = _helper.GetTextByName("name");
 
-            //Color seçimi yapılır
-            _helper.SetRandomColorByName("color");
+                //Code alanına random 3 haneli code girilir.
+                _helper.SetLimitedRandomStringByName("code", 3);
 
-            //Rastgele bir SeatType seçilir
-            _helper.ClickRandomTagByXPath("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[1]/div/div[4]/select", "tr");
+                //Color seçimi yapılır
+                _helper.SetRandomColorByName("color");
 
-            //Rastgele Visibility seçilir
-            _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
+                //Rastgele bir SeatType seçilir
+                _helper.ClickRandomTagByXPath("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[1]/div/div[4]/select", "tr");
+
+                //Rastgele Visibility seçilir
+                _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
+            }
+            catch (Exception exception)
+            {
+                _helper.GiveError("In : " + nameof(this.SeatClassManagement) + exception.Message);
+            }
         }
     }
 }

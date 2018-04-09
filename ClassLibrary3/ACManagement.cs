@@ -40,16 +40,18 @@ namespace AC
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
-
+            _helper.GiveInfo("AC Management modül testi başladı.");
         }
 
         public void ACSetting()
         {
+            _helper.GivePassInfo("AC Setting modül testi başladı.");
+
             try
             {
                 //AC Setting Url git
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/accesscontrolsetting/list");
+                _helper.WaitUntilPageLoad();
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='accesscontrolsetting-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -89,10 +91,13 @@ namespace AC
 
         public void TelegramQueueManagement()
         {
+            _helper.GivePassInfo("Telegram Queue modül testi başladı.");
+
             try
             {
                 //Telegram Queue Management Url git
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegramqueue/list");
+                _helper.WaitUntilPageLoad();
 
                 //Telegram Queue Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='telegramqueue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -111,9 +116,10 @@ namespace AC
 
                 //Event Access Control Setting seçimi yapılır
                 _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/form/fieldset/div[1]/div/div[3]/lookup-button/div/div/div/button");
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + ACSettingName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000); 
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -145,10 +151,13 @@ namespace AC
         }
         public void TelegramManagement()
         {
+            _helper.GivePassInfo("Telegram modül testi başladı.");
+
             try
             {
                 // Bin Number Url git
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegram/list");
+                _helper.WaitUntilPageLoad();
 
                 //Telegram Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='telegram-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -158,6 +167,7 @@ namespace AC
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + TelegramQueueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
                 /*
@@ -188,8 +198,9 @@ namespace AC
                 //Bin Number Goup seçimi yapılır
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.BinNumberGroupName);
+                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.BinNumberGroupName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 

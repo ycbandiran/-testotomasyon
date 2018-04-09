@@ -63,7 +63,7 @@ namespace Event
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
+            _helper.GiveInfo("Event modül testi başladı.");
            
         }
 
@@ -71,6 +71,8 @@ namespace Event
        
         public void LeaugeManagement()
         {
+            _helper.GivePassInfo("Leauge modül testi başladı.");
+
             try
             {
                 //Leauge Management butonuna tıkla
@@ -105,6 +107,8 @@ namespace Event
 
         public void TeamManagement()
         {
+            _helper.GivePassInfo("Team modül testi başladı.");
+
             try
             {
                 //Team Management url git
@@ -126,8 +130,8 @@ namespace Event
                 _helper.SetRandomFileByXpath("//*[@id='team-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Add Leauge butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='team-crud--form2]/div/div/fieldset/tabset/div/tab/div/div[1]/button");
-
+                _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
+                                          
                 System.Threading.Thread.Sleep(2000);
 
                 //Leauge seçimi yapılır(GEÇİCİ)
@@ -153,6 +157,8 @@ namespace Event
 
         public void OrganizerManagement()
         {
+            _helper.GivePassInfo("Organizer modül testi başladı.");
+
             try
             {
                 // Organizer Management butonuna tıkla
@@ -193,16 +199,6 @@ namespace Event
                 _helper.SelectRandomDropdownElementByName("")
                 */
 
-                /*
-                //Venue seçimi yapılır
-                _helper.ClickByXPath("//*[@id='area-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input");
-                _helper.SetTextByXPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input", _helper.GetTextByPath(""));
-                _driver.FindElement(By.XPath("/html/body/div[4]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
-                */
-
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='organizer-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
@@ -220,6 +216,8 @@ namespace Event
 
         public void GenreManagement()
         {
+            _helper.GivePassInfo("Genre modül testi başladı.");
+
             try
             {
                 //Genre Management butonuna tıkla
@@ -241,9 +239,6 @@ namespace Event
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
-                //Code alanına random 3 haneli code girilir.
-                _helper.SetLimitedRandomStringByName("code", 3);
-
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
@@ -261,6 +256,8 @@ namespace Event
 
         public void SubGenreManagement()
         {
+            _helper.GivePassInfo("Sub Genre modül testi başladı.");
+
             try
             {
                 // VenueTemplate Management url git
@@ -295,6 +292,8 @@ namespace Event
 
         public void SponsorManagement()
         {
+            _helper.GivePassInfo("Sponsor modül testi başladı.");
+
             try
             {
 
@@ -329,6 +328,8 @@ namespace Event
         }
         public void EventGroupManagement()
         {
+            _helper.GivePassInfo("Event Group modül testi başladı.");
+
             try
             {
                 //Event Group Management butonuna tıkla
@@ -344,7 +345,7 @@ namespace Event
                 EventGroupName = _helper.GetTextByName("name");
 
                 //Description alanına random text girilir
-                _helper.SetRandomTextByName("description");
+                _helper.SetRandomTextByXPath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Random Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
@@ -366,6 +367,8 @@ namespace Event
 
         public void SerieManagement()
         {
+            _helper.GivePassInfo("Serie modül testi başladı.");
+
             try
             {
                 //Serie Management Url gidilir 
@@ -381,18 +384,20 @@ namespace Event
                 SerieName = _helper.GetTextByName("name");
 
                 //Genre seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[1]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + GenreName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[7]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + GenreName);
+                //_driver.FindElement(By.XPath("/html/body/div[7]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Team seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[1]/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[1]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + TeamName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[8]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + TeamName);
+                //_driver.FindElement(By.XPath("/html/body/div[8]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[2]");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -403,10 +408,10 @@ namespace Event
                 _helper.SelectRandomDropdownElementByName("refSubGenreID");
 
                 //Rastgele Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[2]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //TicketType seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[3]/div/div/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
@@ -423,35 +428,41 @@ namespace Event
                 //Next butonu tıklanır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/input");
 
+                System.Threading.Thread.Sleep(3000);
+
                 //Venue seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[4]/div/div/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[1]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[3]/button[1]");
 
                 //SalesPlan seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[4]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[1]/div/div[2]/lookup-button/div/div/div/button");
+                /* System.Threading.Thread.Sleep(2000);
+                 _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.SalesPlanName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);*/
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.SalesPlanName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[3]/button[1]");
 
                 //League seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[4]/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[1]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + LeaugeName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[12]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + LeaugeName);
+                //_driver.FindElement(By.XPath("/html/body/div[12]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Organizer seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[5]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + OrganizerName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[14]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + OrganizerName);
+                //_driver.FindElement(By.XPath("/html/body/div[14]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -468,69 +479,78 @@ namespace Event
                 _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Venue Template seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[1]/lookup-button/div/div/div/button");
+                /* System.Threading.Thread.Sleep(2000);
+                 _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueTemplateName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);*/
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueTemplateName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Event Group seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[6]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + EventGroupName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[16]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + EventGroupName);
+                //_driver.FindElement(By.XPath("/html/body/div[16]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Seat Class Configuraton seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[6]/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.SeatClassConfigurationName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.SeatClassConfigurationName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Next butonu tıklanır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[4]/input[2]");
 
+                System.Threading.Thread.Sleep(3000);
+
                 //Payment Plan seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[7]/div/div/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[1]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Ticket Template seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[7]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.TicketTemplateName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.TicketTemplateName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Variant Cofiguration Configuraton seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[7]/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[1]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Sponsor seçimi yapılır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[8]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + SponsorName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[18]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + SponsorName);
+                //_driver.FindElement(By.XPath("/html/body/div[18]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[18]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[18]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[9]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[9]/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Detail Page Description alanını doldurur
                 _helper.SetRandomTextByName("detailPageDescription");
@@ -541,10 +561,13 @@ namespace Event
                 //Gelen modal da OK tıklanır
                 _helper.ClickById("confirmok");
 
-                //Kaydedilen Venue name'i tutulur
-                //_helper.GetTextByPath("//*[@id='venue-crud-417;formtype=read--form']/div/div/form/fieldset[1]/div/div/div[1]/input");   
-
                 System.Threading.Thread.Sleep(5000);
+
+
+
+
+                //FAZ 3 DE EDIT BOLUMU YAPILACAK !!! 
+
 
             }
             catch (Exception exception)
@@ -554,6 +577,8 @@ namespace Event
         }
         public void EventManagement1()
         {
+            _helper.GivePassInfo("Event1 modül testi başladı.");
+
             try
             {
                 // Event Management Url git
@@ -571,24 +596,27 @@ namespace Event
                 //Organizer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[1]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + OrganizerName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[7]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + OrganizerName);
+                //_driver.FindElement(By.XPath("/html/body/div[7]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Venue seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[1]/lookup-button/div/div/div/button");
-                System.Threading.Thread.Sleep(2000);
+               /* System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Venue Template seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueTemplateName);
+               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -620,13 +648,16 @@ namespace Event
                 //Next butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[5]/input");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //DETAİL BOLUMU
 
                 //Genre seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[1]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + GenreName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[13]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + GenreName);
+                //_driver.FindElement(By.XPath("/html/body/div[13]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[13]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[13]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -639,16 +670,18 @@ namespace Event
                 //League seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + GenreName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[14]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + GenreName);
+                //_driver.FindElement(By.XPath("/html/body/div[14]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Sponsor seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + SponsorName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[15]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + SponsorName);
+                //_driver.FindElement(By.XPath("/html/body/div[15]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[3]/button[1]");
                 /*
@@ -658,21 +691,25 @@ namespace Event
                 //Next butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[4]/input[2]");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //CONF BOLUMU
 
                 //Payment Plan seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[1]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
+                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Sales Plan seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.SalesPlanName);
+                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.SalesPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000); */
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -685,24 +722,27 @@ namespace Event
                 //Event Group seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[2]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + EventGroupName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.XPath("/html/body/div[19]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys("" + EventGroupName);
+                //_driver.FindElement(By.XPath("/html/body/div[19]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[19]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[19]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Seat Class Configuration seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.SeatClassConfigurationName);
+               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.SeatClassConfigurationName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Variant Configuration seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[2]/div/div[3]/lookup-button/div/div/div/button");
-                System.Threading.Thread.Sleep(2000);
+               /* System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.VariantConfigurationName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);*/
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -727,8 +767,9 @@ namespace Event
                 //Ticket Template seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[4]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.TicketTemplateName);
+               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _printing.TicketTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -756,9 +797,10 @@ namespace Event
 
 
 
-                //EDIT BOLUMU:
+                //EDIT BOLUMU:                                                                         //XPATH'LERİN DEĞİŞTİRİLMESİ GEREK !!!!
 
-                // Event Management Url git
+                /*
+                //Event Management Url git
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
 
                 //Event List den event seçimi yapılır(GEÇİCİ)
@@ -771,8 +813,11 @@ namespace Event
 
                 //CATEGORY BOLUMU:
 
+                //Catagory kısmına git
+                _helper.ClickByXPath("//*[@id='tabControl']/li[4]/a");
+
                 //Add new butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='event-crud-1447--form']/div/div/form/fieldset/tabset/div/tab[4]/div[1]/div/div/div[2]/input[1]");
+                _helper.ClickByXPath("//*[@id='event-crud-1473--form']/div/div/form/fieldset/tabset/div/tab[4]/div[1]/div/div/div[2]/input[1]");
 
                 System.Threading.Thread.Sleep(3000);
 
@@ -786,16 +831,17 @@ namespace Event
                 _helper.SetRandomIntegerByName("price", 500, 2000);
 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorycrud-1447-event--form']/div/div/form/fieldset/div[3]/div/div/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorycrud-1473-event--form']/div/div/form/fieldset/div[3]/div/div/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //CHANNEL BOLUMU 
 
                 //Channel seçimi yapılır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
-                System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
+                //_helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
+                //System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -803,19 +849,21 @@ namespace Event
                 _helper.SetRandomTextByName("displayName");
 
                 //Insert butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[3]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1064-1473-118-event--form']/div/div/form/fieldset/div[2]/div/div[3]/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1064-1473-118-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                System.Threading.Thread.Sleep(2000);
 
                 //TiCKET BOLUMU 
 
                 //Channel seçimi yapılır
                 _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -823,11 +871,11 @@ namespace Event
                 _helper.SelectRandomDropdownElementByName("refTicketTypeID");
 
                 //Insert butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[3]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1064-1473-118-event--form']/div/div/form/fieldset/div[2]/div/div[3]/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1064-1473-118-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //VARIANT BOLUMU 
@@ -835,16 +883,18 @@ namespace Event
                 //Channel seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Variant seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -852,11 +902,11 @@ namespace Event
                 _helper.SetRandomIntegerByName("variantPriceValue", 500, 1000);
 
                 //Insert butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[4]/div/div/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1064-1473-118-event--form']/div/div/form/fieldset/div[4]/div/div[2]/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1064-1473-118-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //VARIANT BOLUMU 
@@ -867,16 +917,18 @@ namespace Event
                 //Channel seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Product seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ProductName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ProductName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -884,20 +936,25 @@ namespace Event
                 _helper.SetRandomIntegerByName("price", 500, 1000);
 
                 //Insert butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[3]/div/div[2]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1064-1473-118-event--form']/div/div/form/fieldset/div[3]/div/div[2]/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1064-1473-118-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
                 System.Threading.Thread.Sleep(2000);
+
+                
 
                 //BENEFİCİARY BOLUMU
 
+                
+                 
                 //Channel seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1015-1447-265-event--form']/div/div/form/fieldset/div[1]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.ChannelName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -908,19 +965,22 @@ namespace Event
                 _helper.SelectRandomDropdownElementByName("refBeneficiaryID");
 
                 //Insert butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1003-1442-123-event--form']/div/div/form/fieldset/div[2]/div/div/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1064-1473-118-event--form']/div/div/form/fieldset/div[2]/div/div/input");
                 System.Threading.Thread.Sleep(2000);
 
                 //Close and finish butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1003-1442-123-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1064-1473-118-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
                 System.Threading.Thread.Sleep(7000);
 
+                
 
                 //BLOCK BOLUMU: (DİĞER FAZDA YAPILACAK)
 
+                /*
+
                 //VISA CONFIGURATION BOLUMU:
 
-
+                
                 //Vısa Conf butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='tabControl']/li[6]/a");
 
@@ -938,11 +998,13 @@ namespace Event
 
                 //Update butonu tıklanır
                 _helper.ClickByXPath("//*[@id='serie-crud-1465--form']/div/div/form/fieldset/tabset/div/tab[6]/div[1]/div/div[2]/div[2]/visa-configuration/div/form/div[4]/div/div/input");
-
+                
+                */
 
                 //CARD RULE BOLUMU: (DİĞER FAZDA YAPILACAK)
 
-
+                /*
+                 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id'event-crud-1442--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
@@ -951,6 +1013,7 @@ namespace Event
 
                 System.Threading.Thread.Sleep(5000);
 
+                */
             }
             catch (Exception exception)
             {

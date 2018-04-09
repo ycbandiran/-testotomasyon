@@ -35,20 +35,23 @@ namespace Contact
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
+            _helper.GiveInfo("Contact modül testi başladı.");
 
         }
 
         public void Contacts()
         {
+            _helper.GivePassInfo("Contacts modül testi başladı.");
+
             try
             {
                 //Contact Url gidilir 
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/contact/list");
+                _helper.WaitUntilPageLoad();
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='contact-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
-                                 
+                                       
                 //First Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("firstname");
                 string FirstName = _helper.GetTextByName("firstname");

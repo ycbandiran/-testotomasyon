@@ -52,11 +52,13 @@ namespace Inventory
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            //_helper.GiveInfo("Inventory modül testi başladı.");
+            _helper.GiveInfo("Inventory modül testi başladı.");
         }
 
         public void CategoryManagement()
         {
+            _helper.GivePassInfo("Catagory modül testi başladı.");
+
             try
             {
                 //Catagory Management sayfasına git           
@@ -91,6 +93,8 @@ namespace Inventory
 
         public void ChannelManagement()
         {
+            _helper.GivePassInfo("Channel modül testi başladı.");
+
             try
             {
                 //Channel Management sayfasına git
@@ -124,6 +128,8 @@ namespace Inventory
         
         public void ChannelGroupManagement()
         {
+            _helper.GivePassInfo("Channel Group modül testi başladı.");
+
             try
             {
                 //Channel Group Management sayfasına git           
@@ -166,6 +172,8 @@ namespace Inventory
 
         public void VariantManagement()
         {
+            _helper.GivePassInfo("Variant modül testi başladı.");
+
             try
             {
                 //Variant Management sayfasına git
@@ -203,6 +211,8 @@ namespace Inventory
 
         public void PriorityManagement()
         {
+            _helper.GivePassInfo("Priority modül testi başladı.");
+
             try
             {
                 // Priority Management sayfasına git
@@ -218,7 +228,7 @@ namespace Inventory
                 PriorityName = _helper.GetTextByName("name");
 
                 //Priorty Type seç
-                _helper.ClickByName("refValidationIntegrationTypeID");
+                _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/form/fieldset[1]/div/div/div[2]/div/select");
                 _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/form/fieldset[1]/div/div/div[2]/div/select/option[2]");
 
 
@@ -259,7 +269,8 @@ namespace Inventory
                 _helper.SetRandomFileByXpath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 // Description alanına rastgele bir değer gir
-                _helper.SetRandomTextByName("description");
+                _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[2]/div/textarea[2]");
+                _helper.SetRandomTextByXPath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[2]/div/textarea[2]");
 
                 // Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -279,6 +290,8 @@ namespace Inventory
 
         public void ProductManagement()
         {
+            _helper.GivePassInfo("Product modül testi başladı.");
+
             try
             {
                 // Product Management sayfasına git
@@ -314,6 +327,8 @@ namespace Inventory
 
         public void SalesPlanManagement()
         {
+            _helper.GivePassInfo("Sales Pllan modül testi başladı.");
+
             try
             {
                 // Sales Plan Management sayfasına git
@@ -335,12 +350,15 @@ namespace Inventory
 
                 //Rastgele Priority seç(GEÇİCİ)
                 _helper.SelectRandomDropdownElementByName("refValidationIntegrationID");
+                System.Threading.Thread.Sleep(2000);
+
 
                 //Channel seçimi yapılır(GEÇİCİ)            
-                _helper.ClickByName("//*[@id='salesplan-crud-301--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByName("//*[@id='salesplan-crud-326--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(3000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 

@@ -33,13 +33,15 @@ namespace Security
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
+            _helper.GiveInfo("Security modül testi başladı.");
             
         }
 
 
         public void Clients()
         {
+            _helper.GivePassInfo("Clients modül testi başladı.");
+
             try
             {
                 //Users Url gidilir 
@@ -88,6 +90,8 @@ namespace Security
 
         public void Users()
         {
+            _helper.GivePassInfo("Users modül testi başladı.");
+
             try
             {
                 //Users Url gidilir 
@@ -149,6 +153,8 @@ namespace Security
 
         public void Roles()
         {
+            _helper.GivePassInfo("Roles modül testi başladı.");
+
             try
             {
                 //Roles Url git
@@ -189,6 +195,8 @@ namespace Security
 
         public void ApprovableUsers()
         {
+            _helper.GivePassInfo("Approvable Users modül testi başladı.");
+
             try
             {
                 //ApprovableUsers url git
@@ -214,6 +222,8 @@ namespace Security
 
         public void Terminals()
         {
+            _helper.GivePassInfo("Terminals modül testi başladı.");
+
             try
             {
                 //Terminals url git
@@ -244,8 +254,9 @@ namespace Security
 
                 //Organizer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);*/
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıklanır
@@ -305,6 +316,8 @@ namespace Security
 
         public void EntryPoint()
         {
+            _helper.GivePassInfo("Entry Point modül testi başladı.");
+
             try
             {
                 //Entry Point url git

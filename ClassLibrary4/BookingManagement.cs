@@ -33,16 +33,19 @@ namespace Booking
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
+            _helper.GiveInfo("Booking modül testi başladı.");
 
         }
 
         public void BookingActionTypes()
         {
+            _helper.GivePassInfo("Booking Action Types modül testi başladı.");
+
             try
             {
                 //Booking Action Type Url gidilir 
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingactiontype/list");
+                _helper.WaitUntilPageLoad();
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -56,16 +59,18 @@ namespace Booking
                 //Organizer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
+                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Payment Plan seçimi yapılır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
+                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -77,9 +82,6 @@ namespace Booking
 
                 //Gelen modal da OK tıklanır
                 _helper.ClickById("confirmok");
-
-                //Kaydedilen Venue name'i tutulur
-                //_helper.GetTextByPath("//*[@id='venue-crud-417;formtype=read--form']/div/div/form/fieldset[1]/div/div/div[1]/input");   
 
                 System.Threading.Thread.Sleep(5000);
 

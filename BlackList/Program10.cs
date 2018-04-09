@@ -6,7 +6,7 @@
         {
             BlackListManagement blackListManagement = new BlackListManagement();
 
-            blackListManagement.NationalID();
+            blackListManagement.NationalIDManagement();
         }
     }
 }

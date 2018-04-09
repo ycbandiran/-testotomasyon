@@ -379,11 +379,204 @@ namespace EventMenu
                 //Gelen modal da OK tıklanır
                 _helper.ClickById("confirmok");
 
-                //Kaydedilen Venue name'i tutulur
-                //_helper.GetTextByPath("//*[@id='venue-crud-417;formtype=read--form']/div/div/form/fieldset[1]/div/div/div[1]/input");   
+                System.Threading.Thread.Sleep(5000);
 
+               
+                
+                
+                
+                
+                
+                
+                /*                                                                       
+                 
+                //EDIT BOLUMU:                                                                 //FAZ 3 DE YAPILACAK !!!!
+
+                // Event Management Url git
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
+
+                //Event List den event seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='event-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
+
+                //Event Management sayfasında edit butonu tıklanır
+                _helper.ClickByXPath("//*[@id='event-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[3]/a");
+
+                //CATEGORY BOLUMU:
+
+                //Catagory butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='tabControl']/li[4]/a");
+
+                //Add new butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='event-crud-1447--form']/div/div/form/fieldset/tabset/div/tab[4]/div[1]/div/div/div[2]/input[1]");
+
+                System.Threading.Thread.Sleep(3000);
+
+                //Category Mame için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("refCategoryID");
+
+                //Discount Rate için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("refDiscountRateTypeID");
+
+                //Price alanı için random değer girilir
+                _helper.SetRandomIntegerByName("price", 500, 2000);
+
+                //Next butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorycrud-1447-event--form']/div/div/form/fieldset/div[3]/div/div/input");
                 System.Threading.Thread.Sleep(2000);
 
+                //CHANNEL BOLUMU 
+
+                //Channel seçimi yapılı(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Display Name alanına rastgele bir değer girilir.
+                _helper.SetRandomTextByName("displayName");
+
+                //Insert butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[3]/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //Next butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorychannelcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+
+                //TiCKET BOLUMU 
+
+                //Channel seçimi yapılı(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Ticket Type için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("refTicketTypeID");
+
+                //Insert butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[3]/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //Next butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryticketcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //VARIANT BOLUMU 
+
+                //Channel seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Variant seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Variant Value alanı için random değer girilir
+                _helper.SetRandomIntegerByName("variantPriceValue", 500, 1000);
+
+                //Insert butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[4]/div/div/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //Next butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryvariantcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //PRODUCT TYPE BOLUMU 
+
+                //Rate Type için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("refDiscountRateTypeID");
+
+                //Channel seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Product seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[2]/div/div[3]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Product Value alanı için random değer girilir
+                _helper.SetRandomIntegerByName("price", 500, 1000);
+
+                //Insert butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/div[3]/div/div[2]/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //Next butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategoryproductcrud-1015-1447-265-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //BENEFİCİARY BOLUMU
+
+                //Channel seçimi yapılır(GEÇİCİ)
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1015-1447-265-event--form']/div/div/form/fieldset/div[1]/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Ticket Type için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("refTicketTypeID");
+
+                //Beneficiary için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("refBeneficiaryID");
+
+                //Insert butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1003-1442-123-event--form']/div/div/form/fieldset/div[2]/div/div/input");
+                System.Threading.Thread.Sleep(2000);
+
+                //Close and finish butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='eventcategory-seatcategorybeneficiarycrud-1003-1442-123-event--form']/div/div/form/fieldset/fieldset[2]/div/div/div[2]/input");
+                System.Threading.Thread.Sleep(7000);
+
+
+                //BLOCK BOLUMU: (DİĞER FAZDA YAPILACAK)
+
+
+                //VISA CONFIGURATION BOLUMU:
+
+                
+                //Vısa Conf butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='tabControl']/li[6]/a");
+
+                //Add New butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='blocklayoutgrid']/div[2]/input[1]");
+
+                //Name alanına random değer girilir
+                _helper.SetRandomTextByName("name");
+
+                //Visa End Date Control Strategy için rastgele selection yapılır
+                _helper.SelectRandomDropdownElementByName("visaEndDateControlStrategy");
+
+                //Priority alanı için random değer girilir
+                _helper.SetRandomIntegerByName("priority", 1, 10);
+
+                //Insert butonu tıklanır
+                _helper.ClickByXPath("//*[@id='serie-crud-1446--form']/div/div/form/fieldset/tabset/div/tab[6]/div[1]/div/div[2]/div[2]/visa-configuration/div/form/div[4]/div/div/input");
+
+                //Update butonu tıklanır
+                _helper.ClickByXPath("//*[@id='serie-crud-1446--form']/div/div/form/fieldset/tabset/div/tab[6]/div[1]/div/div[2]/div[2]/visa-configuration/div/form/div[4]/div/div/input");
+
+
+                //CARD RULE BOLUMU: (DİĞER FAZDA YAPILACAK)
+
+
+                //Save butonu tıklanır
+                _helper.ClickByXPath("//*[@id'event-crud-1442--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
+                System.Threading.Thread.Sleep(5000);
+
+                */
             }
             catch (Exception exception)
             {
@@ -586,7 +779,9 @@ namespace EventMenu
 
 
 
-                //EDIT BOLUMU:
+                /*
+                 
+                //EDIT BOLUMU:                                                          //XPATH'LER DEĞİŞTİRİLECEK !!!!!
 
                 // Event Management Url git
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
@@ -737,7 +932,7 @@ namespace EventMenu
 
                 //VISA CONFIGURATION BOLUMU:
 
-
+                /*
                 //Vısa Conf butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='tabControl']/li[6]/a");
 
@@ -755,10 +950,11 @@ namespace EventMenu
 
                 //Update butonu tıklanır
                 _helper.ClickByXPath("//*[@id='serie-crud-1465--form']/div/div/form/fieldset/tabset/div/tab[6]/div[1]/div/div[2]/div[2]/visa-configuration/div/form/div[4]/div/div/input");
-
+                */
 
                 //CARD RULE BOLUMU: (DİĞER FAZDA YAPILACAK)
 
+                /*
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id'event-crud-1442--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -768,6 +964,7 @@ namespace EventMenu
 
                 System.Threading.Thread.Sleep(5000);
 
+                */
             }
             catch (Exception exception)
             {

@@ -538,10 +538,21 @@ namespace Helpers
         }
         */
 
-
+        //Program başlangıcını bilgi verir
         public void GiveInfo(params string[] info)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            foreach (var item in info)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ResetColor();
+        }
+
+        //Modüller arası geçişte bilgi verir
+        public void GivePassInfo(params string[] info)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             foreach (var item in info)
             {
                 Console.WriteLine(item);
