@@ -335,11 +335,11 @@ namespace Venue
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='tribune-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+                _helper.ClickByXPath("//*[@id='turnstile-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
-
+                 
                 System.Threading.Thread.Sleep(5000);
 
             }
@@ -571,7 +571,7 @@ namespace Venue
                 _helper.SetRandomColorByName("color");
 
                 //Rastgele bir SeatType seçilir
-                _helper.ClickRandomTagByXPath("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[1]/div/div[4]/select", "tr");
+                _helper.SelectRandomDropdownElementByName("SeatClassType");
 
                 //Rastgele Visibility seçilir
                 _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");

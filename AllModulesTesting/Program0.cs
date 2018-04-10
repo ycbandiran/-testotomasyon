@@ -20,9 +20,9 @@ namespace AllModulesTesting
         {
             TestingWhole whole = new TestingWhole();
 
-            ///whole.Contacts();
+            whole.Contacts();
             whole.NationalID();
-            /*whole.CategoryManagement();
+            whole.CategoryManagement();
             whole.ChannelManagement();
             whole.ChannelGroupManagement();
             whole.VariantManagement();
@@ -54,13 +54,13 @@ namespace AllModulesTesting
             whole.ACSetting();
             whole.TelegramQueueManagement();
             whole.TelegramManagement();
-            /whole.Clients();
+            whole.Clients();
             whole.Users();
             whole.Roles();
             whole.ApprovableUsers();
             whole.Terminals();
-            whole.AdvancedSearch();
-            whole.EntryPoint();   */        
+            //whole.AdvancedSearch();
+            whole.EntryPoint();  
          }
     }
 }

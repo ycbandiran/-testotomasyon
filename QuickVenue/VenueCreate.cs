@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace QuickVenue
 {
-    class VenueCreate
+    public class VenueCreate
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;

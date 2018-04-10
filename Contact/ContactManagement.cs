@@ -16,16 +16,12 @@ using System.Threading.Tasks;
 
 namespace Contact
 {
-    class ContactManagement
+    public class ContactManagement
     { 
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;
         Random _random;
         Helper _helper;
-        //public IWebElement webElement;
-
-        //oluşturulan yeni venue id si tutulmalıdır.
-        //  string venue_id;
 
         public ContactManagement()
         {
@@ -47,7 +43,7 @@ namespace Contact
             {
                 //Contact Url gidilir 
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/contact/list");
-                _helper.WaitUntilPageLoad();
+                System.Threading.Thread.Sleep(3000);
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='contact-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");

@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace EventMenu
 {
-    class EventManagementMenu
+    public class EventManagementMenu
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;

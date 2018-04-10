@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printing", "Printing\Printi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event", "Event\Event.csproj", "{1D7C3267-EF7B-4E53-892F-615F1FBFA943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AC", "ClassLibrary3\AC.csproj", "{3F297E30-4E56-4A97-8D10-D695A9247A0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AC", "AC\AC.csproj", "{3F297E30-4E56-4A97-8D10-D695A9247A0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking", "ClassLibrary4\Booking.csproj", "{09CB1626-6930-49C4-BF40-DE2E6A01B18A}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMenu", "EventMenu\EventMenu.csproj", "{C1E7A141-3368-4F14-AADD-2EAB99344C55}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllModulesTesting", "AllModulesTesting\AllModulesTesting.csproj", "{B3C19EAC-F2BC-4AAD-846D-33921F110B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormApp", "WpfApp4\FormApp.csproj", "{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -273,6 +275,22 @@ Global
 		{B3C19EAC-F2BC-4AAD-846D-33921F110B0A}.Release|x64.Build.0 = Release|Any CPU
 		{B3C19EAC-F2BC-4AAD-846D-33921F110B0A}.Release|x86.ActiveCfg = Release|Any CPU
 		{B3C19EAC-F2BC-4AAD-846D-33921F110B0A}.Release|x86.Build.0 = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|ARM.Build.0 = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|x64.Build.0 = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Debug|x86.Build.0 = Debug|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|ARM.ActiveCfg = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|ARM.Build.0 = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|x64.ActiveCfg = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|x64.Build.0 = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|x86.ActiveCfg = Release|Any CPU
+		{99CE0E11-3BD1-4E05-933E-2DD5F6B7B042}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

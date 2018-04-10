@@ -16,7 +16,7 @@ using Event;
 
 namespace Security
 {
-    class SecurityManagement
+    public class SecurityManagement
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;

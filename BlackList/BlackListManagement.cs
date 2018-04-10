@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace BlackList
 {
-    class BlackListManagement
+    public class BlackListManagement
     {
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;
