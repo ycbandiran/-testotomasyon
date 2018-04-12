@@ -44,6 +44,7 @@ namespace Helpers
             }
         }
 
+
         // Veritabanı işlemleri
         #region Veritabanı
         //public void Add()
@@ -273,7 +274,7 @@ namespace Helpers
         public void SetRandomColorByXPath(string xpath)
         {
             IsVisibleByName(xpath);
-            _driver.FindElement(By.Name(xpath)).Clear();
+            _driver.FindElement(By.XPath(xpath)).Clear();
             _driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomColor());
         }
 
@@ -286,11 +287,11 @@ namespace Helpers
         }
 
         //Xpath e göre rastgele bir tarih girer
-        public DateTime SetRandomDateTimeByXPath(string xpath)
+        public DateTime SetRandomDateTimeByName(string name)
         {
             DateTime randomDate = GetRandomDateTime();
-            _driver.FindElement(By.XPath(xpath)).Clear();         
-            _driver.FindElement(By.XPath(xpath)).SendKeys(DateTimeToString(randomDate));
+            _driver.FindElement(By.Name(name)).Clear();         
+            _driver.FindElement(By.Name(name)).SendKeys(DateTimeToString(randomDate));
             return randomDate;
         }
 
@@ -301,11 +302,11 @@ namespace Helpers
         }
 
         // xpath değerine sahip elemente date ile belirtilen tarihi girer
-        public void SetDateTimeByXPath(string xpath, DateTime date)
+        public void SetDateTimeByName(string name, DateTime date)
         {
             string dateTimeString = DateTimeToString(date);
-            _driver.FindElement(By.XPath(xpath)).Clear();
-            _driver.FindElement(By.XPath(xpath)).SendKeys(dateTimeString);
+            _driver.FindElement(By.Name(name)).Clear();
+            _driver.FindElement(By.Name(name)).SendKeys(dateTimeString);
         }
 
         // input tipi file olan alana rastgele bir dosya yerleştir
@@ -570,6 +571,24 @@ namespace Helpers
             Console.ResetColor();
         }
 
+        //Yakaladığı exception ı txt dosyası olarak masaüstüne atar
+        public void ErrorLogging(Exception ex)
+        {
+            string strPath = @"D:\Users\yigitb\Desktop\Exceptions.txt";
+            if (!File.Exists(strPath))
+            {
+                File.Create(strPath).Dispose();
+            }
+            using (StreamWriter sw = File.AppendText(strPath))
+            {
+                sw.WriteLine("=============Error Logging ===========");
+                sw.WriteLine("===========Start============= " + DateTime.Now);
+                sw.WriteLine("Error Message: " + ex.Message);
+                sw.WriteLine("Stack Trace: " + ex.StackTrace);
+                sw.WriteLine("===========End============= " + DateTime.Now);
+
+            }
+        }
         public void DenemeClick(string xpath)
         {
             _driver.FindElementExtension(By.XPath(xpath), 1);

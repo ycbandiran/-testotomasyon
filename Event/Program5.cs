@@ -6,7 +6,7 @@
         {
             EventManagement eventManagement = new EventManagement();
 
-            eventManagement.LeaugeManagement();
+           /* eventManagement.LeaugeManagement();
             eventManagement.TeamManagement();
             eventManagement.OrganizerManagement();
             eventManagement.GenreManagement();
@@ -14,7 +14,7 @@
             eventManagement.SponsorManagement();
             eventManagement.EventGroupManagement();
             eventManagement.SerieManagement();
-            eventManagement.EventManagement1();
+           */ eventManagement.EventManagement1();
 
         }
     }

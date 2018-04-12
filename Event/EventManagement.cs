@@ -102,6 +102,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.LeaugeManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -152,6 +153,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TeamManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -211,6 +213,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.OrganizerManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -251,6 +254,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.GenreManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -287,6 +291,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SubGenreManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -324,8 +329,10 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SponsorManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
+
         public void EventGroupManagement()
         {
             _helper.GivePassInfo("Event Group modül testi başladı.");
@@ -362,6 +369,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.GenreManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -416,14 +424,15 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
 
-                /*
+                
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[3]/div/div/div[2]/p-calendar/span/input");
+                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[2]/p-calendar/span/input");
+                _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
-                */
+                _helper.SetDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[3]/p-calendar/span/input", finishDate);
+                _helper.WaitUntilPageLoad();
 
                 //Next butonu tıklanır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/input");
@@ -466,14 +475,16 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 
-                /*
+                
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
                 DateTime startDate2 = _helper.SetRandomDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[3]/div/div/div[2]/p-calendar/span/input");
+                _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate2 = _helper.SetRandomDateTimeAfterThisDateTime(startDate2);
                 _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate2);
-                */
+                _helper.WaitUntilPageLoad();
+
 
                 //League Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
@@ -573,8 +584,10 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SerieManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
+
         public void EventManagement1()
         {
             _helper.GivePassInfo("Event1 modül testi başladı.");
@@ -592,7 +605,7 @@ namespace Event
 
                 //Event Code alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("code", 3);
-
+                
                 //Organizer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[1]/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
@@ -604,10 +617,10 @@ namespace Event
 
                 //Venue seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[1]/lookup-button/div/div/div/button");
-               /* System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);*/
+                /* System.Threading.Thread.Sleep(2000);
+                 _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.VenueName);
+                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);*/
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -625,26 +638,30 @@ namespace Event
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[3]/button[1]");
-
+                
                 //Away Team seçimi yapılır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[3]/button[1]");
-                /*
+                
                 // Başlangıç tarihini belirler
                 DateTime startDate3 = _helper.SetRandomDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[3]/p-calendar/span/input");
-                */
+                _helper.WaitUntilPageLoad();
+
+                // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
+                DateTime finishDate3 = _helper.SetRandomDateTimeAfterThisDateTime(startDate3);
+                System.Threading.Thread.Sleep(2000);
+                _helper.SetDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[3]/p-calendar/span/input", finishDate3);
+                _helper.WaitUntilPageLoad();
+                
+
                 //Home Team Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Away Team Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
-                /*
-                // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                DateTime finishDate3 = _helper.SetRandomDateTimeAfterThisDateTime(startDate3);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate3);
-                */
+                
                 //Next butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[5]/input");
 
@@ -684,10 +701,11 @@ namespace Event
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[3]/button[1]");
-                /*
+                
                 //Door Opening time seçilir
                 DateTime startDate4 = _helper.SetRandomDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[3]/p-calendar/span/input");
-                */
+                _helper.WaitUntilPageLoad();
+
                 //Next butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[4]/input[2]");
 
@@ -1018,6 +1036,7 @@ namespace Event
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EventManagement1) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 

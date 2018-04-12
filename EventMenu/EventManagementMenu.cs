@@ -94,6 +94,7 @@ namespace EventMenu
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EventGroupManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -129,6 +130,7 @@ namespace EventMenu
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.ChannelGroupManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -180,6 +182,7 @@ namespace EventMenu
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SalesPlanManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -228,6 +231,7 @@ namespace EventMenu
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TicketTemplateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -581,6 +585,7 @@ namespace EventMenu
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SerieManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void EventManagement1()
@@ -969,6 +974,7 @@ namespace EventMenu
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EventManagement1) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

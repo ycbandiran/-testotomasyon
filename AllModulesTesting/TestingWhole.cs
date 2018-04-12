@@ -202,6 +202,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Contacts) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -224,20 +225,21 @@ namespace AllModulesTesting
                 string SerieName = _helper.GetTextByName("name");
 
                 //DATETİME FONKSİYONU ÇALIŞMIYOR!!!!
-                /*
+                
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");              
-                */
+                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");
+                _helper.WaitUntilPageLoad();
+
                 //Random Letter No girilir
                 _helper.SetRandomIntegerByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[1]/input", 1, 10);
 
                 //Last Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("lastName");
-                /*
+                
                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                */
-                //_helper.SetDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[3]/p-calendar/span/input", finishDate);
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);                
+                _helper.SetDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[3]/p-calendar/span/input", finishDate);
+                _helper.WaitUntilPageLoad();
 
                 //Country Code alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("countryCode", 3);
@@ -260,6 +262,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.NationalID) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -295,6 +298,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.CategoryManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -328,6 +332,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -370,6 +375,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -407,6 +413,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -475,7 +482,8 @@ namespace AllModulesTesting
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message); ;
+                Console.WriteLine(exception.Message);
+                _helper.ErrorLogging(exception);
             }
 
         }
@@ -511,6 +519,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError(exception.Message);
+                _helper.ErrorLogging(exception);
             }
 
         }
@@ -534,13 +543,13 @@ namespace AllModulesTesting
                 // Çıkan modaldan OK butonuna tıkla
                 _helper.ClickById("confirmok");
 
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(3000);
 
                 //Rastgele Priority seç(GEÇİCİ)
                 _helper.SelectRandomDropdownElementByName("refValidationIntegrationID");
 
                 //Channel seçimi yapılır(GEÇİCİ)            
-                _helper.ClickByName("//*[@id='salesplan-crud-301--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='salesplan-crud-330--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(3000);
                 _driver.FindElement(By.Name("searchText")).SendKeys("" + ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
@@ -550,17 +559,16 @@ namespace AllModulesTesting
                 //Rastgele Limit koyar
                 _helper.SetRandomIntegerByName("ticketLimit", 10, 100);
 
-                /*
+                
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
                 DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='salesplan-crud-294--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                _helper.ClickByXPath("//*[@id='salesplan-crud-294--form']/div/div/form/fieldset/div[2]/div/div[2]/p-calendar/span/input");
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
                 _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
                 _helper.WaitUntilPageLoad();
-                */
+                
 
                 //Rastgele total seat sayısı belirler
                 _helper.SetRandomIntegerByName("totalSeatCount", 10, 100);
@@ -580,6 +588,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -682,6 +691,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VenueManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -727,6 +737,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.AreaManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -771,6 +782,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.GateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -824,6 +836,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TribuneManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -868,6 +881,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TurnstileManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -918,6 +932,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VenueTemplateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1070,43 +1085,53 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.BlockManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
         public void SeatClassManagement()
         {
-            // SeatClass Management butonuna tıkla
-            _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
-            _helper.WaitUntilPageLoad();
+            try
+            {
+                // SeatClass Management butonuna tıkla
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
+                _helper.WaitUntilPageLoad();
 
-            //SeatClass Management sayfasında add new butonu tıklanır
-            _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+                //SeatClass Management sayfasında add new butonu tıklanır
+                _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
-            //Name alanına random değer girilir
-            _helper.SetRandomTextByName("name");
+                //Name alanına random değer girilir
+                _helper.SetRandomTextByName("name");
 
-            //Kaydedilen Seat Class name'i tutulur
-            SeatClassName = _helper.GetTextByName("name");
+                //Kaydedilen Seat Class name'i tutulur
+                SeatClassName = _helper.GetTextByName("name");
 
-            //Code alanına random 3 haneli code girilir.
-            _helper.SetLimitedRandomStringByName("code", 3);
+                //Code alanına random 3 haneli code girilir.
+                _helper.SetLimitedRandomStringByName("code", 3);
 
-            //Color seçimi yapılır
-            //_helper.SetRandomColorByName("color");
+                //Color seçimi yapılır
+                //_helper.SetRandomColorByName("color");
 
-            //Rastgele bir SeatType seçilir
-            _helper.SelectRandomDropdownElementByName("SeatClassType");
+                //Rastgele bir SeatType seçilir
+                _helper.SelectRandomDropdownElementByName("SeatClassType");
 
-            //Rastgele Visibility seçilir
-            _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
+                //Rastgele Visibility seçilir
+                _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
 
-            //Save butonu tıklanır
-            _helper.ClickByXPath("//*[@id='seatclass-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+                //Save butonu tıklanır
+                _helper.ClickByXPath("//*[@id='seatclass-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
-            //Gelen modal da OK tıklanır
-            _helper.ClickById("confirmok");
+                //Gelen modal da OK tıklanır
+                _helper.ClickById("confirmok");
 
-            System.Threading.Thread.Sleep(5000);
+                System.Threading.Thread.Sleep(5000);
+            }
+
+            catch (Exception exception)
+            {
+                _helper.GiveError("In : " + nameof(this.BlockManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
+            }
 
         }
 
@@ -1141,6 +1166,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TicketTemplateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1198,6 +1224,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VariantConfigurationManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void SeatClassConfigurationManagement()
@@ -1244,6 +1271,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SeatClassConfigurationManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1276,6 +1304,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.PrinterManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1312,6 +1341,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.LeaugeManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1363,6 +1393,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TeamManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1431,6 +1462,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.OrganizerManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1473,6 +1505,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.GenreManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1507,6 +1540,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SubGenreManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1542,6 +1576,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SponsorManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void EventGroupManagement()
@@ -1578,6 +1613,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.GenreManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -1765,6 +1801,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SerieManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void EventManagement1()
@@ -2170,6 +2207,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EventManagement1) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2226,6 +2264,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.BookingActionTypes) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2269,6 +2308,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.ACSetting) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2327,6 +2367,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TelegramQueueManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void TelegramManagement()
@@ -2391,6 +2432,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TelegramManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2439,6 +2481,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Users) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2500,6 +2543,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Users) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2541,6 +2585,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Roles) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2566,6 +2611,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.ApprovableUsers) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2617,6 +2663,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Terminals) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -2703,6 +2750,7 @@ namespace AllModulesTesting
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EntryPoint) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

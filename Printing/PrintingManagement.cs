@@ -76,6 +76,7 @@ namespace Printing
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TicketTemplateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -134,6 +135,7 @@ namespace Printing
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VariantConfigurationManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void SeatClassConfigurationManagement()
@@ -181,6 +183,7 @@ namespace Printing
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SeatClassConfigurationManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -214,6 +217,7 @@ namespace Printing
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.PrinterManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 

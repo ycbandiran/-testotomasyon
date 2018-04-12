@@ -218,6 +218,7 @@ namespace QuickVenue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VenueCreate1) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

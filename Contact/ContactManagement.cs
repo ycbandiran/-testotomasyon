@@ -113,6 +113,7 @@ namespace Contact
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Contacts) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

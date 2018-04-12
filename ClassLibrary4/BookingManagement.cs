@@ -89,7 +89,8 @@ namespace Booking
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.BookingActionTypes) + exception.Message);
-            }                
+                _helper.ErrorLogging(exception);
+            }
         }
     }
 }

@@ -46,7 +46,7 @@ namespace BlackList
             {
                 //NationalID Url gidilir 
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/nationalidprobation/list");
-                _helper.WaitUntilPageLoad();
+                System.Threading.Thread.Sleep(2000);
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='nationalidprobation-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -57,22 +57,21 @@ namespace BlackList
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
                  NationalIDName = _helper.GetTextByName("name");
-
-                //DATETİME FONKSİYONU ÇALIŞMIYOR!!!!
                 
                 //Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                //DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");              
-                
+                 DateTime StartDate = _helper.SetRandomDateTimeByName("startDate");
+                _helper.WaitUntilPageLoad();
+
                 //Random Letter No girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[1]/input", 1, 10);
+                _helper.SetRandomIntegerByName("officalLetterNo", 1, 10);
 
                 //Last Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("lastName");
                 
                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                //DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                
-                //_helper.SetDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[3]/p-calendar/span/input", finishDate);
+                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(StartDate);               
+                _helper.SetDateTimeByName("endDate", finishDate);
+                _helper.WaitUntilPageLoad();
 
                 //Country Code alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("countryCode", 3);
@@ -81,7 +80,7 @@ namespace BlackList
                 _helper.SelectRandomCheckboxesByName("status");
 
                 //Probation Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[3]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("probationImageName", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -95,6 +94,7 @@ namespace BlackList
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.NationalIDManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

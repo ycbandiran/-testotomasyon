@@ -88,6 +88,7 @@ namespace Inventory
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.CategoryManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -123,6 +124,7 @@ namespace Inventory
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         
@@ -167,6 +169,7 @@ namespace Inventory
             catch (Exception exception)
             {
                 _helper.GiveError(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -206,6 +209,7 @@ namespace Inventory
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -283,7 +287,8 @@ namespace Inventory
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message); ;
+                Console.WriteLine(exception.Message);
+                _helper.ErrorLogging(exception);
             }
 
         }
@@ -321,6 +326,7 @@ namespace Inventory
             catch (Exception exception)
             {
                 _helper.GiveError(exception.Message);
+                _helper.ErrorLogging(exception);
             }
 
         }
@@ -395,6 +401,7 @@ namespace Inventory
             catch (Exception exception)
             {
                 _helper.GiveError(exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 

@@ -116,6 +116,7 @@ namespace Payment
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.PaymentGateway) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -159,6 +160,7 @@ namespace Payment
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.BinNumberGroup) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         public void BinNumber()
@@ -203,6 +205,7 @@ namespace Payment
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.BinNumberGroup) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -281,6 +284,7 @@ namespace Payment
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.PaymentPlan) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

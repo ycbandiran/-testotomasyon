@@ -156,6 +156,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VenueManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -202,6 +203,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.AreaManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
         
@@ -247,6 +249,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.GateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -301,6 +304,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TribuneManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -346,6 +350,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.TurnstileManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -389,6 +394,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.VenueTemplateManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -543,6 +549,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.BlockManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -579,6 +586,7 @@ namespace Venue
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.SeatClassManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }

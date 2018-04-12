@@ -84,6 +84,7 @@ namespace Security
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Users) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -147,6 +148,7 @@ namespace Security
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Users) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -190,6 +192,7 @@ namespace Security
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Roles) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -217,6 +220,7 @@ namespace Security
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.ApprovableUsers) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -271,6 +275,7 @@ namespace Security
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.Terminals) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
 
@@ -359,6 +364,7 @@ namespace Security
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EntryPoint) + exception.Message);
+                _helper.ErrorLogging(exception);
             }
         }
     }    
