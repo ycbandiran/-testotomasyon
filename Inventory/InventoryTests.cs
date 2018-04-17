@@ -371,17 +371,17 @@ namespace Inventory
                 //Rastgele Limit koyar
                 _helper.SetRandomIntegerByName("ticketLimit", 10, 100);
 
-                /*
+                
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='salesplan-crud-294--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/input");
+                DateTime startDating = _helper.SetRandomDateTimeByName("startDate");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 _helper.ClickByXPath("//*[@id='salesplan-crud-294--form']/div/div/form/fieldset/div[2]/div/div[2]/p-calendar/span/input");
-                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDating);
+                _helper.SetDateTimeByName("endDate", finishDate);
                 _helper.WaitUntilPageLoad();
-                */
+                
 
                 //Rastgele total seat sayısı belirler
                 _helper.SetRandomIntegerByName("totalSeatCount", 10, 100);

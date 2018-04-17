@@ -6,7 +6,7 @@
         {
             EventManagement eventManagement = new EventManagement();
 
-           /* eventManagement.LeaugeManagement();
+           /*eventManagement.LeaugeManagement();
             eventManagement.TeamManagement();
             eventManagement.OrganizerManagement();
             eventManagement.GenreManagement();

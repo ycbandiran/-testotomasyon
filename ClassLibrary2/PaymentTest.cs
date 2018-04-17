@@ -182,7 +182,7 @@ namespace Payment
                 BinNumberName = _helper.GetTextByName("name");
 
                 //Bin number alanına random int girilir.
-                _helper.SetRandomIntegerByXpath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[2]/input", 1, 5);
+                _helper.SetRandomIntegerByName("binNumber", 1, 5);
 
                 //Bin Number Goup seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");

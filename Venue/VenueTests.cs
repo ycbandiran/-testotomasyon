@@ -175,7 +175,6 @@ namespace Venue
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
-
                 //Kaydedilen Area name'i tutulur
                 AreaName = _helper.GetTextByName("name");
 
@@ -498,8 +497,8 @@ namespace Venue
                 _helper.SelectRandomDropdownElementByName("seatSequentialType");
 
                 //Rastgele Ignore Gaps seçilir
-                _helper.ClickRandomCheckbox("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/form/div[4]/div[3]/div/input");
-
+                _helper.ClickRandomCheckboxByName("ignoreGaps");
+                                           
                 //Row Naming için rastgele selection yapılır
                 _helper.SelectRandomDropdownElementByName("rowNameTypeId");
 
@@ -510,7 +509,7 @@ namespace Venue
                 _helper.SetRandomTextByName("freeTextField");
 
                 //Rastgele Top to Bottom Row Naming seçilir
-                _helper.ClickRandomCheckbox("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/form/div[6]/div/div/input");
+                _helper.ClickRandomCheckboxByName("isRowNamingOrderDesc");
 
                 //Gate seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[1]/div[1]/div[1]/div/lookup-button/div/div/div/button");
@@ -581,7 +580,14 @@ namespace Venue
                 _helper.SelectRandomDropdownElementByName("SeatClassType");
 
                 //Rastgele Visibility seçilir
-                _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
+                _helper.ClickRandomCheckboxByXPath("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='seatclass-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
             }
             catch (Exception exception)
             {

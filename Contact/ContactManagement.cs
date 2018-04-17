@@ -64,12 +64,13 @@ namespace Contact
                 _helper.SetRandomTextByName("password");
                 string Password = _helper.GetTextByName("password");
 
+                //GEÇİCİ
                 //Country Code için rastgele selection yapılır
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[1]/form/div[2]/div[2]/div/p-dropdown/div/label");
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[1]/form/div[2]/div[2]/div/p-dropdown/div/div[4]/div/ul/li[1]");
 
                 //Mobile Phone alanına random rakam girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='contact-crud--contact-form']/div/fieldset[1]/form/div[2]/div[3]/div/input", 10, 10);
+                _helper.SetRandomIntegerByName("MobilePhone", 10, 10);
 
                 //Mail alanına rastgele bir değer girilir
                 _helper.SetRandomEmailByName("email");

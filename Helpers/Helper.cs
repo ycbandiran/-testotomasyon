@@ -507,12 +507,27 @@ namespace Helpers
                 elements.ElementAt(index).Click();
             }
         }
-        public int ClickRandomCheckbox(string xpath1)
+        public int ClickRandomCheckboxByName(string name)
         {
             int randomIndex = random.Next(1);
             if (randomIndex == 1)
             {
-                ClickByXPath(xpath1);
+                ClickByName(name);
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+
+        }
+        public int ClickRandomCheckboxByXPath(string xpath)
+        {
+            int randomIndex = random.Next(1);
+            if (randomIndex == 1)
+            {
+                ClickByXPath(xpath);
                 return 1;
             }
             else

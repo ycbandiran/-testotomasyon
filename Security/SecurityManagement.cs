@@ -67,16 +67,13 @@ namespace Security
                 string allowedOrigin = _helper.GetTextByName("allowedOrigin");
 
                 //Refresh Token Life Time alanına rastgele bir int girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='client-crud--form']/div/div/form/fieldset[3]/div/div/div[2]/input", 10, 10);
+                _helper.SetRandomIntegerByName("refreshTokenLifeTime", 10, 10);
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='client-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal da OK tıklanır
                 _helper.ClickById("confirmok");
-
-                //Kaydedilen Venue name'i tutulur
-                //_helper.GetTextByPath("//*[@id='venue-crud-417;formtype=read--form']/div/div/form/fieldset[1]/div/div/div[1]/input");   
 
                 System.Threading.Thread.Sleep(5000);
 
@@ -109,13 +106,13 @@ namespace Security
                 _helper.SetRandomTextByName("lastname");
 
                 //MobilePhone alanına rastgele bir int girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[1]/div[3]/div/input", 10, 10);
+                _helper.SetRandomIntegerByName("MobilePhone", 10, 10);
 
                 //User Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("username");
 
                 //Password alanına rastgele bir değer girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[2]/div[2]/div/input", 5, 8);
+                _helper.SetRandomIntegerByName("password", 5, 8);
 
                 //Random Email girilir
                 _helper.SetRandomEmailByName("email");
@@ -132,15 +129,13 @@ namespace Security
                 _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
+                //TERMINAL RIGHTS BOLUMU YAPILACAK (ADD TERMINAL RIGHTS BUTONU HTML DE NAME VERILDI)!!!!!!!
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal da OK tıklanır
                 _helper.ClickById("confirmok");
-
-                //Kaydedilen Venue name'i tutulur
-                //_helper.GetTextByPath("//*[@id='venue-crud-417;formtype=read--form']/div/div/form/fieldset[1]/div/div/div[1]/input");   
 
                 System.Threading.Thread.Sleep(5000);
 
@@ -169,16 +164,16 @@ namespace Security
                 _helper.SetRandomTextByName("name");
 
                 //Description alanına rastgele bir text girilir
-                _helper.SetRandomTextByXPath("//*[@id='scrole-crud--role-form']/div/fieldset/form/div[2]/div/textarea");
+                _helper.SetRandomTextByName("description");
 
                 //Rastgele yüzde girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='scrole-crud--role-form']/div/div[2]/fieldset/tabset/div/tab[1]/div[1]/input", 1, 100);
+                _helper.SetRandomIntegerByName("filterBackOfficeTxt", 1, 100);
 
                 //Business Rights butonuna tıklar
                 _helper.ClickByXPath("//*[@id='tabControl']/li[2]/a");
 
                 //Rastgele yüzde girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='scrole-crud--role-form']/div/div[2]/fieldset/tabset/div/tab[2]/div/div/input", 1, 100);
+                _helper.SetRandomIntegerByName("filterBusinessTxt", 1, 100);
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='scrole-crud--role-form']/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -335,7 +330,7 @@ namespace Security
                 _helper.SetRandomTextByName("name");
 
                 //Entry Point Description alanına rastgele bir text girilir
-                _helper.SetRandomTextByXPath("//*[@id='entrypoint-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
+                _helper.SetRandomTextByName("description");
 
                 //Entity Point seçimi yapılır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[1]/lookup-button/div/div/div/button");
@@ -347,7 +342,7 @@ namespace Security
                 _helper.SetRandomTextByName("entryPointDetailProxyDescription");
 
                 //Order no alanına rastgele int girilir
-                _helper.SetRandomIntegerByXpath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[3]/input", 100, 1000);
+                _helper.SetRandomIntegerByName("entryPointDetailOrderNo", 100, 1000);
 
                 //Add butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[4]/div/button");
