@@ -44,7 +44,7 @@ namespace Booking
             try
             {
                 //Booking Action Type Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingactiontype/list");
+                _helper.GoToUrl("http://localhost:4200/bookingactiontype/list");
                 _helper.WaitUntilPageLoad();
 
                 //Add new butonuna tıklanır
@@ -75,7 +75,7 @@ namespace Booking
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Add to Row butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[3]/button");
+                _helper.ClickByName("AddToRowButton1");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

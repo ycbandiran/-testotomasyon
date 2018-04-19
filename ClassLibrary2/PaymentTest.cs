@@ -245,7 +245,7 @@ namespace Payment
                 _helper.ClickByXPath("//*[@id='paymentplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[3]/a");
 
                 //Payment Plan sayfasında add new butonu tıklanır
-                _helper.ClickByXPath("//*[@id='paymentplanbinnumbergrid']/div[2]/input[1]");
+                _helper.ClickByName("AddNewButton");
 
                 //Bin Number Group seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[1]/button");
@@ -270,7 +270,7 @@ namespace Payment
                 _helper.SetRandomIntegerByXpath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[2]/div/div/div/div/div[2]/div[3]/input", 5, 50);
 
                 //Submit butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[4]/button");
+                _helper.ClickByName("SubmitButton");
 
                 System.Threading.Thread.Sleep(3000);
 

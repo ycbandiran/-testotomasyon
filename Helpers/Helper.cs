@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 
 namespace Helpers
 {
@@ -20,8 +20,6 @@ namespace Helpers
         public IWebDriver _driver;
         public IWait<IWebDriver> _task;
         public Random random;
-        //public SqlConnection connection;
-
 
         public Helper(IWebDriver driver, IWait<IWebDriver> task, string username, string password)
         {
@@ -32,7 +30,7 @@ namespace Helpers
 
             try
             {
-                GoToUrl("http://testbackoffice.netasticketing.com");
+                GoToUrl("http://localhost:4200");
                 SetTextByName("username", username);
                 SetTextByName("password", password);
                 ClickByXPath("//*[@id='content']/div/div/div/form/footer/button");
@@ -79,7 +77,9 @@ namespace Helpers
             });
         }
 
+        public void asdasfasf(bool asda) {
 
+        }
 
         // path adresine git
         public void GoToUrl(string path)
@@ -351,7 +351,7 @@ namespace Helpers
             int randomIndex = random.Next(length);
             IsVisibleByXPath(xpath);
             elements.ElementAt(randomIndex).Click();
-        }
+        }        
 
         //Listeden ilk elemanın seçilmesini sağlayan fonksiyon.
 
@@ -368,7 +368,6 @@ namespace Helpers
                 ClickByXPath(xpath2);
                 return 2;
             }
-
 
         }
 
@@ -402,7 +401,7 @@ namespace Helpers
         // name değeri verilen HTML elementine tıklar
         public void ClickByName(string name)
         {
-            IsClickableByXPath(name);
+            IsClickableByName(name);
             _driver.FindElement(By.Name(name)).Click();
         }
 

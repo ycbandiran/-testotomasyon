@@ -55,12 +55,13 @@ namespace Inventory
             _helper.GiveInfo("Inventory modül testi başladı.");
         }
 
+
         public void CategoryManagement()
         {
             _helper.GivePassInfo("Catagory modül testi başladı.");
 
             try
-            {
+            {               
                 //Catagory Management sayfasına git           
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/category/list");
                 
@@ -68,8 +69,8 @@ namespace Inventory
                 _helper.ClickByXPath("//*[@id='category-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
                 // Name alanına rastgele değer gir
-                _helper.SetRandomTextByName("name");
-
+                _helper.SetRandomTextByName("namez");
+                
                 //Oluşturulan channel name i tutulur
                 CatagoryName = _helper.GetTextByName("name");
 
@@ -127,13 +128,13 @@ namespace Inventory
                 _helper.ErrorLogging(exception);
             }
         }
-        
+
         public void ChannelGroupManagement()
         {
             _helper.GivePassInfo("Channel Group modül testi başladı.");
-
+            
             try
-            {
+            {                               
                 //Channel Group Management sayfasına git           
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/channelgroup/list");
                 
@@ -147,7 +148,7 @@ namespace Inventory
                 ChannelGroupName = _helper.GetTextByName("name");
 
                 //Add Channel butonuna tıkla
-                _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
+                _helper.ClickByName("AddChannelButton");
 
                 //Channel seçimi yapılır
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
@@ -355,13 +356,13 @@ namespace Inventory
 
                 System.Threading.Thread.Sleep(2000);
 
-                //Rastgele Priority seç(GEÇİCİ)
-                _helper.SelectRandomDropdownElementByName("refValidationIntegrationID");
-                System.Threading.Thread.Sleep(2000);
-
                 //BURADAN SONRASINDA PATHLERİN HER REFRESH DEN SONRA DEĞİŞMESİNDEN DOLAYI SORUN ÇIKIYOR XPATH LER YERİNE NAME LER GELDİKTEN SONRA YORUM KALDIRILACAK!!!!!!!!
 
                 /*
+                //Rastgele Priority seç(GEÇİCİ)
+                _helper.SelectRandomDropdownElementByName("refValidationIntegrationID");
+                System.Threading.Thread.Sleep(2000);
+               
                 //Channel seçimi yapılır(GEÇİCİ)            
                 _helper.ClickByXPath("//*[@id='salesplan-crud-341--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(3000);
@@ -388,7 +389,7 @@ namespace Inventory
                 _helper.SetRandomIntegerByName("totalSeatCount", 10, 100);
 
                 //İnsert Butonuna basar
-                _helper.ClickByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[3]/div/div[3]/input");
+                _helper.ClickByName("InsertButton");
 
                 //Save butonuna tıklar
                 _helper.ClickByXPath("//*[@id='salesplan-crud-324--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

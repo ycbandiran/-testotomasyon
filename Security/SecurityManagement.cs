@@ -121,7 +121,7 @@ namespace Security
                 _helper.SetRandomFileByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[3]/div/div/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Add Role butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[2]/tabset/div/tab[1]/div/div[1]/button");
+                _helper.ClickByName("AddRoleButton");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -204,7 +204,7 @@ namespace Security
                 _helper.ClickByXPath("//*[@id='scapprovableuser-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
 
                 //Approve butonuna tıklar
-                _helper.ClickByXPath("//*[@id='scapprovableuser-list--default-widget']/div/div/div[2]/button");
+                _helper.ClickByName("AproveButton");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
@@ -247,7 +247,7 @@ namespace Security
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Add Organizer butonuna tıkla
-                _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
+                _helper.ClickByName("AddOrganizerButton");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -345,7 +345,7 @@ namespace Security
                 _helper.SetRandomIntegerByName("entryPointDetailOrderNo", 100, 1000);
 
                 //Add butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[4]/div/button");
+                _helper.ClickByName("AddButton1");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

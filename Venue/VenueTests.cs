@@ -446,7 +446,7 @@ namespace Venue
                 _helper.ClickByXPath("//*[@id='block-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[3]/a");
 
                 //Add new butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='blocklayoutgrid']/div[2]/input[1]");
+                _helper.ClickByName("AddNewButton");
 
                 //Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -535,8 +535,11 @@ namespace Venue
                 //Create butonu tıklanır
                 _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[2]/div/div/input");
 
-                //Save butonuna tıklanır
+                //Save Block Layout butonuna tıklar
                 _helper.ClickByXPath("//*[@id='blocklayoutseat']/input");
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='main']/block-crud/div[1]/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");

@@ -211,7 +211,7 @@ namespace EventMenu
                 _helper.SelectRandomDropdownElementByName("Font");
 
                 //Rastgele Format seçilir
-                _helper.ClickRandomCheckbox("//*[@id='tickettemplate-crud--']/div/div/p-dialog/div/div[2]/div/div[3]/div/div/div[1]/p-checkbox/div/div[2]");
+                _helper.ClickRandomCheckboxByXPath("//*[@id='tickettemplate-crud--']/div/div/p-dialog/div/div[2]/div/div[3]/div/div/div[1]/p-checkbox/div/div[2]");
 
                 //Text alanına random text girilir
                 _helper.SetRandomTextByName("Text");
@@ -620,11 +620,13 @@ namespace EventMenu
 
                 //Venue Template seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[2]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Serie seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -680,6 +682,7 @@ namespace EventMenu
 
                 //Sponsor seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[1]/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 

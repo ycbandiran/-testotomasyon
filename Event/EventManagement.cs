@@ -131,7 +131,7 @@ namespace Event
                 _helper.SetRandomFileByXpath("//*[@id='team-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
                 //Add Leauge butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
+                _helper.ClickByName("AddLeaugeButton");
                                           
                 System.Threading.Thread.Sleep(2000);
 
@@ -236,7 +236,7 @@ namespace Event
                 GenreName = _helper.GetTextByName("name");
 
                 //Add SubGenre butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/form/fieldset[2]/tabset/div/tab/div/div[1]/button");
+                _helper.ClickByName("AddSubGenreButton");
 
                 //Leauge seçimi yapılır(GEÇİCİ)
                 _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
@@ -437,7 +437,7 @@ namespace Event
                 _helper.WaitUntilPageLoad();
 
                 //Next butonu tıklanır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/input");
+                _helper.ClickByName("NextButton1");
 
                 System.Threading.Thread.Sleep(3000);
 
@@ -508,7 +508,7 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Next butonu tıklanır
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[4]/input[2]");
+                _helper.ClickByName("NextButton2");
 
                 System.Threading.Thread.Sleep(3000);
 
@@ -652,7 +652,7 @@ namespace Event
                 _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
                 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[5]/input");
+                _helper.ClickByName("NextButton1");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -696,7 +696,7 @@ namespace Event
                 _helper.WaitUntilPageLoad();
 
                 //Next butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[4]/input[2]");
+                _helper.ClickByName("NextButton2");
 
                 System.Threading.Thread.Sleep(2000);
 

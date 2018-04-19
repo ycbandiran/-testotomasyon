@@ -104,7 +104,7 @@ namespace Contact
                 _helper.SetRandomTextByName("txtAddressDetail");
 
                 //ADD butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[2]/div/button");               
+                _helper.ClickByXPath("AddButtonAddress");               
                 */
 
                 //Save butonu tıklanır

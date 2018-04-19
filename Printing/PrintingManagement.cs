@@ -102,7 +102,7 @@ namespace Printing
                 VariantConfigurationName = _helper.GetTextByName("name");
 
                 //Add New butonuna tıklar
-                _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
+                _helper.ClickByName("AddNewButton1");
 
                 //Variant seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
@@ -123,7 +123,7 @@ namespace Printing
                 _helper.SetRandomTextByName("Description");
 
                 //Add New butonuna tıklar
-                _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/button");
+                _helper.ClickByName("AddNewButton1");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -159,7 +159,7 @@ namespace Printing
                 SeatClassConfigurationName = _helper.GetTextByName("name");
 
                 //Add New butonuna tıklar
-                _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/fieldset/tabset/div/tab/div/div[1]/button");
+                _helper.ClickByName("AddNewButton1");
 
                 //Seat Class seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
@@ -171,7 +171,7 @@ namespace Printing
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Add New butonuna tıklar
-                _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/p-dialog/div/div[2]/button");
+                _helper.ClickByName("AddNewButton2");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

@@ -20,14 +20,15 @@ namespace AllModulesTesting
         {
             TestingWhole whole = new TestingWhole();
 
-            whole.Contacts();
-            whole.NationalID();
-            whole.CategoryManagement();
-            whole.ChannelManagement();
-            whole.ChannelGroupManagement();
-            whole.VariantManagement();
-            whole.PriorityManagement();
-            whole.ProductManagement();
+            /*  whole.Contacts();
+              whole.NationalID();
+              whole.CategoryManagement();
+              whole.ChannelManagement();
+              whole.ChannelGroupManagement();
+              whole.VariantManagement();
+              whole.PriorityManagement();
+              whole.ProductManagement();
+             */
             whole.SalesPlanManagement();
             whole.VenueManagement();
             whole.AreaManagement();
