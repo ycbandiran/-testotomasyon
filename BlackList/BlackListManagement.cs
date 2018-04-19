@@ -59,7 +59,7 @@ namespace BlackList
                  NationalIDName = _helper.GetTextByName("name");
                 
                 //Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                 DateTime StartDate = _helper.SetRandomDateTimeByName("startDate");
+                 DateTime StartDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
                 //Random Letter No girilir
@@ -70,7 +70,7 @@ namespace BlackList
                 
                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                  DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(StartDate);               
-                _helper.SetDateTimeByName("endDate", finishDate);
+                _helper.SetDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[3]/p-calendar/span/input", finishDate);
                 _helper.WaitUntilPageLoad();
 
                 //Country Code alanına rastgele 3 karakter girilir

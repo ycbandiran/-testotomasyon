@@ -78,15 +78,18 @@ namespace Contact
                 //National Id alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("nationalId", 7);
 
-                //GEÇİCİ YAPILAN SEÇİMLERDE İLERİKİ AŞAMADA CONTRY CODE GİBİ SEÇENEKLER NATİONAL ID Yİ ETKİLEYECEĞİ İÇİN İNDEKSE GÖRE CASE YAZILACAK.
+                //Bazı modellerin içi doldurulduğu zaman yorum açılacak.
 
+                /*
                 //Country için rastgele selection yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[1]/div/p-dropdown/div/label");
+                System.Threading.Thread.Sleep(1000);
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[1]/div/p-dropdown/div/div[4]/div/ul/li[2]");
 
                 //City için rastgele selection yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[2]/div/p-dropdown/div/label");
-                _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[2]/div/p-dropdown/div/div[4]/div/ul/li[4]");
+                System.Threading.Thread.Sleep(1000);
+                _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[2]/div/p-dropdown/div/div[4]/div/ul/li[5]");
 
                 //County için rastgele selection yapılır
                 //_helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[3]/div/p-dropdown/div/label");
@@ -94,13 +97,15 @@ namespace Contact
 
                 //Address Type için rastgele selection yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[4]/div/p-dropdown/div/label");
-                _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[4]/div/p-dropdown/div/div[4]/div/ul/li[3]");
+                System.Threading.Thread.Sleep(1000);
+                _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[1]/div[4]/div/p-dropdown/div/div[4]/div/ul/li[2]");
 
                 //Address Detail için random text girilir
                 _helper.SetRandomTextByName("txtAddressDetail");
 
                 //ADD butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/fieldset[2]/tabset/div/tab[1]/form[2]/div/button");               
+                */
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='contact-crud--contact-form']/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

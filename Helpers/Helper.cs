@@ -97,7 +97,7 @@ namespace Helpers
         //Date i string döndürür
         public string DateTimeToString(DateTime date)
         {
-            return date.ToString(@"MM\/dd\/yyyy HH:mm");
+            return date.ToString(@"dd\/MM\/yyyy HH:mm");
         }
 
         // Rastgele metin döndürür
@@ -287,11 +287,11 @@ namespace Helpers
         }
 
         //Xpath e göre rastgele bir tarih girer
-        public DateTime SetRandomDateTimeByName(string name)
+        public DateTime SetRandomDateTimeByXPath(string xpath)
         {
             DateTime randomDate = GetRandomDateTime();
-            _driver.FindElement(By.Name(name)).Clear();         
-            _driver.FindElement(By.Name(name)).SendKeys(DateTimeToString(randomDate));
+            _driver.FindElement(By.XPath(xpath)).Clear();         
+            _driver.FindElement(By.XPath(xpath)).SendKeys(DateTimeToString(randomDate));
             return randomDate;
         }
 
@@ -302,11 +302,11 @@ namespace Helpers
         }
 
         // xpath değerine sahip elemente date ile belirtilen tarihi girer
-        public void SetDateTimeByName(string name, DateTime date)
+        public void SetDateTimeByXPath(string xpath, DateTime date)
         {
             string dateTimeString = DateTimeToString(date);
-            _driver.FindElement(By.Name(name)).Clear();
-            _driver.FindElement(By.Name(name)).SendKeys(dateTimeString);
+            _driver.FindElement(By.XPath(xpath)).Clear();
+            _driver.FindElement(By.XPath(xpath)).SendKeys(dateTimeString);
         }
 
         // input tipi file olan alana rastgele bir dosya yerleştir

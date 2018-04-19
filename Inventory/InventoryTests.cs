@@ -152,9 +152,10 @@ namespace Inventory
                 //Channel seçimi yapılır
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + ChannelName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a/span[2]");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıkla
@@ -358,11 +359,13 @@ namespace Inventory
                 _helper.SelectRandomDropdownElementByName("refValidationIntegrationID");
                 System.Threading.Thread.Sleep(2000);
 
+                //BURADAN SONRASINDA PATHLERİN HER REFRESH DEN SONRA DEĞİŞMESİNDEN DOLAYI SORUN ÇIKIYOR XPATH LER YERİNE NAME LER GELDİKTEN SONRA YORUM KALDIRILACAK!!!!!!!!
 
+                /*
                 //Channel seçimi yapılır(GEÇİCİ)            
-                _helper.ClickByName("//*[@id='salesplan-crud-326--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='salesplan-crud-341--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(3000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + ChannelName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
@@ -370,16 +373,14 @@ namespace Inventory
 
                 //Rastgele Limit koyar
                 _helper.SetRandomIntegerByName("ticketLimit", 10, 100);
-
-                
+               
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDating = _helper.SetRandomDateTimeByName("startDate");
+                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='salesplan-crud-341--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                _helper.ClickByXPath("//*[@id='salesplan-crud-294--form']/div/div/form/fieldset/div[2]/div/div[2]/p-calendar/span/input");
-                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDating);
-                _helper.SetDateTimeByName("endDate", finishDate);
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
+                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
                 _helper.WaitUntilPageLoad();
                 
 
@@ -396,7 +397,7 @@ namespace Inventory
                 _helper.ClickById("confirmok");
 
                 System.Threading.Thread.Sleep(5000);
-
+                */
             }
             catch (Exception exception)
             {

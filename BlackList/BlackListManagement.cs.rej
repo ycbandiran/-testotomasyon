@@ -1,0 +1,9 @@
+diff a/BlackList/BlackListManagement.cs b/BlackList/BlackListManagement.cs	(rejected hunks)
+@@ -70,6 +70,7 @@
+                 
+                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
+                  DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(StartDate);               
++                _helper.SetDateTimeByName("endDate", finishDate);
+                 _helper.WaitUntilPageLoad();
+ 
+                 //Country Code alanına rastgele 3 karakter girilir

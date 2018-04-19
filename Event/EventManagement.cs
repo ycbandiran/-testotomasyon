@@ -137,7 +137,7 @@ namespace Event
 
                 //Leauge seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + LeaugeName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
@@ -239,7 +239,7 @@ namespace Event
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/form/fieldset[2]/tabset/div/tab/div/div[1]/button");
 
                 //Leauge seçimi yapılır(GEÇİCİ)
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + LeaugeName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
@@ -428,12 +428,12 @@ namespace Event
 
                 
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDating = _helper.SetRandomDateTimeByName("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[2]/p-calendar/span/input");
+                DateTime startDating = _helper.SetRandomDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[2]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDating);
-                _helper.SetDateTimeByName("startDate", finishDate);
+                _helper.SetDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[3]/p-calendar/span/input", finishDate);
                 _helper.WaitUntilPageLoad();
 
                 //Next butonu tıklanır
@@ -635,15 +635,16 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[3]/button[1]");
                 
                 // Başlangıç tarihini belirler
-                DateTime startDate3 = _helper.SetRandomDateTimeByName("startDate");
+                DateTime startDate3 = _helper.SetRandomDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[3]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate3 = _helper.SetRandomDateTimeAfterThisDateTime(startDate3);
                 System.Threading.Thread.Sleep(2000);
-                _helper.SetDateTimeByName("endDate", finishDate3);
+                _helper.SetDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[3]/p-calendar/span/input", finishDate3);
                 _helper.WaitUntilPageLoad();
                 
+
                 //Home Team Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
 
@@ -691,7 +692,7 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[3]/button[1]");
                 
                 //Door Opening time seçilir
-                DateTime startDate4 = _helper.SetRandomDateTimeByName("doorOpeningTime");
+                DateTime startDate4 = _helper.SetRandomDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[3]/p-calendar/span/input");               
                 _helper.WaitUntilPageLoad();
 
                 //Next butonuna tıklanır
@@ -789,7 +790,7 @@ namespace Event
                 _helper.SetRandomTextByName("detailPageDescription");
 
                 //Free Passcard Count
-                _helper.SetRandomIntegerByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[6]/div/div/div/input", 1, 50);
+                _helper.SetRandomIntegerByName("freePasscardCount", 1, 50);
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id'event-crud-1442--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

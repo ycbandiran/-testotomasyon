@@ -1,0 +1,9 @@
+diff a/AC/ACManagement.cs b/AC/ACManagement.cs	(rejected hunks)
+@@ -176,6 +176,7 @@
+                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                 
+                 //Request tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
++                DateTime startDate = _helper.SetRandomDateTimeByName("requestTime");
+                 _helper.WaitUntilPageLoad();
+ 
+                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir

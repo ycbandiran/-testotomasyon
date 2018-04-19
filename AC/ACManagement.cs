@@ -120,7 +120,7 @@ namespace AC
                 //Event Access Control Setting seçimi yapılır
                 _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/form/fieldset/div[1]/div/div[3]/lookup-button/div/div/div/button");
                 //System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + ACSettingName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000); 
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
@@ -169,19 +169,19 @@ namespace AC
                 //Telegram Queue seçimi yapılır
                 _helper.ClickByXPath("//*[@id='telegram-crud--form']/div/div/form/fieldset/div[1]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + TelegramQueueName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(TelegramQueueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
                 
                 //Request tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByName("requestTime");
+                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='telegram-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
-                //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
+                // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                _helper.SetDateTimeByName("responseTime", finishDate);
+                _helper.SetDateTimeByXPath("//*[@id='telegram-crud--form']/div/div/form/fieldset/div[1]/div/div[3]/p-calendar/span/input", finishDate);
                 _helper.WaitUntilPageLoad();
                 
                 //Random State seçimi yapılır
@@ -196,6 +196,7 @@ namespace AC
                 //Fail Reason alanına random değer girilir
                 _helper.SetRandomTextByName("failReason");
 
+                //GEÇİCİ OLARAK KALACAK
                 /*
                 //Bin number alanına random int girilir.
                 _helper.SetRandomIntegerByXpath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[2]/input", 1, 5);
@@ -210,7 +211,6 @@ namespace AC
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
                 */
                 
-
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='telegram-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 

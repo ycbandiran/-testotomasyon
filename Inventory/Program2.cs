@@ -26,7 +26,7 @@ namespace Inventory
             inventoryTests.VariantManagement();
             inventoryTests.PriorityManagement();
             inventoryTests.ProductManagement();            
-            inventoryTests.SalesPlanManagement();
+            //inventoryTests.SalesPlanManagement();
         }        
     }
 }

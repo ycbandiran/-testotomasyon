@@ -164,7 +164,7 @@ namespace Security
                 _helper.SetRandomTextByName("name");
 
                 //Description alanına rastgele bir text girilir
-                _helper.SetRandomTextByName("description");
+                _helper.SetRandomTextByXPath("//*[@id='scrole-crud--role-form']/div/fieldset/form/div[2]/div/textarea");
 
                 //Rastgele yüzde girilir
                 _helper.SetRandomIntegerByName("filterBackOfficeTxt", 1, 100);
@@ -330,7 +330,7 @@ namespace Security
                 _helper.SetRandomTextByName("name");
 
                 //Entry Point Description alanına rastgele bir text girilir
-                _helper.SetRandomTextByName("description");
+                _helper.SetRandomTextByXPath("//*[@id='entrypoint-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Entity Point seçimi yapılır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[1]/lookup-button/div/div/div/button");

@@ -142,7 +142,7 @@ namespace Payment
                 //Payment Gateway seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='binnumbergroup-crud--form']/div/div/form/fieldset/div/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + PaymentGatewayName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(PaymentGatewayName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
@@ -187,7 +187,7 @@ namespace Payment
                 //Bin Number Goup seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys("" + BinNumberGroupName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(BinNumberGroupName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
@@ -236,7 +236,7 @@ namespace Payment
                 System.Threading.Thread.Sleep(5000);
 
                 //Yapılmış Payment Plan ı edit için bulur
-                _driver.FindElement(By.XPath("//*[@id='paymentplan-list--default-widget']/div/div/div[2]/input")).SendKeys("" + BinNumberGroupName);
+                _driver.FindElement(By.XPath("//*[@id='paymentplan-list--default-widget']/div/div/div[2]/input")).SendKeys(BinNumberGroupName);
                 _driver.FindElement(By.XPath("//*[@id='paymentplan-list--default-widget']/div/div/div[2]/input")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='paymentplan-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr");
@@ -249,7 +249,7 @@ namespace Payment
 
                 //Bin Number Group seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[1]/button");
-                _driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys("" + BinNumberGroupName);
+                _driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys(BinNumberGroupName);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[2]/div[2]/ul/li[1]");
 
@@ -271,6 +271,8 @@ namespace Payment
 
                 //Submit butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[4]/button");
+
+                System.Threading.Thread.Sleep(3000);
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

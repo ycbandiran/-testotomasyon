@@ -1034,7 +1034,7 @@ namespace AllModulesTesting
                 _helper.SelectRandomDropdownElementByName("seatSequentialType");
 
                 //Rastgele Ignore Gaps seçilir
-                _helper.ClickRandomCheckbox("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/form/div[4]/div[3]/div/input");
+                _helper.ClickRandomCheckboxByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/form/div[4]/div[3]/div/input");
 
                 //Row Naming için rastgele selection yapılır
                 _helper.SelectRandomDropdownElementByName("rowNameTypeId");
@@ -1046,7 +1046,7 @@ namespace AllModulesTesting
                 _helper.SetRandomTextByName("freeTextField");
 
                 //Rastgele Top to Bottom Row Naming seçilir
-                _helper.ClickRandomCheckbox("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/form/div[6]/div/div/input");
+                _helper.ClickRandomCheckboxByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/form/div[6]/div/div/input");
 
                 //Gate seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[1]/div[1]/div[1]/div/lookup-button/div/div/div/button");
@@ -1116,7 +1116,7 @@ namespace AllModulesTesting
                 _helper.SelectRandomDropdownElementByName("SeatClassType");
 
                 //Rastgele Visibility seçilir
-                _helper.ClickRandomCheckbox("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
+                _helper.ClickRandomCheckboxByXPath("//*[@id='seatclass-crud--form']/div/div/form/fieldset/div[2]/div/div/p-checkbox/div/div[2]");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclass-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

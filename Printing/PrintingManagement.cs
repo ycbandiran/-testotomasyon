@@ -54,6 +54,8 @@ namespace Printing
                 //Ticket Template Management butonuna tıklanır 
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/tickettemplate/list");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='tickettemplate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
