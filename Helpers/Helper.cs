@@ -75,11 +75,7 @@ namespace Helpers
             {
                 return (bool)((RemoteWebDriver)_driver).ExecuteScript("return document.readyState").Equals("complete");
             });
-        }
-
-        public void asdasfasf(bool asda) {
-
-        }
+        }          
 
         // path adresine git
         public void GoToUrl(string path)

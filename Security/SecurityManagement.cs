@@ -85,7 +85,6 @@ namespace Security
             }
         }
 
-
         public void Users()
         {
             _helper.GivePassInfo("Users modül testi başladı.");
@@ -146,7 +145,6 @@ namespace Security
                 _helper.ErrorLogging(exception);
             }
         }
-
 
         public void Roles()
         {

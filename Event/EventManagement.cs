@@ -66,9 +66,8 @@ namespace Event
             _helper.GiveInfo("Event modül testi başladı.");
            
         }
-
-
-       
+  
+        
         public void LeaugeManagement()
         {
             _helper.GivePassInfo("Leauge modül testi başladı.");
@@ -77,6 +76,7 @@ namespace Event
             {
                 //Leauge Management butonuna tıkla
                 _helper.GoToUrl("http://testbackoffice.netasticketing.com/league/list");
+                _helper.WaitUntilPageLoad();
 
                 //Leauge Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='league-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -137,8 +137,10 @@ namespace Event
 
                 //Leauge seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıklanır
@@ -239,8 +241,10 @@ namespace Event
                 _helper.ClickByName("AddSubGenreButton");
 
                 //Leauge seçimi yapılır(GEÇİCİ)
+                System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='genre-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
@@ -354,7 +358,7 @@ namespace Event
                 EventGroupName = _helper.GetTextByName("name");
 
                 //Description alanına random text girilir
-                _helper.SetRandomTextByName("description");
+                _helper.SetRandomTextByXPath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Random Image seçilir
                 _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
@@ -425,7 +429,6 @@ namespace Event
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
-
                 
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
                 DateTime startDating = _helper.SetRandomDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[2]/p-calendar/span/input");

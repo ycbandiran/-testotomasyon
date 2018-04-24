@@ -365,7 +365,7 @@ namespace Venue
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='venuetemplate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
 
-                //Name alanına random değer girilir
+                //Name eklenir
                 _helper.SetRandomTextByName("name");
                 VenueTemplateName = _helper.GetTextByName("name");
 
@@ -496,7 +496,7 @@ namespace Venue
                 //Increment Type için rastgele selection yapılır
                 _helper.SelectRandomDropdownElementByName("seatSequentialType");
 
-                //Rastgele Ignore Gaps seçilir
+                //Rastgele Ignore Gaps seçilir ya da seçilmez
                 _helper.ClickRandomCheckboxByName("ignoreGaps");
                                            
                 //Row Naming için rastgele selection yapılır
@@ -534,6 +534,43 @@ namespace Venue
 
                 //Create butonu tıklanır
                 _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[2]/div/div/input");
+
+                System.Threading.Thread.Sleep(4000);
+
+                //OLUŞTURULAN KOLTUKLARI SEÇİP SEATTYPE ATAR
+
+                IWebElement From = _driver.FindElement(By.XPath("//*[@id='block-seat-container']/div[1]/div[1]"));
+                IWebElement To = _driver.FindElement(By.XPath("//*[@id='block-seat-container']/div[10]/div[10]"));		
+                Actions act = new Actions(_driver);		
+                act.DragAndDrop(From, To).Build().Perform();
+
+                System.Threading.Thread.Sleep(3000);
+
+                //SeatType Seçilir
+                _helper.SelectRandomDropdownElementByName("selectedSeatType");
+
+                //Gate seçimi yapılır
+                _helper.ClickByXPath("/html/body/div[12]/div[2]/div[2]/div/div[1]/div[1]/div/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys(GateName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
+                _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Turnstile seçimi yapılır
+                _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[1]/div[1]/div[2]/div/lookup-button/div/div/div/button");
+                System.Threading.Thread.Sleep(2000);
+                _driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
+                _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Save butonuna tıklanır
+                _helper.ClickByName("SaveButton12");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Save Block Layout butonuna tıklar
                 _helper.ClickByXPath("//*[@id='blocklayoutseat']/input");

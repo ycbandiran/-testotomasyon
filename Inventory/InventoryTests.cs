@@ -69,7 +69,7 @@ namespace Inventory
                 _helper.ClickByXPath("//*[@id='category-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
                 // Name alanına rastgele değer gir
-                _helper.SetRandomTextByName("namez");
+                _helper.SetRandomTextByName("name");
                 
                 //Oluşturulan channel name i tutulur
                 CatagoryName = _helper.GetTextByName("name");

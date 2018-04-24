@@ -6,6 +6,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -36,20 +37,20 @@ namespace QuickVenue
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
             _helper.GiveInfo("Venue modül testi başladı.");
-
+                       
         }
 
         public void VenueCreate1()
         {
             try
-            {
+            {               
                 //Venue Create Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/quickvenue/crud");
+                _helper.GoToUrl("http://localhost:4200/quickvenue/crud");
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
                 string venuename = _helper.GetTextByName("name");
-
+                
                 //Code alanına rastgele 3 karakter girilir
                 _helper.SetLimitedRandomStringByName("code", 3);
 

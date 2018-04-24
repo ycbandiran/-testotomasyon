@@ -82,7 +82,6 @@ namespace Printing
             }
         }
 
-
         public void VariantConfigurationManagement()
         {
             _helper.GivePassInfo("Variant Configuration modül testi başladı.");
