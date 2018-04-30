@@ -42,7 +42,7 @@ namespace FormApp
             TestingWhole whole = new TestingWhole();
 
             whole.Contacts();
-            whole.NationalID();
+            whole.NationalIDManagement();
             whole.CategoryManagement();
             whole.ChannelManagement();
             whole.ChannelGroupManagement();

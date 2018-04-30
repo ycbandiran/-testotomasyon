@@ -97,7 +97,7 @@ namespace QuickVenue
                 _helper.SetTextByName("longitude", _helper.GetRandomLatitude());
 
                 //Rastgele Logo Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='quickvenue-crud--form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[6]/div[1]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='quickvenue-crud--form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[6]/div[1]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //3. FAZDA YAPILACAK!!
                 /*

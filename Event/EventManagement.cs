@@ -75,7 +75,7 @@ namespace Event
             try
             {
                 //Leauge Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/league/list");
+                _helper.GoToUrl("http://localhost:4200/league/list");
                 _helper.WaitUntilPageLoad();
 
                 //Leauge Management sayfasında add new butonu tıklanır
@@ -88,7 +88,7 @@ namespace Event
                 LeaugeName = _helper.GetTextByName("name");
 
                 //Random Leauge Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='league-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='league-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='league-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -113,7 +113,7 @@ namespace Event
             try
             {
                 //Team Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/team/list");
+                _helper.GoToUrl("http://localhost:4200/team/list");
 
                 //Team Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='team-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -128,7 +128,7 @@ namespace Event
                 _helper.SetLimitedRandomStringByName("code", 3);
 
                 //View From Field Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='team-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='team-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Add Leauge butonuna tıklanır
                 _helper.ClickByName("AddLeaugeButton");
@@ -166,7 +166,7 @@ namespace Event
             try
             {
                 // Organizer Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/organizer/list");
+                _helper.GoToUrl("http://localhost:4200/organizer/list");
 
                 //Organizer Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='organizer-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -193,7 +193,7 @@ namespace Event
                 _helper.SetRandomIntegerByName("Number", 1000, 10000);
 
                 //View From Field Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='organizer-crud--form']/div/div/form/fieldset[3]/div/div/div/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='organizer-crud--form']/div/div/form/fieldset[3]/div/div/div/file-upload/div/input", @"C:\Images\");
 
                 /*
                 //Add Terminal butonuna tıklanır
@@ -226,7 +226,7 @@ namespace Event
             try
             {
                 //Genre Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/genre/list");
+                _helper.GoToUrl("http://localhost:4200/genre/list");
 
                 //Genre Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='genre-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -271,7 +271,7 @@ namespace Event
             try
             {
                 // VenueTemplate Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/subgenre/list");
+                _helper.GoToUrl("http://localhost:4200/subgenre/list");
 
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='subgenre-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -309,7 +309,7 @@ namespace Event
             {
 
                 // Sponsor Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/sponsor/list");
+                _helper.GoToUrl("http://localhost:4200/sponsor/list");
 
                 //Sponsor Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='sponsor-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -321,7 +321,7 @@ namespace Event
                 SponsorName = _helper.GetTextByName("name");
 
                 //View From Field random Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='sponsor-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='sponsor-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklar
                 _helper.ClickByXPath("//*[@id='sponsor-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -346,7 +346,7 @@ namespace Event
             try
             {
                 //Event Group Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/eventgroup/list");
+                _helper.GoToUrl("http://localhost:4200/eventgroup/list");
 
                 //Event Group Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -361,7 +361,7 @@ namespace Event
                 _helper.SetRandomTextByXPath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Random Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -386,7 +386,7 @@ namespace Event
             try
             {
                 //Serie Management Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/serie/list");
+                _helper.GoToUrl("http://localhost:4200/serie/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='serie-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -422,7 +422,7 @@ namespace Event
                 _helper.SelectRandomDropdownElementByName("refSubGenreID");
 
                 //Rastgele Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //TicketType seçimi yapılır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[1]/lookup-button/div/div/div/button");
@@ -481,7 +481,7 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
                              
                 //League Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Venue Template seçimi yapılır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[1]/lookup-button/div/div/div/button");
@@ -552,10 +552,10 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[18]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Description alanını doldurur
                 _helper.SetRandomTextByName("detailPageDescription");
@@ -587,7 +587,7 @@ namespace Event
             try
             {
                 // Event Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
+                _helper.GoToUrl("http://localhost:4200/event/list");
 
                 //Event Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='event-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -649,10 +649,10 @@ namespace Event
                 
 
                 //Home Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Away Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"C:\Images\");
                 
                 //Next butonuna tıklanır
                 _helper.ClickByName("NextButton1");
@@ -784,10 +784,10 @@ namespace Event
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Description 
                 _helper.SetRandomTextByName("detailPageDescription");
@@ -796,7 +796,7 @@ namespace Event
                 _helper.SetRandomIntegerByName("freePasscardCount", 1, 50);
 
                 //Save butonu tıklanır
-                _helper.ClickByXPath("//*[@id'event-crud-1442--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");

@@ -45,7 +45,7 @@ namespace BlackList
             try
             {
                 //NationalID Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/nationalidprobation/list");
+                _helper.GoToUrl("http://localhost:4200/nationalidprobation/list");
                 System.Threading.Thread.Sleep(2000);
 
                 //Add new butonuna tıklanır
@@ -80,7 +80,7 @@ namespace BlackList
                 _helper.SelectRandomCheckboxesByName("status");
 
                 //Probation Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[3]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[3]/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

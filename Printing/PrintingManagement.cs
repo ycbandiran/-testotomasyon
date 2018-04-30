@@ -52,7 +52,7 @@ namespace Printing
             try
             {
                 //Ticket Template Management butonuna tıklanır 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tickettemplate/list");
+                _helper.GoToUrl("http://localhost:4200/tickettemplate/list");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -64,7 +64,7 @@ namespace Printing
                 TicketTemplateName = _helper.GetTextByName("name");
 
                 //Rastgele Backround Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='tickettemplate-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='tickettemplate-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='tickettemplate-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -89,7 +89,7 @@ namespace Printing
             try
             {
                 // Variant Configuration Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variantconfiguration/list");
+                _helper.GoToUrl("http://localhost:4200/variantconfiguration/list");
 
                 //Variant Configuration Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -113,7 +113,7 @@ namespace Printing
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Rastgele Variants Logo seçilir
-                _helper.SetRandomFileByXpath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[3]/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[3]/div/input", @"C:\Images\");
 
                 // Display Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("DisplayName");
@@ -122,7 +122,7 @@ namespace Printing
                 _helper.SetRandomTextByName("Description");
 
                 //Add New butonuna tıklar
-                _helper.ClickByName("AddNewButton1");
+                _helper.ClickByName("AddNewButton2");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -146,7 +146,7 @@ namespace Printing
             try
             {
                 // Seat Class Conf. Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclassconfiguration/list");
+                _helper.GoToUrl("http://localhost:4200/seatclassconfiguration/list");
 
                 //Seat Class Conf. Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -195,7 +195,7 @@ namespace Printing
             try
             {
                 // Printer Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/printer/list");
+                _helper.GoToUrl("http://localhost:4200/printer/list");
 
                 //Printer Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='printer-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");

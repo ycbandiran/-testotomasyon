@@ -121,7 +121,7 @@ namespace AllModulesTesting
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--start-maximized");
             _driver = new ChromeDriver(options);
-            _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
+            _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(70));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
             _helper.GiveInfo("Venue modül testi başladı.");
@@ -137,7 +137,7 @@ namespace AllModulesTesting
             try
             {
                 //Contact Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/contact/list");
+                _helper.GoToUrl("http://localhost:4200/contact/list");
                 System.Threading.Thread.Sleep(3000);
 
                 //Add new butonuna tıklanır
@@ -227,7 +227,7 @@ namespace AllModulesTesting
             try
             {
                 //NationalID Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/nationalidprobation/list");
+                _helper.GoToUrl("http://localhost:4200/nationalidprobation/list");
                 System.Threading.Thread.Sleep(2000);
 
                 //Add new butonuna tıklanır
@@ -262,7 +262,7 @@ namespace AllModulesTesting
                 _helper.SelectRandomCheckboxesByName("status");
 
                 //Probation Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[3]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[3]/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -289,7 +289,7 @@ namespace AllModulesTesting
             try
             {
                 //Catagory Management sayfasına git           
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/category/list");
+                _helper.GoToUrl("http://localhost:4200/category/list");
 
                 // Category Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='category-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -326,13 +326,13 @@ namespace AllModulesTesting
             try
             {
                 //Channel Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channel/list");
+                _helper.GoToUrl("http://localhost:4200/channel/list");
 
                 // Channel Management sayfasındaki Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channel-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
                 //Gelen Channel Form sayfasındaki Name alanına değer gir 
-                _helper.SetRandomTextByName("name");
+                _helper.SetRandomChannelTextByName("name");
 
                 //Oluşturulan channel name i tutulur
                 ChannelName = _helper.GetTextByName("name");
@@ -362,7 +362,7 @@ namespace AllModulesTesting
             try
             {
                 //Channel Group Management sayfasına git           
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channelgroup/list");
+                _helper.GoToUrl("http://localhost:4200/channelgroup/list");
 
                 // ChannelGroup Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channelgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -408,7 +408,7 @@ namespace AllModulesTesting
             try
             {
                 //Variant Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variant/list");
+                _helper.GoToUrl("http://localhost:4200/variant/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='variant-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -423,7 +423,7 @@ namespace AllModulesTesting
                 _helper.SetRandomTextByName("displayName");
 
                 // Rastgele bir resim yükle
-                _helper.SetRandomFileByXpath("//*[@id='variant-crud--form']/div/div/form/fieldset/div/div[1]/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='variant-crud--form']/div/div/form/fieldset/div/div[1]/div[3]/file-upload/div/input", @"C:\Images\");
 
                 // Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='variant-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -448,7 +448,7 @@ namespace AllModulesTesting
             try
             {
                 // Priority Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/priority/list");
+                _helper.GoToUrl("http://localhost:4200/priority/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -498,7 +498,7 @@ namespace AllModulesTesting
                 */
 
                 //Photo için bir resim seçilmesi                
-                _helper.SetRandomFileByXpath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[1]/file-upload/div/input", @"C:\Images\");
 
                 // Description alanına rastgele bir değer gir
                 _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[2]/div/textarea[2]");
@@ -528,7 +528,7 @@ namespace AllModulesTesting
             try
             {
                 // Product Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/product/list");
+                _helper.GoToUrl("http://localhost:4200/product/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='product-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -539,8 +539,8 @@ namespace AllModulesTesting
                 //Oluşturulan product name i tutulur
                 PriorityName = _helper.GetTextByName("name");
 
-                // Product Type alanında rastgele seçim yap
-                _helper.SelectRandomDropdownElementByName("refProductCategoryID");
+                // Product Type alanında rastgele seçim yap        SOURCE KOD GÜNCELLENENE KADAR YORUM AÇILMAYACAK
+                //_helper.SelectRandomDropdownElementByName("refProductCategoryID");
 
                 // Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='product-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -566,7 +566,7 @@ namespace AllModulesTesting
             try
             {
                 // Sales Plan Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/salesplan/crud");
+                _helper.GoToUrl("http://localhost:4200/salesplan/crud");
 
                 // name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -642,7 +642,7 @@ namespace AllModulesTesting
             try
             {
                 //Venue Management butonuna tıklanır 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/venue/list");
+                _helper.GoToUrl("http://localhost:4200/venue/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='venue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -715,13 +715,13 @@ namespace AllModulesTesting
                 _helper.SetTextByName("longitude", _helper.GetRandomLatitude());
 
                 //Logo için bir resim seçilmesi                
-                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Venue Image eklenir
-                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Panaromik Image eklenir
-                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='venue-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -746,7 +746,7 @@ namespace AllModulesTesting
             try
             {
                 // Area Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/area/list");
+                _helper.GoToUrl("http://localhost:4200/area/list");
 
                 //Area Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='area-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -791,7 +791,7 @@ namespace AllModulesTesting
             try
             {
                 // Gate Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/gate/list");
+                _helper.GoToUrl("http://localhost:4200/gate/list");
 
                 //Gate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='gate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[1]");
@@ -837,7 +837,7 @@ namespace AllModulesTesting
             try
             {
                 // Tribune Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tribune/list");
+                _helper.GoToUrl("http://localhost:4200/tribune/list");
 
                 //Tribune Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='tribune-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
@@ -892,7 +892,7 @@ namespace AllModulesTesting
             try
             {
                 // Turnstile Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/turnstile/list");
+                _helper.GoToUrl("http://localhost:4200/turnstile/list");
 
                 //Turnstile Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='turnstile-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -938,7 +938,7 @@ namespace AllModulesTesting
             try
             {
                 // VenueTemplate Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/venuetemplate/list");
+                _helper.GoToUrl("http://localhost:4200/venuetemplate/list");
 
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='venuetemplate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
@@ -982,7 +982,7 @@ namespace AllModulesTesting
             try
             {
                 // Block Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/block/list");
+                _helper.GoToUrl("http://localhost:4200/block/list");
 
                 //Block Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='block-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
@@ -999,7 +999,7 @@ namespace AllModulesTesting
                 _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıklanır
@@ -1015,7 +1015,7 @@ namespace AllModulesTesting
                 //EDIT BOLUMU:
 
                 //BLock Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/block/list");
+                _helper.GoToUrl("http://localhost:4200/block/list");
 
                 //Block List den event seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='block-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
@@ -1140,7 +1140,7 @@ namespace AllModulesTesting
             try
             {
                 // SeatClass Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
+                _helper.GoToUrl("http://localhost:4200/seatclass/list");
 
                 //SeatClass Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1186,7 +1186,7 @@ namespace AllModulesTesting
             try
             {
                 //Ticket Template Management butonuna tıklanır 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tickettemplate/list");
+                _helper.GoToUrl("http://localhost:4200/tickettemplate/list");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -1198,7 +1198,7 @@ namespace AllModulesTesting
                 TicketTemplateName = _helper.GetTextByName("name");
 
                 //Rastgele Backround Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='tickettemplate-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='tickettemplate-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonu tıklanır
                 _helper.ClickByXPath("//*[@id='tickettemplate-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -1223,7 +1223,7 @@ namespace AllModulesTesting
             try
             {
                 // Variant Configuration Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variantconfiguration/list");
+                _helper.GoToUrl("http://localhost:4200/variantconfiguration/list");
 
                 //Variant Configuration Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1240,14 +1240,14 @@ namespace AllModulesTesting
                 //Variant seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
-                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                 System.Threading.Thread.Sleep(2000);*/
+                _driver.FindElement(By.Name("searchText")).SendKeys(VariantName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Rastgele Variants Logo seçilir
-                _helper.SetRandomFileByXpath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[3]/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[3]/div/input", @"C:\Images\");
 
                 // Display Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("DisplayName");
@@ -1256,7 +1256,7 @@ namespace AllModulesTesting
                 _helper.SetRandomTextByName("Description");
 
                 //Add New butonuna tıklar
-                _helper.ClickByName("AddNewButton1");
+                _helper.ClickByName("AddNewButton2");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -1280,7 +1280,7 @@ namespace AllModulesTesting
             try
             {
                 // Seat Class Conf. Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclassconfiguration/list");
+                _helper.GoToUrl("http://localhost:4200/seatclassconfiguration/list");
 
                 //Seat Class Conf. Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1297,9 +1297,9 @@ namespace AllModulesTesting
                 //Seat Class seçimi yapılı(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.SeatClassName);
-                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                 System.Threading.Thread.Sleep(2000);*/
+                _driver.FindElement(By.Name("searchText")).SendKeys(SeatClassName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -1329,7 +1329,7 @@ namespace AllModulesTesting
             try
             {
                 // Printer Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/printer/list");
+                _helper.GoToUrl("http://localhost:4200/printer/list");
 
                 //Printer Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='printer-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1364,7 +1364,7 @@ namespace AllModulesTesting
             try
             {
                 //Leauge Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/league/list");
+                _helper.GoToUrl("http://localhost:4200/league/list");
                 _helper.WaitUntilPageLoad();
 
                 //Leauge Management sayfasında add new butonu tıklanır
@@ -1377,7 +1377,7 @@ namespace AllModulesTesting
                 LeaugeName = _helper.GetTextByName("name");
 
                 //Random Leauge Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='league-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='league-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='league-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -1402,7 +1402,7 @@ namespace AllModulesTesting
             try
             {
                 //Team Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/team/list");
+                _helper.GoToUrl("http://localhost:4200/team/list");
                 _helper.WaitUntilPageLoad();
 
                 //Team Management sayfasında add new butonu tıklanır
@@ -1418,7 +1418,7 @@ namespace AllModulesTesting
                 _helper.SetLimitedRandomStringByName("code", 3);
 
                 //View From Field Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='team-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='team-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Add Leauge butonuna tıklanır
                 _helper.ClickByName("AddLeaugeButton");
@@ -1456,7 +1456,7 @@ namespace AllModulesTesting
             try
             {
                 // Organizer Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/organizer/list");
+                _helper.GoToUrl("http://localhost:4200/organizer/list");
                 _helper.WaitUntilPageLoad();
 
                 //Organizer Management sayfasında add new butonu tıklanır
@@ -1484,7 +1484,7 @@ namespace AllModulesTesting
                 _helper.SetRandomIntegerByName("Number", 1000, 10000);
 
                 //View From Field Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='organizer-crud--form']/div/div/form/fieldset[3]/div/div/div/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='organizer-crud--form']/div/div/form/fieldset[3]/div/div/div/file-upload/div/input", @"C:\Images\");
 
                 /*
                 //Add Terminal butonuna tıklanır
@@ -1517,7 +1517,7 @@ namespace AllModulesTesting
             try
             {
                 //Genre Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/genre/list");
+                _helper.GoToUrl("http://localhost:4200/genre/list");
 
                 //Genre Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='genre-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1562,7 +1562,7 @@ namespace AllModulesTesting
             try
             {
                 // VenueTemplate Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/subgenre/list");
+                _helper.GoToUrl("http://localhost:4200/subgenre/list");
 
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='subgenre-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1600,7 +1600,7 @@ namespace AllModulesTesting
             {
 
                 // Sponsor Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/sponsor/list");
+                _helper.GoToUrl("http://localhost:4200/sponsor/list");
 
                 //Sponsor Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='sponsor-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1612,7 +1612,7 @@ namespace AllModulesTesting
                 SponsorName = _helper.GetTextByName("name");
 
                 //View From Field random Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='sponsor-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='sponsor-crud--form']/div/div/form/fieldset/div/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklar
                 _helper.ClickByXPath("//*[@id='sponsor-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -1636,7 +1636,7 @@ namespace AllModulesTesting
             try
             {
                 //Event Group Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/eventgroup/list");
+                _helper.GoToUrl("http://localhost:4200/eventgroup/list");
 
                 //Event Group Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1651,7 +1651,7 @@ namespace AllModulesTesting
                 _helper.SetRandomTextByXPath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Random Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -1676,7 +1676,7 @@ namespace AllModulesTesting
             try
             {
                 //Serie Management Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/serie/list");
+                _helper.GoToUrl("http://localhost:4200/serie/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='serie-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1711,7 +1711,7 @@ namespace AllModulesTesting
                 _helper.SelectRandomDropdownElementByName("refSubGenreID");
 
                 //Rastgele Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[2]/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //TicketType seçimi yapılır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[1]/lookup-button/div/div/div/button");
@@ -1766,7 +1766,7 @@ namespace AllModulesTesting
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
                                 
                 //League Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[2]/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Venue Template seçimi yapılır
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[2]/div[3]/div/div[1]/lookup-button/div/div/div/button");
@@ -1830,10 +1830,10 @@ namespace AllModulesTesting
                 _helper.ClickByXPath("/html/body/div[18]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Description alanını doldurur
                 _helper.SetRandomTextByName("detailPageDescription");
@@ -1860,7 +1860,7 @@ namespace AllModulesTesting
             try
             {
                 // Event Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
+                _helper.GoToUrl("http://localhost:4200/event/list");
 
                 //Event Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='event-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -1911,10 +1911,10 @@ namespace AllModulesTesting
                 DateTime startDate3 = _helper.SetRandomDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[3]/p-calendar/span/input");
                 
                 //Home Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Away Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"C:\Images\");
                 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate3 = _helper.SetRandomDateTimeAfterThisDateTime(startDate3);
@@ -2036,10 +2036,10 @@ namespace AllModulesTesting
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Description 
                 _helper.SetRandomTextByName("detailPageDescription");
@@ -2274,7 +2274,7 @@ namespace AllModulesTesting
             try
             {
                 //Booking Action Type Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingactiontype/list");
+                _helper.GoToUrl("http://localhost:4200/bookingactiontype/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -2331,7 +2331,7 @@ namespace AllModulesTesting
             try
             {
                 //AC Setting Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/accesscontrolsetting/list");
+                _helper.GoToUrl("http://localhost:4200/accesscontrolsetting/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='accesscontrolsetting-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -2377,7 +2377,7 @@ namespace AllModulesTesting
             try
             {
                 //Telegram Queue Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegramqueue/list");
+                _helper.GoToUrl("http://localhost:4200/telegramqueue/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Queue Management sayfasında add new butonu tıklanır
@@ -2437,7 +2437,7 @@ namespace AllModulesTesting
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegram/list");
+                _helper.GoToUrl("http://localhost:4200/telegram/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Management sayfasında add new butonu tıklanır
@@ -2512,7 +2512,7 @@ namespace AllModulesTesting
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/client/list");
+                _helper.GoToUrl("http://localhost:4200/client/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='client-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -2559,7 +2559,7 @@ namespace AllModulesTesting
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingoperator/list");
+                _helper.GoToUrl("http://localhost:4200/bookingoperator/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingoperator-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -2584,7 +2584,7 @@ namespace AllModulesTesting
                 _helper.SetRandomEmailByName("email");
 
                 //Operator Image alanına random resim eklenir
-                _helper.SetRandomFileByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[3]/div/div/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[3]/div/div/file-upload/div/input", @"C:\Images\");
 
                 //Add Role butonuna tıklanır
                 _helper.ClickByName("AddRoleButton");
@@ -2620,7 +2620,7 @@ namespace AllModulesTesting
             try
             {
                 //Roles Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scrole/list");
+                _helper.GoToUrl("http://localhost:4200/scrole/list");
 
                 //Roles sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='scrole-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -2663,7 +2663,7 @@ namespace AllModulesTesting
             try
             {
                 //ApprovableUsers url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scapprovableuser/list");
+                _helper.GoToUrl("http://localhost:4200/scapprovableuser/list");
 
                 //User seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='scapprovableuser-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
@@ -2691,7 +2691,7 @@ namespace AllModulesTesting
             try
             {
                 //Terminals url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/terminal/list");
+                _helper.GoToUrl("http://localhost:4200/terminal/list");
 
                 //Terminals sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='terminal-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -2703,7 +2703,7 @@ namespace AllModulesTesting
                 _helper.SetLimitedRandomStringByName("code", 3);
 
                 //Terminal Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Ticket Printer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
@@ -2785,7 +2785,7 @@ namespace AllModulesTesting
             try
             {
                 //Entry Point url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/entrypoint/list");
+                _helper.GoToUrl("http://localhost:4200/entrypoint/list");
 
                 //Entry Point sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");

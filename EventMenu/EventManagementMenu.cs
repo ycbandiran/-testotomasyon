@@ -65,7 +65,7 @@ namespace EventMenu
             try
             {
                 // Block Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/eventgroup/list");
+                _helper.GoToUrl("http://localhost:4200/eventgroup/list");
 
                 //Leauge Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -80,7 +80,7 @@ namespace EventMenu
                 _helper.SetRandomTextByName("detailPageDescription");
 
                 //Random Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='eventgroup-crud--form']/div/div/form/fieldset/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -103,7 +103,7 @@ namespace EventMenu
             try
             {
                 //Channel Group Management url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channelgroup/list");
+                _helper.GoToUrl("http://localhost:4200/channelgroup/list");
 
                 //Channel Group sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='channelgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -139,7 +139,7 @@ namespace EventMenu
             try
             {
                 //Sales Plan Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/salesplan/list");
+                _helper.GoToUrl("http://localhost:4200/salesplan/list");
 
                 //Sales Plan Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='salesplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -191,7 +191,7 @@ namespace EventMenu
             try
             {
                 //Genre Management butonuna tıkla
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tickettemplate/list");
+                _helper.GoToUrl("http://localhost:4200/tickettemplate/list");
 
                 //Ticket Template alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -240,7 +240,7 @@ namespace EventMenu
             try
             {
                 //Serie Management Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/serie/list");
+                _helper.GoToUrl("http://localhost:4200/serie/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='serie-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -252,7 +252,7 @@ namespace EventMenu
                 string SerieName = _helper.GetTextByName("name");
 
                 //Genre seçimi yapılır(GEÇİCİ)
-                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[1]/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
@@ -270,7 +270,7 @@ namespace EventMenu
                 _helper.SelectRandomDropdownElementByName("refSubGenreID");
 
                 //Rastgele Team Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[2]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[2]/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //TicketType seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[3]/div/div/div[1]/lookup-button/div/div/div/button");
@@ -319,7 +319,7 @@ namespace EventMenu
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Leauge image seçimi yapılır
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[5]/div/div/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[5]/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Venue Template seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[6]/div/div/div[1]/lookup-button/div/div/div/button");
@@ -369,10 +369,10 @@ namespace EventMenu
                 _helper.ClickByXPath("/html/body/div[18]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[9]/div/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[9]/div/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[9]/div/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='serie-crud--form']/div/div/form/fieldset[9]/div/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Description alanını doldurur
                 _helper.SetRandomTextByName("detailPageDescription");
@@ -593,7 +593,7 @@ namespace EventMenu
             try
             {
                 //Event url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
+                _helper.GoToUrl("http://localhost:4200/event/list");
 
                 //Event sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='event-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -647,10 +647,10 @@ namespace EventMenu
                 _helper.WaitUntilPageLoad();
                 */
                 //Home Team image seçimi yapılır
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Away Team image seçimi yapılır
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"C:\Images\");
                 /*
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
@@ -687,10 +687,10 @@ namespace EventMenu
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 
                 //League image seçimi yapılır
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Event image seçimi yapılır
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
                 DateTime startDate1 = _helper.SetRandomDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[3]/p-calendar/span/input");
@@ -764,10 +764,10 @@ namespace EventMenu
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[2]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[5]/div/div[2]/file-upload/div/input", @"C:\Images\");
 
                 //Detail Page Description alanına rastgele bir text girilir.
                 _helper.SetRandomTextByName("detailPageDescription");

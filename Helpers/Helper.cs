@@ -110,7 +110,7 @@ namespace Helpers
 
         public string GetRandomChannelName()
         {
-            string chars = "ABCDEFGĞHIİJKLMNOöPQRSŞTUüVWXYZ";
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string[] paymentTypes = new string[] { "POS", "Web", "Channel" };
             string prefix = new string(Enumerable.Repeat(chars, 3).Select(s => s[random.Next(chars.Length)]).ToArray());
             string postfix = paymentTypes[random.Next(paymentTypes.Length)];
@@ -141,7 +141,7 @@ namespace Helpers
         // Rastgele bir dosya dönderir
         public string GetRandomFile(string path)
         {
-            path = Path.GetDirectoryName(@"D:\Users\yigitb\Desktop\Images\");
+            path = Path.GetDirectoryName(@"C:\Images\");
             string[] files = Directory.GetFiles(path);
             int index = random.Next(files.Length);
             string file = files[index];
@@ -227,6 +227,12 @@ namespace Helpers
         {
             IsVisibleByXPath(xpath);
             _driver.FindElement(By.XPath(xpath)).SendKeys(GetRandomString());
+        }
+
+        public void SetRandomChannelTextByName(string name)
+        {
+            IsVisibleByName(name);
+            _driver.FindElement(By.Name(name)).SendKeys(GetRandomChannelName());
         }
 
         // name değeri verilen HTML elementine rastgele değer girer
@@ -584,21 +590,31 @@ namespace Helpers
         //Yakaladığı exception ı txt dosyası olarak masaüstüne atar
         public void ErrorLogging(Exception ex)
         {
-            string strPath = @"D:\Users\yigitb\Desktop\Exceptions.txt";
+            string strPath = @"C:\ExceptionsOfTestBackOfficeOtomation\Exceptions.txt";
             if (!File.Exists(strPath))
             {
                 File.Create(strPath).Dispose();
             }
             using (StreamWriter sw = File.AppendText(strPath))
             {
+                sw.WriteLine("");
                 sw.WriteLine("=============Error Logging ===========");
                 sw.WriteLine("===========Start============= " + DateTime.Now);
                 sw.WriteLine("Error Message: " + ex.Message);
                 sw.WriteLine("Stack Trace: " + ex.StackTrace);
                 sw.WriteLine("===========End============= " + DateTime.Now);
-
+                sw.WriteLine("");
             }
         }
+
+        // !!!!!DEVAMI YAPILACAK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"""""""""""""""""""""""""""
+        public void CatchExceptionPopUp()
+        {
+            IAlert alert = _driver.SwitchTo().Alert();
+            String alertText = alert.Text;
+            Console.WriteLine("Alert text is " + alertText);
+        }
+
         public void DenemeClick(string xpath)
         {
             _driver.FindElementExtension(By.XPath(xpath), 1);

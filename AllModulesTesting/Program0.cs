@@ -19,16 +19,15 @@ namespace AllModulesTesting
         static void Main(string[] args)
         {
             TestingWhole whole = new TestingWhole();
-
-            /*  whole.Contacts();
-              whole.NationalID();
-              whole.CategoryManagement();
-              whole.ChannelManagement();
-              whole.ChannelGroupManagement();
-              whole.VariantManagement();
-              whole.PriorityManagement();
-              whole.ProductManagement();
-             */
+            
+            whole.Contacts();
+            whole.NationalIDManagement();
+            whole.CategoryManagement();
+            whole.ChannelManagement();
+            whole.ChannelGroupManagement();
+            whole.VariantManagement();
+            whole.PriorityManagement();
+            whole.ProductManagement();
             whole.SalesPlanManagement();
             whole.VenueManagement();
             whole.AreaManagement();

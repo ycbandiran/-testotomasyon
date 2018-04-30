@@ -42,7 +42,7 @@ namespace Contact
             try
             {
                 //Contact Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/contact/list");
+                _helper.GoToUrl("http://localhost:4200/contact/list");
                 System.Threading.Thread.Sleep(3000);
 
                 //Add new butonuna tıklanır

@@ -45,7 +45,7 @@ namespace Security
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/client/list");
+                _helper.GoToUrl("http://localhost:4200/client/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='client-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -92,7 +92,7 @@ namespace Security
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingoperator/list");
+                _helper.GoToUrl("http://localhost:4200/bookingoperator/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingoperator-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -117,7 +117,7 @@ namespace Security
                 _helper.SetRandomEmailByName("email");
 
                 //Operator Image alanına random resim eklenir
-                _helper.SetRandomFileByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[3]/div/div/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='bookingoperator-crud--user-form']/div/div/fieldset[1]/div/form/div[3]/div/div/file-upload/div/input", @"C:\Images\");
 
                 //Add Role butonuna tıklanır
                 _helper.ClickByName("AddRoleButton");
@@ -153,7 +153,7 @@ namespace Security
             try
             {
                 //Roles Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scrole/list");
+                _helper.GoToUrl("http://localhost:4200/scrole/list");
 
                 //Roles sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='scrole-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -196,7 +196,7 @@ namespace Security
             try
             {
                 //ApprovableUsers url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scapprovableuser/list");
+                _helper.GoToUrl("http://localhost:4200/scapprovableuser/list");
 
                 //User seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='scapprovableuser-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
@@ -224,7 +224,7 @@ namespace Security
             try
             {
                 //Terminals url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/terminal/list");
+                _helper.GoToUrl("http://localhost:4200/terminal/list");
 
                 //Terminals sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='terminal-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -236,7 +236,7 @@ namespace Security
                 _helper.SetLimitedRandomStringByName("code", 3);
 
                 //Terminal Image seçilir
-                _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Ticket Printer seçimi yapılır
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
@@ -319,7 +319,7 @@ namespace Security
             try
             {
                 //Entry Point url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/entrypoint/list");
+                _helper.GoToUrl("http://localhost:4200/entrypoint/list");
 
                 //Entry Point sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -348,6 +348,8 @@ namespace Security
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
+                _helper.CatchExceptionPopUp();
+
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
 
@@ -358,6 +360,7 @@ namespace Security
             {
                 _helper.GiveError("In : " + nameof(this.EntryPoint) + exception.Message);
                 _helper.ErrorLogging(exception);
+                
             }
         }
     }    

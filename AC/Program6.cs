@@ -12,8 +12,8 @@ namespace AC
         {
             ACManagement aCManagement = new ACManagement();
 
-            //aCManagement.ACSetting();
-            //aCManagement.TelegramQueueManagement();
+            aCManagement.ACSetting();
+            aCManagement.TelegramQueueManagement();
             aCManagement.TelegramManagement();            
         }
     }

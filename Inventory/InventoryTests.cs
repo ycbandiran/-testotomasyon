@@ -63,7 +63,7 @@ namespace Inventory
             try
             {               
                 //Catagory Management sayfasına git           
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/category/list");
+                _helper.GoToUrl("http://localhost:4200/category/list");
                 
                 // Category Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='category-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -100,13 +100,13 @@ namespace Inventory
             try
             {
                 //Channel Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channel/list");
+                _helper.GoToUrl("http://localhost:4200/channel/list");
                 
                 // Channel Management sayfasındaki Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channel-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
                 //Gelen Channel Form sayfasındaki Name alanına değer gir 
-                _helper.SetRandomTextByName("name");
+                _helper.SetRandomChannelTextByName("name");
 
                 //Oluşturulan channel name i tutulur
                 ChannelName = _helper.GetTextByName("name");
@@ -136,7 +136,7 @@ namespace Inventory
             try
             {                               
                 //Channel Group Management sayfasına git           
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channelgroup/list");
+                _helper.GoToUrl("http://localhost:4200/channelgroup/list");
                 
                 // ChannelGroup Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channelgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -182,7 +182,7 @@ namespace Inventory
             try
             {
                 //Variant Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variant/list");
+                _helper.GoToUrl("http://localhost:4200/variant/list");
                 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='variant-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -197,7 +197,7 @@ namespace Inventory
                 _helper.SetRandomTextByName("displayName");
 
                 // Rastgele bir resim yükle
-                _helper.SetRandomFileByXpath("//*[@id='variant-crud--form']/div/div/form/fieldset/div/div[1]/div[3]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='variant-crud--form']/div/div/form/fieldset/div/div[1]/div[3]/file-upload/div/input", @"C:\Images\");
 
                 // Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='variant-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -222,7 +222,7 @@ namespace Inventory
             try
             {
                 // Priority Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/priority/list");
+                _helper.GoToUrl("http://localhost:4200/priority/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -272,7 +272,7 @@ namespace Inventory
                 */
 
                 //Photo için bir resim seçilmesi                
-                _helper.SetRandomFileByXpath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[1]/file-upload/div/input", @"D:\Users\yigitb\Desktop\Images\");
+                _helper.SetRandomFileByXpath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[1]/file-upload/div/input", @"C:\Images\");
 
                 // Description alanına rastgele bir değer gir
                 _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/form/fieldset[5]/div[2]/div/textarea[2]");
@@ -302,7 +302,7 @@ namespace Inventory
             try
             {
                 // Product Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/product/list");
+                _helper.GoToUrl("http://localhost:4200/product/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='product-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -340,7 +340,7 @@ namespace Inventory
             try
             {
                 // Sales Plan Management sayfasına git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/salesplan/crud");
+                _helper.GoToUrl("http://localhost:4200/salesplan/crud");
 
                 // name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");

@@ -25,8 +25,6 @@ namespace AC
         BookingManagement _booking;
         PaymentTests _payment;
 
-        public string FilePath = @"D:\Users\yigitb\Desktop\Exceptions.txt";
-
         //Oluşturulan yeni AC Setting name i tutulmalıdır.
         public string ACSettingName;
 
@@ -52,7 +50,7 @@ namespace AC
             try
             {
                 //AC Setting Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/accesscontrolsetting/list");
+                _helper.GoToUrl("http://localhost:4200/accesscontrolsetting/list");
                 _helper.WaitUntilPageLoad();
 
                 //Add new butonuna tıklanır
@@ -72,6 +70,9 @@ namespace AC
 
                 //Destination alanına rastgele bir int girilir
                 _helper.SetRandomIntegerByName("destination", 10,100);
+
+                //Batch Size alanına rastgele int girilir
+                _helper.SetRandomIntegerByName("batchSize", 1, 10);
 
                 //İsteğe bağlı Auto Send fonksiyonu yazılabilir.
 
@@ -99,7 +100,7 @@ namespace AC
             try
             {
                 //Telegram Queue Management Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegramqueue/list");
+                _helper.GoToUrl("http://localhost:4200/telegramqueue/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Queue Management sayfasında add new butonu tıklanır
@@ -115,11 +116,12 @@ namespace AC
                 _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Event Access Control Setting seçimi yapılır
                 _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/form/fieldset/div[1]/div/div[3]/lookup-button/div/div/div/button");
-                //System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000); 
@@ -160,7 +162,7 @@ namespace AC
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegram/list");
+                _helper.GoToUrl("http://localhost:4200/telegram/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Management sayfasında add new butonu tıklanır

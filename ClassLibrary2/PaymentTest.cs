@@ -57,7 +57,7 @@ namespace Payment
             try
             {
                 //Payment Gateway Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/paymentgateway/list");
+                _helper.GoToUrl("http://localhost:4200/paymentgateway/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='paymentgateway-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -128,7 +128,7 @@ namespace Payment
             try
             {
                 // Bin number Group Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/binnumbergroup/list");
+                _helper.GoToUrl("http://localhost:4200/binnumbergroup/list");
 
                 //Bin number Group sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -170,7 +170,7 @@ namespace Payment
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/binnumbergroupitem/list");
+                _helper.GoToUrl("http://localhost:4200/binnumbergroupitem/list");
 
                 //Block Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -216,7 +216,7 @@ namespace Payment
             try
             {
                 //Payment Plan Url git
-                _helper.GoToUrl("http://testbackoffice.netasticketing.com/paymentplan/list");
+                _helper.GoToUrl("http://localhost:4200/paymentplan/list");
 
                 //Payment Plan sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='paymentplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
