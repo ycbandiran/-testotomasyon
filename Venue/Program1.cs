@@ -11,14 +11,14 @@ namespace Venue
         static void Main(string[] args)
         {
             VenueTests venueTests = new VenueTests();
-            /*
+            
             venueTests.VenueManagement();           
             venueTests.AreaManagement();                      
             venueTests.GateManagement();
             venueTests.TribuneManagement();
             venueTests.TurnstileManagement();
-            venueTests.VenueTemplateManagement();
-            */venueTests.BlockManagement();
+            venueTests.VenueTemplateManagement();           
+            venueTests.BlockManagement();
             venueTests.SeatClassManagement();
             
         }
