@@ -113,19 +113,19 @@ namespace AC
                 TelegramQueueName = _helper.GetTextByName("name");
 
                 //Booking Ticket seçimi yapılır
-                _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByName("BookingTicket");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 System.Threading.Thread.Sleep(2000);
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Event Access Control Setting seçimi yapılır
-                _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/form/fieldset/div[1]/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByName("EventAccessControlSetting");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                _driver.FindElement(By.XPath("/html/body/div[5]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(ACSettingName);
+                _driver.FindElement(By.XPath("/html/body/div[5]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000); 
-                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Random Action seçimi yapılır
@@ -169,14 +169,14 @@ namespace AC
                 _helper.ClickByXPath("//*[@id='telegram-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
                 //Telegram Queue seçimi yapılır
-                _helper.ClickByXPath("//*[@id='telegram-crud--form']/div/div/form/fieldset/div[1]/div/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByName("TelegramQueue");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(TelegramQueueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
-                
+                _helper.ClickByName("lookupSelect");
+
                 //Request tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
                 DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='telegram-crud--form']/div/div/form/fieldset/div[1]/div/div[2]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();

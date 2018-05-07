@@ -57,20 +57,14 @@ namespace Booking
                 _helper.SelectRandomDropdownElementByName("actionTypeCmb");
 
                 //Organizer seçimi yapılır
-                _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByName("Organizer");
                 System.Threading.Thread.Sleep(2000);
-                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Payment Plan seçimi yapılır
-                _helper.ClickByXPath("//*[@id='bookingactiontype-crud--booking-action-type-form']/div/div/fieldset[2]/tabset/div/tab/div/div[1]/form/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByName("PaymentPlan");
                 System.Threading.Thread.Sleep(2000);
-                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.PaymentPlanName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 

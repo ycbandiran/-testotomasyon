@@ -140,13 +140,13 @@ namespace Payment
                 BinNumberGroupName = _helper.GetTextByName("name");
 
                 //Payment Gateway seçimi yapılır(GEÇİCİ)
-                _helper.ClickByXPath("//*[@id='binnumbergroup-crud--form']/div/div/form/fieldset/div/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByName("PaymentGateway");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(PaymentGatewayName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -185,13 +185,13 @@ namespace Payment
                 _helper.SetRandomIntegerByName("binNumber", 1, 5);
 
                 //Bin Number Goup seçimi yapılır(GEÇİCİ)
-                _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
+                _helper.ClickByName("BinNumberGroup");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(BinNumberGroupName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");

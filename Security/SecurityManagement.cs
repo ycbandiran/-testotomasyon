@@ -239,10 +239,10 @@ namespace Security
                 _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Ticket Printer seçimi yapılır
-                _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByName("TicketPrinter");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Add Organizer butonuna tıkla
                 _helper.ClickByName("AddOrganizerButton");
@@ -250,10 +250,7 @@ namespace Security
                 System.Threading.Thread.Sleep(2000);
 
                 //Organizer seçimi yapılır
-                _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _event.OrganizerName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);*/
-                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog[1]/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
                 //Save butonuna tıklanır
@@ -331,10 +328,10 @@ namespace Security
                 _helper.SetRandomTextByXPath("//*[@id='entrypoint-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Entity Point seçimi yapılır
-                _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/div[2]/div[1]/lookup-button/div/div/div/button");
+                _helper.ClickByName("EntityPoint");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Description alanına random text girilir
                 _helper.SetRandomTextByName("entryPointDetailProxyDescription");

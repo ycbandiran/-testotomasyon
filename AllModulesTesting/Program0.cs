@@ -29,6 +29,10 @@ namespace AllModulesTesting
             whole.PriorityManagement();
             whole.ProductManagement();
             whole.SalesPlanManagement();
+            whole.PaymentGateway();
+            whole.BinNumberGroup();
+            whole.BinNumber();
+            whole.PaymentPlan();
             whole.VenueManagement();
             whole.AreaManagement();
             whole.GateManagement();

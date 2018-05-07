@@ -31,7 +31,7 @@ namespace BlackList
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--start-maximized");
             _driver = new ChromeDriver(options);
-            _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(130));
+            _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
             _helper.GiveInfo("Blacklist modül testi başladı.");
@@ -83,7 +83,7 @@ namespace BlackList
                 _helper.SetRandomFileByXpath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[3]/div/div/div[3]/file-upload/div/input", @"C:\Images\");
 
                 //Save butonu tıklanır
-                _helper.ClickByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+                _helper.ClickByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal da OK tıklanır
                 _helper.ClickById("confirmok");

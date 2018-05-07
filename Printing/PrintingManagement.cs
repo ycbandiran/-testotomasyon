@@ -104,13 +104,10 @@ namespace Printing
                 _helper.ClickByName("AddNewButton1");
 
                 //Variant seçimi yapılı(GEÇİCİ)
-                _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
+                _helper.ClickByName("Variant");
                 System.Threading.Thread.Sleep(2000);
-               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _inventory.VariantName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Rastgele Variants Logo seçilir
                 _helper.SetRandomFileByXpath("//*[@id='variantconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[3]/div/input", @"C:\Images\");
@@ -161,13 +158,10 @@ namespace Printing
                 _helper.ClickByName("AddNewButton1");
 
                 //Seat Class seçimi yapılı(GEÇİCİ)
-                _helper.ClickByXPath("//*[@id='seatclassconfiguration-crud--form']/div/div/p-dialog/div/div[2]/div/div/div[1]/div/lookup-button/div/div/div/button");
+                _helper.ClickByName("SeatClass");
                 System.Threading.Thread.Sleep(2000);
-               /* _driver.FindElement(By.Name("searchText")).SendKeys("" + _venue.SeatClassName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);*/
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Add New butonuna tıklar
                 _helper.ClickByName("AddNewButton2");

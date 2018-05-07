@@ -151,16 +151,17 @@ namespace Inventory
                 _helper.ClickByName("AddChannelButton");
 
                 //Channel seçimi yapılır
-                _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
-                _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+
 
                 // Gelen modal üzerindeki OK butonuna tıkla
                 _helper.ClickById("confirmok");
@@ -226,6 +227,8 @@ namespace Inventory
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(3000);
 
                 // Pri./Dis. Name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
