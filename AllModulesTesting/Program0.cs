@@ -19,7 +19,7 @@ namespace AllModulesTesting
         static void Main(string[] args)
         {
             TestingWhole whole = new TestingWhole();
-            
+
             whole.Contacts();
             whole.NationalIDManagement();
             whole.CategoryManagement();

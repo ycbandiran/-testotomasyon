@@ -57,14 +57,16 @@ namespace Payment
             try
             {
                 //Payment Gateway Url git
-                _helper.GoToUrl("http://localhost:4200/paymentgateway/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/paymentgateway/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='paymentgateway-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
-                
+
                 //Kaydedilen Payment Gateway name'i tutulur
                 PaymentGatewayName = _helper.GetTextByName("name");
 
@@ -120,7 +122,6 @@ namespace Payment
             }
         }
 
-
         public void BinNumberGroup()
         {
             _helper.GivePassInfo("Bin Number Group modül testi başladı.");
@@ -128,14 +129,16 @@ namespace Payment
             try
             {
                 // Bin number Group Url git
-                _helper.GoToUrl("http://localhost:4200/binnumbergroup/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/binnumbergroup/list");
 
                 //Bin number Group sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
+                System.Threading.Thread.Sleep(2000);
+
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
-               
+
                 //Kaydedilen Bin Number Group name'i tutulur
                 BinNumberGroupName = _helper.GetTextByName("name");
 
@@ -170,10 +173,12 @@ namespace Payment
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://localhost:4200/binnumbergroupitem/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/binnumbergroupitem/list");
 
                 //Block Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -216,10 +221,12 @@ namespace Payment
             try
             {
                 //Payment Plan Url git
-                _helper.GoToUrl("http://localhost:4200/paymentplan/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/paymentplan/list");
 
                 //Payment Plan sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='paymentplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -247,21 +254,25 @@ namespace Payment
                 //Payment Plan sayfasında add new butonu tıklanır
                 _helper.ClickByName("AddNewButton");
 
+                System.Threading.Thread.Sleep(3000);
+
                 //Bin Number Group seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[1]/button");
                 _driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys(BinNumberGroupName);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[2]/div[2]/ul/li[1]");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Channel seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[1]/button");
-                //_driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys("" + _inventory.ChannelName);
+                //_driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys(ChannelName);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[2]/div[2]/ul/li[1]");
 
                 //Installment alanına random değer girilir
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[2]/div/div/div/div/div[2]/div[1]/input");
-                _helper.SetRandomIntegerByXpath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[2]/div/div/div/div/div[2]/div[1]/input", 10,100);
+                _helper.SetRandomIntegerByXpath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[2]/div/div/div/div/div[2]/div[1]/input", 10, 100);
 
                 //Interest Rate alanına random değer girilir
                 _helper.SetRandomIntegerByXpath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[2]/div/div/div/div/div[2]/div[2]/input", 5, 30);
@@ -276,7 +287,7 @@ namespace Payment
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
-                                    
+
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
 

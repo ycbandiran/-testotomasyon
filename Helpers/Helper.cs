@@ -30,7 +30,7 @@ namespace Helpers
 
             try
             {
-                GoToUrl("http://localhost:4200");
+                GoToUrl("http://testbackoffice.netasticketing.com");
                 SetTextByName("username", username);
                 SetTextByName("password", password);
                 ClickByXPath("//*[@id='content']/div/div/div/form/footer/button");
@@ -297,6 +297,15 @@ namespace Helpers
             return randomDate;
         }
 
+        //Name e göre rastgele bir tarih girer
+        public DateTime SetRandomDateTimeByName(string name)
+        {
+            DateTime randomDate = GetRandomDateTime();
+            _driver.FindElement(By.Name(name)).Clear();
+            _driver.FindElement(By.Name(name)).SendKeys(DateTimeToString(randomDate));
+            return randomDate;
+        }
+
         // Belirli bir tarihten sonra rastgele DateTime dönderir
         public DateTime SetRandomDateTimeAfterThisDateTime(DateTime date, int days = 30)
         {
@@ -309,6 +318,14 @@ namespace Helpers
             string dateTimeString = DateTimeToString(date);
             _driver.FindElement(By.XPath(xpath)).Clear();
             _driver.FindElement(By.XPath(xpath)).SendKeys(dateTimeString);
+        }
+
+        // Name değerine sahip elemente date ile belirtilen tarihi girer
+        public void SetDateTimeByName(string name, DateTime date)
+        {
+            string dateTimeString = DateTimeToString(date);
+            _driver.FindElement(By.Name(name)).Clear();
+            _driver.FindElement(By.Name(name)).SendKeys(dateTimeString);
         }
 
         // input tipi file olan alana rastgele bir dosya yerleştir

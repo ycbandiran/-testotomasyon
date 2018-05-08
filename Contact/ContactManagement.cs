@@ -42,12 +42,14 @@ namespace Contact
             try
             {
                 //Contact Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/contact/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/contact/list");
                 System.Threading.Thread.Sleep(3000);
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='contact-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
-                                       
+
+                System.Threading.Thread.Sleep(2000);
+
                 //First Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("firstname");
                 string FirstName = _helper.GetTextByName("firstname");

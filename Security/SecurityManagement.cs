@@ -18,6 +18,8 @@ namespace Security
 {
     public class SecurityManagement
     {
+        public string TerminalName;
+
         public IWebDriver _driver { get; set; }
         IWait<IWebDriver> _task;
         Random _random;
@@ -40,15 +42,17 @@ namespace Security
 
         public void Clients()
         {
-            _helper.GivePassInfo("Clients modül testi başladı.");
+            _helper.GivePassInfo("Client modül testi başladı.");
 
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/client/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/client/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='client-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -87,15 +91,17 @@ namespace Security
 
         public void Users()
         {
-            _helper.GivePassInfo("Users modül testi başladı.");
+            _helper.GivePassInfo("User modül testi başladı.");
 
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/bookingoperator/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingoperator/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingoperator-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //First Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("firstname");
@@ -126,7 +132,7 @@ namespace Security
 
                 //Role seçimi yapılır
                 _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("//*[@id='bookingoperator-crud--user-form']/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //TERMINAL RIGHTS BOLUMU YAPILACAK (ADD TERMINAL RIGHTS BUTONU HTML DE NAME VERILDI)!!!!!!!
 
@@ -153,10 +159,12 @@ namespace Security
             try
             {
                 //Roles Url git
-                _helper.GoToUrl("http://localhost:4200/scrole/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scrole/list");
 
                 //Roles sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='scrole-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir text girilir
                 _helper.SetRandomTextByName("name");
@@ -196,7 +204,7 @@ namespace Security
             try
             {
                 //ApprovableUsers url git
-                _helper.GoToUrl("http://localhost:4200/scapprovableuser/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scapprovableuser/list");
 
                 //User seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='scapprovableuser-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
@@ -224,13 +232,18 @@ namespace Security
             try
             {
                 //Terminals url git
-                _helper.GoToUrl("http://localhost:4200/terminal/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/terminal/list");
 
                 //Terminals sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='terminal-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Name alanına random text girilir
                 _helper.SetRandomTextByName("name");
+
+                //Name alanı tutulur
+                TerminalName = _helper.GetTextByName("name");
 
                 //Code alanına random 3 haneli code girilir.
                 _helper.SetLimitedRandomStringByName("code", 3);
@@ -239,10 +252,10 @@ namespace Security
                 _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Ticket Printer seçimi yapılır
-                _helper.ClickByName("TicketPrinter");
+                _helper.ClickByName("Printer");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByName("lookupSelect");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Add Organizer butonuna tıkla
                 _helper.ClickByName("AddOrganizerButton");
@@ -250,6 +263,9 @@ namespace Security
                 System.Threading.Thread.Sleep(2000);
 
                 //Organizer seçimi yapılır
+                //_driver.FindElement(By.Name("searchText")).SendKeys(OrganizerName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog[1]/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='terminal-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
@@ -316,10 +332,12 @@ namespace Security
             try
             {
                 //Entry Point url git
-                _helper.GoToUrl("http://localhost:4200/entrypoint/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/entrypoint/list");
 
                 //Entry Point sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Entry Point Name alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -328,7 +346,7 @@ namespace Security
                 _helper.SetRandomTextByXPath("//*[@id='entrypoint-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Entity Point seçimi yapılır
-                _helper.ClickByName("EntityPoint");
+                _helper.ClickByName("EntryPointName");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
@@ -342,25 +360,24 @@ namespace Security
                 //Add butonuna tıklanır
                 _helper.ClickByName("AddButton1");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
-
-                _helper.CatchExceptionPopUp();
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
 
-                System.Threading.Thread.Sleep(5000);
+                _helper.GiveInfo("Test tamamlandı.");
 
             }
             catch (Exception exception)
             {
                 _helper.GiveError("In : " + nameof(this.EntryPoint) + exception.Message);
                 _helper.ErrorLogging(exception);
-                
             }
         }
-    }    
+    }
 }
 
 

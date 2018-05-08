@@ -45,21 +45,23 @@ namespace BlackList
             try
             {
                 //NationalID Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/nationalidprobation/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/nationalidprobation/list");
                 System.Threading.Thread.Sleep(2000);
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='nationalidprobation-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
-                                      
+
+                System.Threading.Thread.Sleep(2000);
+
                 //National ID alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("nationalId");
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
-                 NationalIDName = _helper.GetTextByName("name");
-                
+                NationalIDName = _helper.GetTextByName("name");
+
                 //Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                 DateTime StartDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");
+                DateTime StartDate = _helper.SetRandomDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[1]/div/div/div[3]/p-calendar/span/input");
                 _helper.WaitUntilPageLoad();
 
                 //Random Letter No girilir
@@ -67,9 +69,9 @@ namespace BlackList
 
                 //Last Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("lastName");
-                
+
                 //Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(StartDate);               
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(StartDate);
                 _helper.SetDateTimeByXPath("//*[@id='nationalidprobation-crud--probation-form']/div/div/p-tabview/div/div/p-tabpanel[1]/div/form/fieldset[2]/div/div/div[3]/p-calendar/span/input", finishDate);
                 _helper.WaitUntilPageLoad();
 

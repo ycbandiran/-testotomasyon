@@ -45,16 +45,17 @@ namespace AC
 
         public void ACSetting()
         {
-            _helper.GivePassInfo("AC Setting modül testi başladı.");
+            _helper.GivePassInfo("AC modül testi başladı.");
 
             try
             {
                 //AC Setting Url git
-                _helper.GoToUrl("http://localhost:4200/accesscontrolsetting/list");
-                _helper.WaitUntilPageLoad();
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/accesscontrolsetting/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='accesscontrolsetting-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir text girilir
                 _helper.SetRandomTextByName("name");
@@ -69,10 +70,7 @@ namespace AC
                 _helper.SetRandomTextByName("destination");
 
                 //Destination alanına rastgele bir int girilir
-                _helper.SetRandomIntegerByName("destination", 10,100);
-
-                //Batch Size alanına rastgele int girilir
-                _helper.SetRandomIntegerByName("batchSize", 1, 10);
+                _helper.SetRandomIntegerByName("batchSize", 1, 500);
 
                 //İsteğe bağlı Auto Send fonksiyonu yazılabilir.
 
@@ -100,11 +98,13 @@ namespace AC
             try
             {
                 //Telegram Queue Management Url git
-                _helper.GoToUrl("http://localhost:4200/telegramqueue/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegramqueue/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Queue Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='telegramqueue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -116,16 +116,15 @@ namespace AC
                 _helper.ClickByName("BookingTicket");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByName("lookupSelect");
 
                 //Event Access Control Setting seçimi yapılır
                 _helper.ClickByName("EventAccessControlSetting");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.XPath("/html/body/div[5]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(ACSettingName);
-                _driver.FindElement(By.XPath("/html/body/div[5]/div[2]/lookup/div/div[1]/div[4]/div/div/input")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000); 
-                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
+                _driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
+                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Random Action seçimi yapılır
@@ -138,7 +137,7 @@ namespace AC
                 _helper.SelectRandomDropdownElementByName("state");
 
                 //Void Reason Alanına text girişi yapılır
-                _helper.SetTextByName("voidReason","Live a life you will remember");
+                _helper.SetTextByName("voidReason", "Live a life you will remember");
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -147,7 +146,7 @@ namespace AC
                 _helper.ClickById("confirmok");
 
                 System.Threading.Thread.Sleep(5000);
-                
+
             }
             catch (Exception exception)
             {
@@ -162,11 +161,13 @@ namespace AC
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://localhost:4200/telegram/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegram/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='telegram-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Telegram Queue seçimi yapılır
                 _helper.ClickByName("TelegramQueue");
@@ -185,7 +186,7 @@ namespace AC
                 DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
                 _helper.SetDateTimeByXPath("//*[@id='telegram-crud--form']/div/div/form/fieldset/div[1]/div/div[3]/p-calendar/span/input", finishDate);
                 _helper.WaitUntilPageLoad();
-                
+
                 //Random State seçimi yapılır
                 _helper.SelectRandomDropdownElementByName("state");
 
@@ -198,21 +199,6 @@ namespace AC
                 //Fail Reason alanına random değer girilir
                 _helper.SetRandomTextByName("failReason");
 
-                //GEÇİCİ OLARAK KALACAK
-                /*
-                //Bin number alanına random int girilir.
-                _helper.SetRandomIntegerByXpath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[2]/input", 1, 5);
-
-                //Bin Number Goup seçimi yapılır
-                _helper.ClickByXPath("//*[@id='binnumbergroupitem-crud--form']/div/div/form/fieldset/div/div/div[3]/lookup-button/div/div/div/button");
-                System.Threading.Thread.Sleep(2000);
-                /*_driver.FindElement(By.Name("searchText")).SendKeys("" + _payment.BinNumberGroupName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);*//*
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
-                */
-                
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='telegram-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 

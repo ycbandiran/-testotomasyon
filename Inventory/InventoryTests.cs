@@ -61,16 +61,18 @@ namespace Inventory
             _helper.GivePassInfo("Catagory modül testi başladı.");
 
             try
-            {               
+            {
                 //Catagory Management sayfasına git           
-                _helper.GoToUrl("http://localhost:4200/category/list");
-                
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/category/list");
+
                 // Category Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='category-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
+                System.Threading.Thread.Sleep(2000);
+
                 // Name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
-                
+
                 //Oluşturulan channel name i tutulur
                 CatagoryName = _helper.GetTextByName("name");
 
@@ -84,7 +86,7 @@ namespace Inventory
                 _helper.ClickById("confirmok");
 
                 System.Threading.Thread.Sleep(5000);
-                
+
             }
             catch (Exception exception)
             {
@@ -100,10 +102,12 @@ namespace Inventory
             try
             {
                 //Channel Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/channel/list");
-                
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channel/list");
+
                 // Channel Management sayfasındaki Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channel-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Gelen Channel Form sayfasındaki Name alanına değer gir 
                 _helper.SetRandomChannelTextByName("name");
@@ -124,7 +128,7 @@ namespace Inventory
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);
+                _helper.GiveError("In : " + nameof(this.ChannelManagement) + exception.Message);
                 _helper.ErrorLogging(exception);
             }
         }
@@ -132,14 +136,16 @@ namespace Inventory
         public void ChannelGroupManagement()
         {
             _helper.GivePassInfo("Channel Group modül testi başladı.");
-            
+
             try
-            {                               
+            {
                 //Channel Group Management sayfasına git           
-                _helper.GoToUrl("http://localhost:4200/channelgroup/list");
-                
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channelgroup/list");
+
                 // ChannelGroup Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channelgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // ChannelGroup formunda name alanına random değer gir
                 _helper.SetRandomTextByName("name");
@@ -161,8 +167,6 @@ namespace Inventory
                 //Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
-
-
                 // Gelen modal üzerindeki OK butonuna tıkla
                 _helper.ClickById("confirmok");
 
@@ -171,7 +175,7 @@ namespace Inventory
             }
             catch (Exception exception)
             {
-                _helper.GiveError(exception.Message);
+                _helper.GiveError("In : " + nameof(this.ChannelGroupManagement) + exception.Message);
                 _helper.ErrorLogging(exception);
             }
         }
@@ -183,10 +187,12 @@ namespace Inventory
             try
             {
                 //Variant Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/variant/list");
-                
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variant/list");
+
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='variant-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -211,7 +217,7 @@ namespace Inventory
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);
+                _helper.GiveError("In : " + nameof(this.VariantManagement) + exception.Message);
                 _helper.ErrorLogging(exception);
             }
         }
@@ -223,7 +229,7 @@ namespace Inventory
             try
             {
                 // Priority Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/priority/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/priority/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -283,7 +289,7 @@ namespace Inventory
 
                 // Save butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
-                                       
+
                 // Çıkan modaldan OK butonuna tıkla
                 _helper.ClickById("confirmok");
 
@@ -292,7 +298,7 @@ namespace Inventory
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);
+                _helper.GiveError("In : " + nameof(this.PriorityManagement) + exception.Message);
                 _helper.ErrorLogging(exception);
             }
 
@@ -305,18 +311,20 @@ namespace Inventory
             try
             {
                 // Product Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/product/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/product/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='product-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
-                                      
+
+                System.Threading.Thread.Sleep(2000);
+
                 // Product Name alanına restgele değer gir
                 _helper.SetRandomTextByName("name");
 
                 //Oluşturulan product name i tutulur
                 PriorityName = _helper.GetTextByName("name");
 
-                // Product Type alanında rastgele seçim yap
+                // Product Type alanında rastgele seçim yap    
                 _helper.SelectRandomDropdownElementByName("refProductCategoryID");
 
                 // Save butonuna tıkla
@@ -330,7 +338,7 @@ namespace Inventory
             }
             catch (Exception exception)
             {
-                _helper.GiveError(exception.Message);
+                _helper.GiveError("In : " + nameof(this.ProductManagement) + exception.Message);
                 _helper.ErrorLogging(exception);
             }
 
@@ -343,7 +351,12 @@ namespace Inventory
             try
             {
                 // Sales Plan Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/salesplan/crud");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/salesplan/list");
+
+                //Add new butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='salesplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -359,34 +372,30 @@ namespace Inventory
 
                 System.Threading.Thread.Sleep(2000);
 
-                //BURADAN SONRASINDA PATHLERİN HER REFRESH DEN SONRA DEĞİŞMESİNDEN DOLAYI SORUN ÇIKIYOR XPATH LER YERİNE NAME LER GELDİKTEN SONRA YORUM KALDIRILACAK!!!!!!!!
-
-                /*
                 //Rastgele Priority seç(GEÇİCİ)
                 _helper.SelectRandomDropdownElementByName("refValidationIntegrationID");
                 System.Threading.Thread.Sleep(2000);
-               
+
                 //Channel seçimi yapılır(GEÇİCİ)            
-                _helper.ClickByXPath("//*[@id='salesplan-crud-341--form']/div/div/form/fieldset/div[1]/div/div[2]/lookup-button/div/div/div/button");
+                _helper.ClickByName("Channel");
                 System.Threading.Thread.Sleep(3000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
-                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
+                _helper.ClickByName("lookupSelect");
 
                 //Rastgele Limit koyar
                 _helper.SetRandomIntegerByName("ticketLimit", 10, 100);
-               
+
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='salesplan-crud-341--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/input");
+                DateTime startDatee = _helper.SetRandomDateTimeByName("startDate");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDatee);
+                _helper.SetDateTimeByName("endDate", finishDate);
                 _helper.WaitUntilPageLoad();
-                
 
                 //Rastgele total seat sayısı belirler
                 _helper.SetRandomIntegerByName("totalSeatCount", 10, 100);
@@ -401,11 +410,11 @@ namespace Inventory
                 _helper.ClickById("confirmok");
 
                 System.Threading.Thread.Sleep(5000);
-                */
+
             }
             catch (Exception exception)
             {
-                _helper.GiveError(exception.Message);
+                _helper.GiveError("In : " + nameof(this.SalesPlanManagement) + exception.Message);
                 _helper.ErrorLogging(exception);
             }
         }

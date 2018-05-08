@@ -116,7 +116,7 @@ namespace AllModulesTesting
         //Oluşturulan yeni National ıd name i tutulmalıdır.
         public string NationalIDName;
 
-        //Oluşturulan yeni National ıd name i tutulmalıdır.
+        //Oluşturulan yeni Termial ıd name i tutulmalıdır.
         public string TerminalName;
 
         public TestingWhole()
@@ -127,7 +127,7 @@ namespace AllModulesTesting
             _task = new WebDriverWait(_driver, TimeSpan.FromSeconds(240));
             _random = new Random();
             _helper = new Helper(_driver, _task, "superadmin", "Netas2017*-");
-            _helper.GiveInfo("Venue modül testi başladı.");
+            _helper.GiveInfo("All modules testi başladı.");
 
         }
 
@@ -140,11 +140,13 @@ namespace AllModulesTesting
             try
             {
                 //Contact Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/contact/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/contact/list");
                 System.Threading.Thread.Sleep(3000);
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='contact-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //First Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("firstname");
@@ -230,11 +232,13 @@ namespace AllModulesTesting
             try
             {
                 //NationalID Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/nationalidprobation/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/nationalidprobation/list");
                 System.Threading.Thread.Sleep(2000);
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='nationalidprobation-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //National ID alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("nationalId");
@@ -292,10 +296,12 @@ namespace AllModulesTesting
             try
             {
                 //Catagory Management sayfasına git           
-                _helper.GoToUrl("http://localhost:4200/category/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/category/list");
 
                 // Category Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='category-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -329,10 +335,12 @@ namespace AllModulesTesting
             try
             {
                 //Channel Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/channel/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channel/list");
 
                 // Channel Management sayfasındaki Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channel-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Gelen Channel Form sayfasındaki Name alanına değer gir 
                 _helper.SetRandomChannelTextByName("name");
@@ -365,10 +373,12 @@ namespace AllModulesTesting
             try
             {
                 //Channel Group Management sayfasına git           
-                _helper.GoToUrl("http://localhost:4200/channelgroup/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/channelgroup/list");
 
                 // ChannelGroup Management sayfasında Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='channelgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // ChannelGroup formunda name alanına random değer gir
                 _helper.SetRandomTextByName("name");
@@ -410,10 +420,12 @@ namespace AllModulesTesting
             try
             {
                 //Variant Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/variant/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variant/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='variant-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -450,7 +462,7 @@ namespace AllModulesTesting
             try
             {
                 // Priority Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/priority/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/priority/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='priority-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
@@ -532,10 +544,12 @@ namespace AllModulesTesting
             try
             {
                 // Product Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/product/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/product/list");
 
                 // Add New butonuna tıkla
                 _helper.ClickByXPath("//*[@id='product-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Product Name alanına restgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -570,7 +584,12 @@ namespace AllModulesTesting
             try
             {
                 // Sales Plan Management sayfasına git
-                _helper.GoToUrl("http://localhost:4200/salesplan/crud");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/salesplan/list");
+
+                //Add new butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='salesplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // name alanına rastgele değer gir
                 _helper.SetRandomTextByName("name");
@@ -603,15 +622,14 @@ namespace AllModulesTesting
                 _helper.SetRandomIntegerByName("ticketLimit", 10, 100);
                
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='salesplan-crud-341--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/input");
+                DateTime startDatee = _helper.SetRandomDateTimeByName("startDate");
                 _helper.WaitUntilPageLoad();
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDatee);
+                _helper.SetDateTimeByName("endDate", finishDate);
                 _helper.WaitUntilPageLoad();
                 
-
                 //Rastgele total seat sayısı belirler
                 _helper.SetRandomIntegerByName("totalSeatCount", 10, 100);
 
@@ -642,10 +660,12 @@ namespace AllModulesTesting
             try
             {
                 //Payment Gateway Url git
-                _helper.GoToUrl("http://localhost:4200/paymentgateway/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/paymentgateway/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='paymentgateway-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -712,10 +732,12 @@ namespace AllModulesTesting
             try
             {
                 // Bin number Group Url git
-                _helper.GoToUrl("http://localhost:4200/binnumbergroup/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/binnumbergroup/list");
 
                 //Bin number Group sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -754,10 +776,12 @@ namespace AllModulesTesting
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://localhost:4200/binnumbergroupitem/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/binnumbergroupitem/list");
 
                 //Block Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='binnumbergroupitem-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -800,10 +824,12 @@ namespace AllModulesTesting
             try
             {
                 //Payment Plan Url git
-                _helper.GoToUrl("http://localhost:4200/paymentplan/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/paymentplan/list");
 
                 //Payment Plan sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='paymentplan-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -839,10 +865,11 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[1]/div/angular2-multiselect/div/div[2]/div[2]/ul/li[1]");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Channel seçimi yapılır
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[1]/button");
                 _driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys(ChannelName);
-                _driver.FindElement(By.XPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[2]/div[2]/div[2]/input")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='main']/paymentplan-crud/div/div[3]/form/div/div[1]/div[2]/div/angular2-multiselect/div/div[2]/div[2]/ul/li[1]");
 
@@ -886,10 +913,12 @@ namespace AllModulesTesting
             try
             {
                 //Venue Management butonuna tıklanır 
-                _helper.GoToUrl("http://localhost:4200/venue/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/venue/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='venue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -913,6 +942,8 @@ namespace AllModulesTesting
 
                 //City seçimi için seç butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='venue-crud--form']/div/div/form/fieldset[2]/div/div/div[2]/lookup-button/div/div/div/button");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Rastgele uygun olan City listesinden biri tıklanır
                 _helper.ClickRandomTagByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody", "tr");
@@ -985,13 +1016,16 @@ namespace AllModulesTesting
             try
             {
                 // Area Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/area/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/area/list");
 
                 //Area Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='area-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
 
+                System.Threading.Thread.Sleep(2000);
+
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
+
                 //Kaydedilen Area name'i tutulur
                 AreaName = _helper.GetTextByName("name");
 
@@ -1001,8 +1035,8 @@ namespace AllModulesTesting
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByName("lookupSelect");
@@ -1030,10 +1064,12 @@ namespace AllModulesTesting
             try
             {
                 // Gate Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/gate/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/gate/list");
 
                 //Gate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='gate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[1]");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1047,8 +1083,8 @@ namespace AllModulesTesting
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
@@ -1076,10 +1112,12 @@ namespace AllModulesTesting
             try
             {
                 // Tribune Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/tribune/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tribune/list");
 
                 //Tribune Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='tribune-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1096,8 +1134,8 @@ namespace AllModulesTesting
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
@@ -1131,10 +1169,12 @@ namespace AllModulesTesting
             try
             {
                 // Turnstile Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/turnstile/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/turnstile/list");
 
                 //Turnstile Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='turnstile-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1148,8 +1188,8 @@ namespace AllModulesTesting
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
@@ -1172,15 +1212,17 @@ namespace AllModulesTesting
 
         public void VenueTemplateManagement()
         {
-            _helper.GivePassInfo("Venue TEmplate modül testi başladı.");
+            _helper.GivePassInfo("Venue Template modül testi başladı.");
 
             try
             {
                 // VenueTemplate Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/venuetemplate/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/venuetemplate/list");
 
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='venuetemplate-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1192,8 +1234,8 @@ namespace AllModulesTesting
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
@@ -1221,10 +1263,12 @@ namespace AllModulesTesting
             try
             {
                 // Block Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/block/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/block/list");
 
                 //Block Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='block-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a/span[2]");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1235,8 +1279,8 @@ namespace AllModulesTesting
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
@@ -1254,7 +1298,7 @@ namespace AllModulesTesting
                 //EDIT BOLUMU:
 
                 //BLock Management Url git
-                _helper.GoToUrl("http://localhost:4200/block/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/block/list");
 
                 //Block List den event seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='block-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
@@ -1267,23 +1311,25 @@ namespace AllModulesTesting
                 //Add new butonuna tıklanır
                 _helper.ClickByName("AddNewButton");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name2");
 
                 //Venue Template yapılır
                 _helper.ClickByName("VenueTemplate");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(VenueTemplateName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VenueTemplateName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
-                _helper.ClickByName("lookupSelect");
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Area seçimi yapılır
                 _helper.ClickByName("Area");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(AreaName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(AreaName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
@@ -1291,8 +1337,8 @@ namespace AllModulesTesting
                 //Tribune seçimi yapılır
                 _helper.ClickByName("Tribune");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(TribuneName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(TribuneName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
@@ -1333,22 +1379,25 @@ namespace AllModulesTesting
                 //Gate seçimi yapılır
                 _helper.ClickByName("Gate");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(GateName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(GateName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Turnstile seçimi yapılır
                 _helper.ClickByName("Turnstile");
-                _driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Add butonu tıklanır
                 _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[1]/div[1]/div[5]/button");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Create butonu tıklanır
                 _helper.ClickByXPath("//*[@id='main']/block-crud/div[2]/div[2]/div[2]/block-layout/div/div[2]/div/div/input");
@@ -1370,8 +1419,8 @@ namespace AllModulesTesting
                 //Gate seçimi yapılır
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/div[2]/div/div[1]/div[1]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(GateName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(GateName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[3]/button[1]");
@@ -1379,8 +1428,8 @@ namespace AllModulesTesting
                 //Turnstile seçimi yapılır
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/div[2]/div/div[1]/div[2]/div/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[3]/button[1]");
@@ -1425,10 +1474,12 @@ namespace AllModulesTesting
             try
             {
                 // SeatClass Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/seatclass/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclass/list");
 
                 //SeatClass Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclass-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1471,7 +1522,7 @@ namespace AllModulesTesting
             try
             {
                 //Ticket Template Management butonuna tıklanır 
-                _helper.GoToUrl("http://localhost:4200/tickettemplate/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tickettemplate/list");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -1508,10 +1559,12 @@ namespace AllModulesTesting
             try
             {
                 // Variant Configuration Management Url git
-                _helper.GoToUrl("http://localhost:4200/variantconfiguration/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variantconfiguration/list");
 
                 //Variant Configuration Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -1522,12 +1575,14 @@ namespace AllModulesTesting
                 //Add New butonuna tıklar
                 _helper.ClickByName("AddNewButton1");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Variant seçimi yapılı(GEÇİCİ)
                 _helper.ClickByName("Variant");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VariantName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                 System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -1542,6 +1597,8 @@ namespace AllModulesTesting
 
                 //Add New butonuna tıklar
                 _helper.ClickByName("AddNewButton2");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -1565,10 +1622,12 @@ namespace AllModulesTesting
             try
             {
                 // Seat Class Conf. Management Url git
-                _helper.GoToUrl("http://localhost:4200/seatclassconfiguration/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclassconfiguration/list");
 
                 //Seat Class Conf. Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1584,7 +1643,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(SeatClassName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                 System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -1614,10 +1673,12 @@ namespace AllModulesTesting
             try
             {
                 // Printer Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/printer/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/printer/list");
 
                 //Printer Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='printer-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1649,11 +1710,13 @@ namespace AllModulesTesting
             try
             {
                 //Leauge Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/league/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/league/list");
                 _helper.WaitUntilPageLoad();
 
                 //Leauge Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='league-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1687,11 +1750,13 @@ namespace AllModulesTesting
             try
             {
                 //Team Management url git
-                _helper.GoToUrl("http://localhost:4200/team/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/team/list");
                 _helper.WaitUntilPageLoad();
 
                 //Team Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='team-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Team alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1711,10 +1776,9 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
 
                 //Leauge seçimi yapılır(GEÇİCİ)
-                _helper.ClickByName("Leauge");
-                System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                _helper.ClickByXPath("//*[@id='team-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByName("lookupSelect");
 
@@ -1741,11 +1805,13 @@ namespace AllModulesTesting
             try
             {
                 // Organizer Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/organizer/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/organizer/list");
                 _helper.WaitUntilPageLoad();
 
                 //Organizer Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='organizer-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Organizer Name alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -1772,7 +1838,8 @@ namespace AllModulesTesting
                 _helper.SetRandomFileByXpath("//*[@id='organizer-crud--form']/div/div/form/fieldset[3]/div/div/div/file-upload/div/input", @"C:\Images\");
                 
                 //Add Terminal butonuna tıklanır
-                _helper.ClickByXPath("AddTerminalButton");
+                _helper.ClickByName("AddTerminalButton");
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='organizer-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//*[@id='organizer-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[3]/button[1]");
 
@@ -1799,10 +1866,12 @@ namespace AllModulesTesting
             try
             {
                 //Genre Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/genre/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/genre/list");
 
                 //Genre Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='genre-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //General Genre alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -1844,10 +1913,12 @@ namespace AllModulesTesting
             try
             {
                 // VenueTemplate Management url git
-                _helper.GoToUrl("http://localhost:4200/subgenre/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/subgenre/list");
 
                 //VenueTemplate Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='subgenre-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //SubGenre alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -1882,10 +1953,12 @@ namespace AllModulesTesting
             {
 
                 // Sponsor Management url git
-                _helper.GoToUrl("http://localhost:4200/sponsor/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/sponsor/list");
 
                 //Sponsor Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='sponsor-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Sponsor alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -1918,10 +1991,12 @@ namespace AllModulesTesting
             try
             {
                 //Event Group Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/eventgroup/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/eventgroup/list");
 
                 //Event Group Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='eventgroup-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Event Group alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -1958,10 +2033,12 @@ namespace AllModulesTesting
             try
             {
                 //Serie Management Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/serie/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/serie/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='serie-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -1976,13 +2053,14 @@ namespace AllModulesTesting
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByName("lookupSelect");
+                _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Team seçimi yapılır
                 _helper.ClickByName("Team");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(TeamName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2002,13 +2080,11 @@ namespace AllModulesTesting
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
                 
                 // Başlangıç tarihini bitiş tarihini belirlerken kullanmak için değişkene atıyoruz
-                DateTime startDate = _helper.SetRandomDateTimeByXPath("//*[@id='serie-crud--form']/div/div/form/fieldset[3]/div/div/div[2]/p-calendar/span/input");
-                _helper.WaitUntilPageLoad();
+                DateTime startDatee = _helper.SetRandomDateTimeByName("startDate");
 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
-                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDate);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate);
-                _helper.WaitUntilPageLoad();
+                DateTime finishDate = _helper.SetRandomDateTimeAfterThisDateTime(startDatee);
+                _helper.SetDateTimeByName("endDate", finishDate);
 
                 //Next butonu tıklanır
                 _helper.ClickByName("NextButton1");
@@ -2020,6 +2096,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2028,6 +2105,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(SalesPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2036,6 +2114,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(LeaugeName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2044,6 +2123,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(OrganizerName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
                                 
@@ -2055,6 +2135,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VenueTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2063,6 +2144,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(EventGroupName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2071,6 +2153,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(SeatClassConfigurationName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2084,6 +2167,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(PaymentPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2092,6 +2176,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(TicketTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2100,6 +2185,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VariantName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2142,10 +2228,12 @@ namespace AllModulesTesting
             try
             {
                 // Event Management Url git
-                _helper.GoToUrl("http://localhost:4200/event/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/event/list");
 
                 //Event Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='event-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Event alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -2158,14 +2246,16 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(OrganizerName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByName("lookupSelect");
+                _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Venue seçimi yapılır
                 _helper.ClickByName("Venue");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2174,17 +2264,18 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VenueTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Home Team seçimi yapılır
-                _helper.ClickByName("HomeTeam");
+                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Away Team seçimi yapılır
-                _helper.ClickByName("AwayTeam");
+                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[3]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[12]/div[2]/lookup/div/div[3]/button[1]");
@@ -2200,10 +2291,12 @@ namespace AllModulesTesting
                 
                 // Finish Date alanına Start Date tarihinden sonraki bir tarihte rastgele bir tarih gir
                 DateTime finishDate3 = _helper.SetRandomDateTimeAfterThisDateTime(startDate3);
-                _helper.SetDateTimeByXPath("//*[@id='salesplan-crud-302--form']/div/div/form/fieldset/div[2]/div/div[1]/p-calendar/span/div", finishDate3);
+                _helper.SetDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[1]/div[4]/div/div[3]/p-calendar/span/input", finishDate3);
 
                 //Next butonuna tıklanır
                 _helper.ClickByName("NextButton1");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //DETAİL BOLUMU
 
@@ -2212,6 +2305,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(GenreName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[13]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[13]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2226,6 +2320,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(GenreName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[14]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2234,6 +2329,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(SponsorName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[15]/div[2]/lookup/div/div[3]/button[1]");
                 
@@ -2245,11 +2341,14 @@ namespace AllModulesTesting
 
                 //CONF BOLUMU
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Payment Plan seçimi yapılır
                 _helper.ClickByName("PaymentPlan");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(PaymentPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[16]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2258,6 +2357,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(SalesPlanName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[17]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2272,14 +2372,16 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(EventGroupName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[19]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[19]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Seat Class Configuration seçimi yapılır
-                _helper.ClickByName("SeatClass");
+                _helper.ClickByName("SeatClassConfiguration");
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(SeatClassConfigurationName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2288,20 +2390,24 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(VariantConfigurationName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("//html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Primary Access seçimi yapılır
-                _helper.ClickByName("PrimaryAccess");
+                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[1]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[20]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[20]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Secondary Access seçimi yapılır
-                _helper.ClickByName("SecondaryAccess");
+                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[2]/lookup-button/div/div/div/button");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[21]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[21]/div[2]/lookup/div/div[3]/button[1]");
+
+                DateTime finishDate4 = _helper.SetRandomDateTimeAfterThisDateTime(startDate4);
+                _helper.SetDateTimeByXPath("//*[@id='event-crud--form']/div/div/form/fieldset/tabset/div/tab[3]/div[3]/div/div[3]/p-calendar/span/input", finishDate3);
 
                 //Random Acs seçimi yapılır
                 _helper.SelectRandomDropdownElementByName("eventType");
@@ -2314,6 +2420,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(TicketTemplateName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2330,7 +2437,7 @@ namespace AllModulesTesting
                 _helper.SetRandomIntegerByName("freePasscardCount", 1, 50);
 
                 //Save butonu tıklanır
-                _helper.ClickByXPath("//*[@id'event-crud-1442--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+                _helper.ClickByXPath("//*[@id='event-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
@@ -2556,10 +2663,12 @@ namespace AllModulesTesting
             try
             {
                 //Booking Action Type Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/bookingactiontype/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingactiontype/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -2613,10 +2722,12 @@ namespace AllModulesTesting
             try
             {
                 //AC Setting Url git
-                _helper.GoToUrl("http://localhost:4200/accesscontrolsetting/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/accesscontrolsetting/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='accesscontrolsetting-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir text girilir
                 _helper.SetRandomTextByName("name");
@@ -2631,7 +2742,7 @@ namespace AllModulesTesting
                 _helper.SetRandomTextByName("destination");
 
                 //Destination alanına rastgele bir int girilir
-                _helper.SetRandomIntegerByName("destination", 10, 100);
+                _helper.SetRandomIntegerByName("batchSize", 1, 500);
 
                 //İsteğe bağlı Auto Send fonksiyonu yazılabilir.
 
@@ -2659,11 +2770,13 @@ namespace AllModulesTesting
             try
             {
                 //Telegram Queue Management Url git
-                _helper.GoToUrl("http://localhost:4200/telegramqueue/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegramqueue/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Queue Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='telegramqueue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -2682,6 +2795,7 @@ namespace AllModulesTesting
                 System.Threading.Thread.Sleep(2000);
                 _driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
                 _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -2698,7 +2812,7 @@ namespace AllModulesTesting
                 _helper.SetTextByName("voidReason", "Live a life you will remember");
 
                 //Save butonuna tıklanır
-                _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/toozlbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+                _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
@@ -2719,11 +2833,13 @@ namespace AllModulesTesting
             try
             {
                 // Bin Number Url git
-                _helper.GoToUrl("http://localhost:4200/telegram/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegram/list");
                 _helper.WaitUntilPageLoad();
 
                 //Telegram Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='telegram-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Telegram Queue seçimi yapılır
                 _helper.ClickByName("TelegramQueue");
@@ -2780,10 +2896,12 @@ namespace AllModulesTesting
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/client/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/client/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='client-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -2827,10 +2945,12 @@ namespace AllModulesTesting
             try
             {
                 //Users Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/bookingoperator/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingoperator/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingoperator-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //First Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("firstname");
@@ -2888,10 +3008,12 @@ namespace AllModulesTesting
             try
             {
                 //Roles Url git
-                _helper.GoToUrl("http://localhost:4200/scrole/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scrole/list");
 
                 //Roles sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='scrole-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir text girilir
                 _helper.SetRandomTextByName("name");
@@ -2931,7 +3053,7 @@ namespace AllModulesTesting
             try
             {
                 //ApprovableUsers url git
-                _helper.GoToUrl("http://localhost:4200/scapprovableuser/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/scapprovableuser/list");
 
                 //User seçimi yapılır(GEÇİCİ)
                 _helper.ClickByXPath("//*[@id='scapprovableuser-list--default-widget']/div/div/p-datatable/div/div[1]/table/tbody/tr[1]");
@@ -2959,10 +3081,12 @@ namespace AllModulesTesting
             try
             {
                 //Terminals url git
-                _helper.GoToUrl("http://localhost:4200/terminal/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/terminal/list");
 
                 //Terminals sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='terminal-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -2977,10 +3101,10 @@ namespace AllModulesTesting
                 _helper.SetRandomFileByXpath("//*[@id='terminal-crud--form']/div/div/form/fieldset/div[2]/div/div[1]/file-upload/div/input", @"C:\Images\");
 
                 //Ticket Printer seçimi yapılır
-                _helper.ClickByName("TicketPrinter");
+                _helper.ClickByName("Printer");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
-                _helper.ClickByName("lookupSelect");
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[3]/button[1]");
 
                 //Add Organizer butonuna tıkla
                 _helper.ClickByName("AddOrganizerButton");
@@ -3057,10 +3181,12 @@ namespace AllModulesTesting
             try
             {
                 //Entry Point url git
-                _helper.GoToUrl("http://localhost:4200/entrypoint/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/entrypoint/list");
 
                 //Entry Point sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Entry Point Name alanına random text girilir
                 _helper.SetRandomTextByName("name");
@@ -3069,7 +3195,7 @@ namespace AllModulesTesting
                 _helper.SetRandomTextByXPath("//*[@id='entrypoint-crud--form']/div/div/form/fieldset/div/div/div[2]/input");
 
                 //Entity Point seçimi yapılır
-                _helper.ClickByName("EntityPoint");
+                _helper.ClickByName("EntryPointName");
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
@@ -3083,13 +3209,15 @@ namespace AllModulesTesting
                 //Add butonuna tıklanır
                 _helper.ClickByName("AddButton1");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='entrypoint-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
 
                 //Gelen modal dan OK butonuna tıklanır
                 _helper.ClickById("confirmok");
 
-                System.Threading.Thread.Sleep(5000);
+                _helper.GiveInfo("Test tamamlandı.");
 
             }
             catch (Exception exception)

@@ -39,16 +39,17 @@ namespace Booking
 
         public void BookingActionTypes()
         {
-            _helper.GivePassInfo("Booking Action Types modül testi başladı.");
+            _helper.GivePassInfo("BookingAction modül testi başladı.");
 
             try
             {
                 //Booking Action Type Url gidilir 
-                _helper.GoToUrl("http://localhost:4200/bookingactiontype/list");
-                _helper.WaitUntilPageLoad();
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/bookingactiontype/list");
 
                 //Add new butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='bookingactiontype-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına rastgele bir değer girilir
                 _helper.SetRandomTextByName("name");
@@ -59,11 +60,17 @@ namespace Booking
                 //Organizer seçimi yapılır
                 _helper.ClickByName("Organizer");
                 System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(OrganizerName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
 
                 //Payment Plan seçimi yapılır
                 _helper.ClickByName("PaymentPlan");
+                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(PaymentPlanName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");

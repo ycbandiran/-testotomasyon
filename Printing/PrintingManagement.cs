@@ -52,7 +52,7 @@ namespace Printing
             try
             {
                 //Ticket Template Management butonuna tıklanır 
-                _helper.GoToUrl("http://localhost:4200/tickettemplate/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/tickettemplate/list");
 
                 System.Threading.Thread.Sleep(2000);
 
@@ -89,10 +89,12 @@ namespace Printing
             try
             {
                 // Variant Configuration Management Url git
-                _helper.GoToUrl("http://localhost:4200/variantconfiguration/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/variantconfiguration/list");
 
                 //Variant Configuration Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 // Name alanına rastgele bir değer girilir.
                 _helper.SetRandomTextByName("name");
@@ -103,8 +105,13 @@ namespace Printing
                 //Add New butonuna tıklar
                 _helper.ClickByName("AddNewButton1");
 
+                System.Threading.Thread.Sleep(2000);
+
                 //Variant seçimi yapılı(GEÇİCİ)
                 _helper.ClickByName("Variant");
+                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(VariantName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
@@ -120,6 +127,8 @@ namespace Printing
 
                 //Add New butonuna tıklar
                 _helper.ClickByName("AddNewButton2");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Save butonuna tıklanır
                 _helper.ClickByXPath("//*[@id='variantconfiguration-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
@@ -143,10 +152,12 @@ namespace Printing
             try
             {
                 // Seat Class Conf. Management Url git
-                _helper.GoToUrl("http://localhost:4200/seatclassconfiguration/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/seatclassconfiguration/list");
 
                 //Seat Class Conf. Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='seatclassconfiguration-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -159,6 +170,9 @@ namespace Printing
 
                 //Seat Class seçimi yapılı(GEÇİCİ)
                 _helper.ClickByName("SeatClass");
+                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(SeatClassName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
                 System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
@@ -189,10 +203,12 @@ namespace Printing
             try
             {
                 // Printer Management butonuna tıkla
-                _helper.GoToUrl("http://localhost:4200/printer/list");
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/printer/list");
 
                 //Printer Management sayfasında add new butonu tıklanır
                 _helper.ClickByXPath("//*[@id='printer-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
 
                 //Name alanına random değer girilir
                 _helper.SetRandomTextByName("name");
@@ -216,5 +232,5 @@ namespace Printing
             }
         }
 
-    }    
+    }
 }
