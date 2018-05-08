@@ -614,13 +614,15 @@ namespace Helpers
             }
             using (StreamWriter sw = File.AppendText(strPath))
             {
-                sw.WriteLine("");
+                sw.WriteLine("\n");
+                sw.WriteLine("======================================");
                 sw.WriteLine("=============Error Logging ===========");
-                sw.WriteLine("===========Start============= " + DateTime.Now);
+                sw.WriteLine("=================Start================" + DateTime.Now);
                 sw.WriteLine("Error Message: " + ex.Message);
                 sw.WriteLine("Stack Trace: " + ex.StackTrace);
-                sw.WriteLine("===========End============= " + DateTime.Now);
-                sw.WriteLine("");
+                sw.WriteLine("=================End==================" + DateTime.Now);
+                sw.WriteLine("======================================");
+                sw.WriteLine("\n");
             }
         }
 
