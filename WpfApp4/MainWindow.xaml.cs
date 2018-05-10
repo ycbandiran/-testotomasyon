@@ -209,5 +209,10 @@ namespace FormApp
             //securityManagement.AdvancedSearch();
             securityManagement.EntryPoint();
         }
+
+        private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }

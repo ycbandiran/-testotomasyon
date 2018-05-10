@@ -5,30 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4"
         mc:Ignorable="d"
-        Title="BackOfficeTestOtomasyon" Height="469" Width="519">
-    <Grid Margin="0,0,2,0">
+        Title="BackOfficeTestOtomasyon" Height="593.028" Width="971.37">
+    <Grid Margin="0,0,2,0" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="353*"/>
-            <RowDefinition Height="79*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="141*"/>
-            <ColumnDefinition Width="364*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="206*"/>
+            <ColumnDefinition Width="252*"/>
+            <ColumnDefinition Width="251*"/>
+            <ColumnDefinition Width="255*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Test &#xD;&#xA;for &#xD;&#xA;ALL Modules" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="125" Height="265" Click="Button_Click" Grid.RowSpan="2" FontWeight="Bold" FontSize="14"/>
-        <Button Content="AC &#xD;&#xA;Management&#xD;&#xA;" Margin="200,300,0,0" VerticalAlignment="Top" Height="46" Click="Button_Click_3" HorizontalAlignment="Left" Width="149" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Event &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="26,83,0,0" VerticalAlignment="Top" Width="149" Height="46" Click="Button_Click_9" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Printing &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="200,83,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_12" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Inventory &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="26,154,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_2" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Contact &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_1" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Booking &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="200,154,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_8" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Security &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="200,227,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_13" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Event Management &#xD;&#xA;Menu" HorizontalAlignment="Left" Margin="26,19,0,0" VerticalAlignment="Top" Width="149" Height="47" Grid.Row="1" Click="Button_Click_10" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Blacklist &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="200,19,0,0" VerticalAlignment="Top" Width="149" Height="47" Grid.Row="1" Click="Button_Click_7" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Payment &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="26,300,0,0" VerticalAlignment="Top" Width="149" Height="46" Click="Button_Click_11" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Quick Venue" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_6" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Venue &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="149" Height="47" Click="Button_Click_5" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
-        <Image Margin="10,10,7,228" Source="logo copy 2.png" Stretch="Fill"/>
+        <Button Content="Test &#xD;&#xA;for &#xD;&#xA;ALL Modules" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="186" Height="349" Click="Button_Click" FontWeight="Bold" FontSize="14"/>
+        <Button Content="AC &#xD;&#xA;Management&#xD;&#xA;" Margin="10.8,11,0,0" VerticalAlignment="Top" Height="87" Click="Button_Click_3" HorizontalAlignment="Left" Width="235" FontWeight="Bold" FontSize="14" Grid.Column="3"/>
+        <Button Content="Event &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="235" Height="87" Click="Button_Click_9" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Printing &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Click_12" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Inventory &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Click_2" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Contact &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="9.8,337,0,0" VerticalAlignment="Top" Width="235" Height="55" Click="Button_Click_1" Grid.Column="3" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Booking &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10.8,207,0,0" VerticalAlignment="Top" Width="235" Height="61" Click="Button_Click_8" FontWeight="Bold" FontSize="14" Grid.Column="3" RenderTransformOrigin="3.427,-1.604"/>
+        <Button Content="Security &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" Width="235" Height="97" Click="Button_Click_13" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Event Management &#xD;&#xA;Menu" HorizontalAlignment="Left" Margin="9.8,499,0,0" VerticalAlignment="Top" Width="235" Height="57" Click="Button_Click_10" Grid.Column="3" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Blacklist &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="9.8,273,0,0" VerticalAlignment="Top" Width="235" Height="57" Click="Button_Click_7" Grid.Column="3" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Payment &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" Width="235" Height="97" Click="Button_Click_11" Grid.Column="1" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Quick Venue" HorizontalAlignment="Left" Margin="9.8,427,0,0" VerticalAlignment="Top" Width="235" Height="67" Click="Button_Click_6" FontWeight="Bold" FontSize="14" Grid.Column="3"/>
+        <Button Content="Venue &#xD;&#xA;Management" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="235" Height="88" Click="Button_Click_5" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="170,135,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="170,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,135,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,166,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="170,166,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,304,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,304,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="170,304,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,335,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,335,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="170,335,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,366,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,499,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="170,499,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,499,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="90,530,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="90,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="90,134,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,134,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,165,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,304,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="90,304,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,304,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,335,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,335,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,499,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="90,499,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,499,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="10,530,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="90,530,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="170,530,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="10.8,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="90.8,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="170.8,103,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="10.8,134,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Button Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="170.8,134,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+        <Image Margin="10,10,10,374" Source="logo copy 2.png" Stretch="Fill"/>
     </Grid>
 </Window>
