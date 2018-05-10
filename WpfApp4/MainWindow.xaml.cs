@@ -32,6 +32,7 @@ namespace FormApp
 
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -190,7 +191,6 @@ namespace FormApp
         {
             PrintingManagement printing = new PrintingManagement();
 
-            printing.PrinterManagement();
             printing.TicketTemplateManagement();
             printing.VariantConfigurationManagement();
             printing.SeatClassConfigurationManagement();
@@ -210,8 +210,330 @@ namespace FormApp
             securityManagement.EntryPoint();
         }
 
-        private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.LeaugeManagement();
+        }
+
+        private void Button_Click_14(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.TeamManagement();
+
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
+            SecurityManagement securityManagement = new SecurityManagement();
+
+            securityManagement.Roles();
+
+        }
+
+        private void Button_Click_16(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.OrganizerManagement();
+
+        }
+
+        private void Button_Click_17(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.GenreManagement();
+
+        }
+
+        private void Button_Click_18(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.SubGenreManagement();
+
+        }
+
+        private void Button_Click_19(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.SponsorManagement();
+
+        }
+
+        private void Button_Click_20(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.EventGroupManagement();
+
+        }
+
+        private void Button_Click_21(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.SerieManagement();
+
+        }
+
+        private void Button_Click_22(object sender, RoutedEventArgs e)
+        {
+            EventManagement eventManagement = new EventManagement();
+
+            eventManagement.EventManagement1();
+
+        }
+
+        private void Button_Click_23(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.VenueManagement();
+
+        }
+
+        private void Button_Click_24(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.AreaManagement();
+
+        }
+
+        private void Button_Click_25(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.GateManagement();
+
+        }
+
+        private void Button_Click_26(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.TribuneManagement();
+
+        }
+
+        private void Button_Click_27(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.TurnstileManagement();
+
+        }
+
+        private void Button_Click_28(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.VenueTemplateManagement();
+
+        }
+
+        private void Button_Click_29(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.BlockManagement();
+
+        }
+
+        private void Button_Click_30(object sender, RoutedEventArgs e)
+        {
+            VenueTests venueTests = new VenueTests();
+
+            venueTests.SeatClassManagement();
+
+        }
+
+        private void Button_Click_31(object sender, RoutedEventArgs e)
+        {
+            ACManagement aCManagement = new ACManagement();
+
+            aCManagement.ACSetting();
+
+        }
+
+        private void Button_Click_32(object sender, RoutedEventArgs e)
+        {
+            ACManagement aCManagement = new ACManagement();
+
+            aCManagement.TelegramManagement();
+
+        }
+
+        private void Button_Click_33(object sender, RoutedEventArgs e)
+        {
+            ACManagement aCManagement = new ACManagement();
+
+            aCManagement.TelegramQueueManagement();
+
+        }
+
+        private void Button_Click_34(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.VariantManagement();
+
+        }
+
+        private void Button_Click_35(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.CategoryManagement();
+
+        }
+
+        private void Button_Click_36(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.ChannelManagement();
+
+        }
+
+        private void Button_Click_37(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.ChannelGroupManagement();
+
+        }
+
+        private void Button_Click_38(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.PriorityManagement();
+
+        }
+
+        private void Button_Click_39(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.ProductManagement();
+
+        }
+
+        private void Button_Click_40(object sender, RoutedEventArgs e)
+        {
+            InventoryTests inventoryTests = new InventoryTests();
+
+            inventoryTests.SalesPlanManagement();
+
+        }
+
+        private void Button_Click_41(object sender, RoutedEventArgs e)
+        {
+            PrintingManagement printing = new PrintingManagement();
+
+            printing.TicketTemplateManagement();
+
+        }
+
+        private void Button_Click_42(object sender, RoutedEventArgs e)
+        {
+            PrintingManagement printing = new PrintingManagement();
+
+            printing.VariantConfigurationManagement();
+
+        }
+
+        private void Button_Click_43(object sender, RoutedEventArgs e)
+        {
+            PrintingManagement printing = new PrintingManagement();
+
+            printing.PrinterManagement();
+
+        }
+
+        private void Button_Click_44(object sender, RoutedEventArgs e)
+        {
+            PrintingManagement printing = new PrintingManagement();
+
+            printing.SeatClassConfigurationManagement();
+
+        }
+
+        private void Button_Click_45(object sender, RoutedEventArgs e)
+        {
+            PaymentTests paymentTest = new PaymentTests();
+
+            paymentTest.PaymentGateway();
+
+        }
+
+        private void Button_Click_46(object sender, RoutedEventArgs e)
+        {
+            PaymentTests paymentTest = new PaymentTests();
+
+            paymentTest.BinNumberGroup();
+
+        }
+
+        private void Button_Click_47(object sender, RoutedEventArgs e)
+        {
+            PaymentTests paymentTest = new PaymentTests();
+
+            paymentTest.BinNumber();
+
+        }
+
+        private void Button_Click_48(object sender, RoutedEventArgs e)
+        {
+            PaymentTests paymentTest = new PaymentTests();
+
+            paymentTest.PaymentPlan();
+
+        }
+
+        private void Button_Click_49(object sender, RoutedEventArgs e)
+        {
+            SecurityManagement securityManagement = new SecurityManagement();
+
+            securityManagement.Clients();
+
+        }
+
+        private void Button_Click_50(object sender, RoutedEventArgs e)
+        {
+            SecurityManagement securityManagement = new SecurityManagement();
+
+            securityManagement.Users();
+
+        }
+
+        private void Button_Click_51(object sender, RoutedEventArgs e)
+        {
+            SecurityManagement securityManagement = new SecurityManagement();
+
+            securityManagement.ApprovableUsers();
+
+        }
+
+        private void Button_Click_52(object sender, RoutedEventArgs e)
+        {
+            SecurityManagement securityManagement = new SecurityManagement();
+
+            securityManagement.Terminals();
+
+        }
+
+        private void Button_Click_53(object sender, RoutedEventArgs e)
+        {
+            SecurityManagement securityManagement = new SecurityManagement();
+
+            securityManagement.EntryPoint();
 
         }
     }
