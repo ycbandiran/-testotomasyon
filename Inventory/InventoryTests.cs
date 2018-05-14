@@ -158,9 +158,9 @@ namespace Inventory
 
                 //Channel seçimi yapılır
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("//*[@id='channelgroup-crud--form']/div/div/p-dialog/div/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByName("lookupSelect");
 
@@ -379,9 +379,9 @@ namespace Inventory
                 //Channel seçimi yapılır(GEÇİCİ)            
                 _helper.ClickByName("Channel");
                 System.Threading.Thread.Sleep(3000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(ChannelName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
 

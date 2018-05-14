@@ -90,7 +90,6 @@ namespace AC
             }
         }
 
-
         public void TelegramQueueManagement()
         {
             _helper.GivePassInfo("Telegram Queue modül testi başladı.");
@@ -121,9 +120,9 @@ namespace AC
                 //Event Access Control Setting seçimi yapılır
                 _helper.ClickByName("EventAccessControlSetting");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -154,6 +153,71 @@ namespace AC
                 _helper.ErrorLogging(exception);
             }
         }
+
+        public void TelegramQueueManagement2()
+        {
+            _helper.GivePassInfo("Telegram Queue modül testi başladı.");
+
+            try
+            {
+                //Telegram Queue Management Url git
+                _helper.GoToUrl("http://testbackoffice.netasticketing.com/telegramqueue/list");
+                _helper.WaitUntilPageLoad();
+
+                //Telegram Queue Management sayfasında add new butonu tıklanır
+                _helper.ClickByXPath("//*[@id='telegramqueue-list--default-widget']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[2]/a");
+
+                System.Threading.Thread.Sleep(2000);
+
+                // Name alanına rastgele bir değer girilir.
+                _helper.SetRandomTextByName("name");
+
+                //Kaydedilen Telegram Queue name'i tutulur
+                TelegramQueueName = _helper.GetTextByName("name");
+
+                //Booking Ticket seçimi yapılır
+                _helper.ClickByName("BookingTicket");
+                System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByName("lookupSelect");
+
+                //Event Access Control Setting seçimi yapılır
+                _helper.ClickByName("EventAccessControlSetting");
+                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(ACSettingName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
+                _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
+
+                //Random Action seçimi yapılır
+                _helper.SelectRandomDropdownElementByName("action");
+
+                //Random Type seçimi yapılır
+                _helper.SelectRandomDropdownElementByName("type");
+
+                //Random State seçimi yapılır
+                _helper.SelectRandomDropdownElementByName("state");
+
+                //Void Reason Alanına text girişi yapılır
+                _helper.SetTextByName("voidReason", "Live a life you will remember");
+
+                //Save butonuna tıklanır
+                _helper.ClickByXPath("//*[@id='telegramqueue-crud--form']/div/div/toolbar/p-menubar/div/p-menubarsub/ul/li[1]/a");
+
+                //Gelen modal dan OK butonuna tıklanır
+                _helper.ClickById("confirmok");
+
+                System.Threading.Thread.Sleep(5000);
+
+            }
+            catch (Exception exception)
+            {
+                _helper.GiveError("In : " + nameof(this.TelegramQueueManagement) + exception.Message);
+                _helper.ErrorLogging(exception);
+            }
+        }
+
         public void TelegramManagement()
         {
             _helper.GivePassInfo("Telegram modül testi başladı.");
@@ -172,9 +236,9 @@ namespace AC
                 //Telegram Queue seçimi yapılır
                 _helper.ClickByName("TelegramQueue");
                 System.Threading.Thread.Sleep(2000);
-                _driver.FindElement(By.Name("searchText")).SendKeys(TelegramQueueName);
-                _driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(TelegramQueueName);
+                //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
 

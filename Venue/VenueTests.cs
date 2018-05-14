@@ -186,7 +186,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByName("lookupSelect");
 
@@ -234,7 +234,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -285,7 +285,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -339,7 +339,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -385,7 +385,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -430,7 +430,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]/td[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -470,7 +470,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VenueTemplateName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[5]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -479,7 +479,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(AreaName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[6]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -488,7 +488,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(TribuneName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[7]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -530,7 +530,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(GateName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[8]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -539,7 +539,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[9]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -570,7 +570,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(GateName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[10]/div[2]/lookup/div/div[3]/button[1]");
 
@@ -579,7 +579,7 @@ namespace Venue
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(TurnstileName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr");
                 _helper.ClickByXPath("/html/body/div[11]/div[2]/lookup/div/div[3]/button[1]");
 

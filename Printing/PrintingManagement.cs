@@ -112,7 +112,7 @@ namespace Printing
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(VariantName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
 
@@ -173,7 +173,7 @@ namespace Printing
                 System.Threading.Thread.Sleep(2000);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(SeatClassName);
                 //_driver.FindElement(By.Name("searchText")).SendKeys(Keys.Enter);
-                System.Threading.Thread.Sleep(2000);
+                //System.Threading.Thread.Sleep(2000);
                 _helper.ClickByXPath("/html/body/div[4]/div[2]/lookup/div/div[2]/p-datatable/div/div[1]/div/div[2]/div/table/tbody/tr[1]");
                 _helper.ClickByName("lookupSelect");
 
